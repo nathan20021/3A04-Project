@@ -10,8 +10,10 @@
 \usepackage{fancyhdr}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
-\usepackage{extarrows}
-\usepackage{setspace}
+%\usepackage{extarrows}
+%\usepackage{setspace}
+%\usepackage{xcolor}
+\usepackage{color}
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -38,53 +40,58 @@
 \label{sec:introduction}
 % Begin Section
 
-This section of the SRS should provide an overview of the entire SRS.
+\begin{itemize}
+	\item This section of the SRS should provide an overview of the entire SRS.
+\end{itemize}
+
 
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Delineate the purpose of the SRS
+\begin{itemize}
+	\item Specify the purpose of the SRS
 	\item Specify the intended audience for the SRS
-\end{enumerate}
+\end{itemize}
 % End SubSection
 
 \subsection{Scope}
 \label{sub:scope}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Identify the software product(s) to be produced by name (e.g., Host DBMS, Report Generator, etc.)
-	\item Explain what the software product(s) will, and, if necessary, will not do
+\begin{itemize}
+	\item Identify the software product(s) to be produced, and name each (e.g., Host DBMS, Report Generator, etc.)
+	\item Explain what the software product(s) will do (and, if necessary, also state what they will not do)
 	\item Describe the application of the software being specified, including relevant benefits, objectives, and goals
 	\item Be consistent with similar statements in higher-level specifications (e.g., the system requirements specification), if they exist
-\end{enumerate}
+\end{itemize}
 % End SubSection
 
 \subsection{Definitions, Acronyms, and Abbreviations}
 \label{sub:definitions_acronyms_and_abbreviations}
 % Begin SubSection
-\begin{enumerate}[a)]
+\begin{itemize}
 	\item Provide the definitions of all terms, acronyms, and abbreviations required to properly interpret the SRS
-\end{enumerate}
+	\item This should be in alphabetical order.
+\end{itemize}
 % End SubSection
 
 \subsection{References}
 \label{sub:references}
 % Begin SubSection
-\begin{enumerate}[a)]
+\begin{itemize}
 	\item Provide a complete list of all documents referenced elsewhere in the SRS
 	\item Identify each document by title, report number (if applicable), date, and publishing organization
 	\item Specify the sources from which the references can be obtained
-\end{enumerate}
+	\item Order this list in some sensible manner (alphabetical, or something else that makes more sense)
+\end{itemize}
 % End SubSection
 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-\begin{enumerate}[a)]
+\begin{itemize}
 	\item Describe what the rest of the SRS contains
 	\item Explain how the SRS is organized
-\end{enumerate}
+\end{itemize}
 % End SubSection
 
 % End Section
@@ -93,171 +100,233 @@ This section of the SRS should provide an overview of the entire SRS.
 \label{sec:overall_description}
 % Begin Section
 
-This section of the SRS should describe the general factors that affect the product and its requirements. It does not state specific requirements; it provides a background for those requirements and makes them easier to understand.
+\begin{itemize}
+	\item This section of the SRS should describe the general factors that affect the product and its requirements. 
+	\item It does not state specific requirements.
+	\item It provides a \emph{background} for those requirements and makes them easier to understand.
+\end{itemize}
+
 
 \subsection{Product Perspective}
 \label{sub:product_perspective}
 % Begin SubSection
-\begin{enumerate}[a)]
+\begin{itemize}
 	\item Put the product into perspective with other related products, i.e., context
 	\item If the product is independent and totally self-contained, it should be stated here
-	\item If the SRS defines a product that is a component of a larger system, as frequently occurs, then this subsection should relate the requirements of that larger system to functionality of the software and should identify interfaces between that system and the software
+	\item If the SRS defines a product that is a component of a larger system, then this subsection should relate the requirements of that larger system to the functionality of the software being developed. Identify interfaces between that larger system and the software to be developed.
 	\item A block diagram showing the major components of the larger system, interconnections, and external interfaces can be helpful
-\end{enumerate}
+\end{itemize}
 % End SubSection
 
 \subsection{Product Functions}
 \label{sub:product_functions}
 % Begin SubSection
-\begin{enumerate}[a)]
+\begin{itemize}
 	\item Provide a summary of the major functions that the software will perform.
 	\begin{itemize}
 		\item \textbf{Example}: An SRS for an accounting program may use this part to address customer account maintenance, customer statement, and invoice preparation without mentioning the vast amount of detail that each of those functions requires.
 	\end{itemize}
-	\item Functions should be organized in a way that makes the list of functions understandable to the customer or to anyone else reading the document for the first time
+	\item Functions should be organized in a way that makes the list of functions understandable to the customer or to anyone else reading the document for the first time 
+	\item Present the functions in a list format - each item should be one function, with a brief description of it
 	\item Textual or graphical methods can be used to show the different functions and their relationships
 	\begin{itemize}
 		\item Such a diagram is not intended to show a design of a product, but simply shows the logical relationships among variables
 	\end{itemize} 
-\end{enumerate}
+\end{itemize}
 % End SubSection
 
 \subsection{User Characteristics}
 \label{sub:user_characteristics}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Describe those general characteristics of the intended users of the product including educational level, experience, and technical expertise
-	\item Do not state specific requirements, but rather provide the reasons why certain specific requirements are later specified
-\end{enumerate}
+\begin{itemize}
+	\item Describe those general characteristics of the intended users of the product including educational level, experience, and technical expertise 
+	\item Since there will be many users, you may wish to divide into different user types or personas
+%	\item Do not state specific requirements, but rather provide the reasons why certain specific requirements are later specified
+\end{itemize}
 % End SubSection
 
 \subsection{Constraints}
 \label{sub:constraints}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Provide a general description of any other items that will limit the developer's options
-\end{enumerate}
+\begin{itemize}
+	\item Provide a general description of any constraints that will limit the developer's options
+\end{itemize}
 % End SubSection
 
 \subsection{Assumptions and Dependencies}
 \label{sub:assumptions_and_dependencies}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item List each of the factors that affect the requirements stated in the SRS
-	\item These factors are not design constraints on the software but are, rather, any changes to them that can affect the requirements in the SRS
+\begin{itemize}
+	\item List any assumptions you made in interpreting what the software being developed is aiming to achieve
+	\item List any other assumptions you made that, if it fails to hold, could require you to change the requirements
+	%\item List each of the factors that affect the requirements stated in the SRS
+	%\item These factors are not design constraints on the software but are, rather, any changes to them that can affect the requirements in the SRS
 	\begin{itemize}
 		\item \textbf{Example}: An assumption may be that a specific operating system will be available on the hardware designated for the software product. If, in fact, the operating system is not available, the SRS would then have to change accordingly.
 	\end{itemize}
-\end{enumerate}
+\end{itemize}
 % End SubSection
 
 \subsection{Apportioning of Requirements}
 \label{sub:apportioning_of_requirements}
 % Begin SubSection
-\begin{enumerate}[a)]
+\begin{itemize}
 	\item Identify requirements that may be delayed until future versions of the system
-\end{enumerate}
+\end{itemize}
 % End SubSection
 
 % End Section
-
 \section{Use Case Diagram}
 \label{sec:use_case_diagram}
 % Begin Section
-This section should provide a use case diagram for your application. 
-\begin{enumerate}[a)]
-	\item Each use case appearing in the diagram should be accompanied by a text description. 
-\end{enumerate}
-% End Section
+\begin{itemize}
+	\item Provide \emph{one} use case diagram for the most important Business Event.
+	\item The text of all use cases will be specified under "Highlights of Functional Requirements"
+\end{itemize}
+%In this section, select the most important Business Event that your system responds to and give its use case diagram.  Only one use case diagram is needed.  Give a brief textual description of the use case without repeating what is in the scenarios of the corresponding Business Event.
 
-\section{Functional Requirements}
+%
+%
+%
+%This section should provide a use case diagram for your application. 
+%\begin{enumerate}[a)]
+%	\item Each use case appearing in the diagram should be accompanied by a text description. 
+%\end{enumerate}
+%% End Section
+
+\section{Highlights of Functional Requirements}
 \label{sec:functional_requirements}
 % Begin Section
-This section of the SRS should contain all of the software requirements to a level of detail sufficient to enable designers to design a system to satisfy those requirements, and testers to test that the system satisfies those requirements. Throughout this section, every stated requirement should be externally perceivable by users, operators, or other external systems. These requirements should include at a minimum a description of every input (stimulus) into the system, every output (response) from the system, and all functions performed by the system in response to an input or in support of an output.
-
-You normally have two options for organizing your functional requirements:
-\begin{enumerate}
-	\item Organize first by \emph{business events}, then by \emph{viewpoints}
-	\item Organize first by \emph{viewpoints}, then by \emph{business events}
-\end{enumerate}
-Choose the one which makes the most sense.
-
-For example, if you wish to organization by business events:
-\begin{enumerate}[{BE}1.]
-	\item Business Event
-	\begin{enumerate}[{VP1}.1]
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item \dots
-	\end{enumerate}
-	\item Business Event
-	\begin{enumerate}[{VP2}.1]
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item \dots
-	\end{enumerate}
-\end{enumerate}
-
-\underline{OR}, if you wish to organization by viewpoints:
-\begin{enumerate}[{VP}1.]
-	\item Viewpoint 
-	\begin{enumerate}[{BE1}.1]
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
+\begin{itemize}
+	\item Specify the "use cases" organized by Business Event. (The Global Scenario is what you might think of as a use case). Be sure to consider Business Events that aren't just triggered by users with goals (e.g. something happens in the environment that your system needs to respond to)
+	\item Your focus should be on what the system needs to do, not how to do it. Specify it in enough detail that it clearly specifies what needs to be accomplished, but not so detailed that you start programming or making design decisions.
+	\item Keep the length of each use case (Global Scenario) manageable. If it's getting too long, you need to condense your steps and give a name to what's accomplished by that sequence of steps. (e.g. "Authenticate user" in one line, instead of a list of steps of how to; that's a design decision anyways)
+	\item You are \emph{not} specifying a complete and consistent set of functional requirements here. (i.e. you are providing them in the form of use cases/global scenarios, not a refined list). For the purpose of this project, you do not need to reduce them to a list; the global scenarios format is all you need.
+\end{itemize}
+	Below, we organize by Business Event.
+	\begin{enumerate}[{BE}1.]
+		\item Business Event name
+		\begin{enumerate}[{VP1}.1]
+			\item Viewpoint name \newline
+			\noindent\fbox{%
+				\parbox{0.5\textwidth}{%
+					\begin{itemize}
+						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+						\item[] $\cdots$
+						\item {\bf $S_{n}$:}  Response of the system to $E_{(n-1)}$
+						\item {\bf $E_{n}$:}  Reaction of the environment to $E_{(n-1)}$
+						\item {\bf $S_{(n+1)}$:} Final response of the system concluding its function regarding the Business Event
+					\end{itemize}
+				}%
+			}
+			\item Viewpoint name\newline
+			\noindent\fbox{%
+				\parbox{0.5\textwidth}{%
+					\begin{itemize}
+						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+						\item[] $\cdots$
+						\item {\bf $S_{k}$:}  Response of the system to $E_{(k-1)}$
+						\item {\bf $E_{k}$:}  Reaction of the environment to $E_{(k-1)}$
+						\item {\bf $S_{(k+1)}$:} Final response of the system concluding its function regarding the Business Event
+					\end{itemize}
+				}%
+			}
 			\item \dots
-		\end{enumerate}
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
 			\item \dots
-		\end{enumerate}
-		\item \dots
+			\item \dots
+			\item[\dots]
+		\end{enumerate}	
+		\item[] {\bf Global Scenario of {\it Business Event Name}:} It is the scenario corresponding to the integration of all the above scenarios from the different Viewpoints of the Business Event BE1.\newline
+		\noindent\fbox{%
+			\parbox{0.5\textwidth}{%
+				\begin{itemize}
+					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+					\item[] $\cdots$
+					\item {\bf $S_{m}$:}  Response of the system to $E_{(m-1)}$
+					\item {\bf $E_{m}$:}  Reaction of the environment to $E_{(m-1)}$
+					\item {\bf $S_{(m+1)}$:} Final response of the system concluding its function regarding the Business Event
+				\end{itemize}
+			}%
+		}	
+		%\end{enumerate}
+		\item Business Event name
+		\begin{enumerate}[{VP1}.1]
+			\item Viewpoint name \newline
+			\noindent\fbox{%
+				\parbox{0.5\textwidth}{%
+					\begin{itemize}
+						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+						\item[] $\cdots$
+						\item {\bf $S_{n'}$:}  Response of the system to $E_{(n'-1)}$
+						\item {\bf $E_{n'}$:}  Reaction of the environment to $E_{(n'-1)}$
+						\item {\bf $S_{(n'+1)}$:} Final response of the system concluding its function regarding the Business Event
+					\end{itemize}
+				}%
+			}
+			\item Viewpoint name\newline
+			\noindent\fbox{%
+				\parbox{0.5\textwidth}{%
+					\begin{itemize}
+						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+						\item[] $\cdots$
+						\item {\bf $S_{k'}$:}  Response of the system to $E_{(k'-1)}$
+						\item {\bf $E_{k'}$:}  Reaction of the environment to $E_{(k'-1)}$
+						\item {\bf $S_{(k'+1)}$:} Final response of the system concluding its function regarding the Business Event
+					\end{itemize}
+				}%
+			}
+			\item \dots
+			\item \dots
+			\item \dots
+			\item[\dots]
+		\end{enumerate}	
+		\item[] {\bf Global Scenario of {\it Business Event Name}:} It is the scenario corresponding to the integration of all the above scenarios from the different Viewpoints of the Business Event BE2.\newline
+		\noindent\fbox{%
+			\parbox{0.5\textwidth}{%
+				\begin{itemize}
+					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+					\item[] $\cdots$
+					\item {\bf $S_{m'}$:}  Response of the system to $E_{(m'-1)}$
+					\item {\bf $E_{m'}$:}  Reaction of the environment to $E_{(m'-1)}$
+					\item {\bf $S_{(m'+1)}$:} Final response of the system concluding its function regarding the Business Event
+				\end{itemize}
+			}%
+		}		
 	\end{enumerate}
-	\item Viewpoint
-	\begin{enumerate}[{BE2}.1]
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item \dots
-	\end{enumerate}
-\end{enumerate}
 
-% End Section
+%End Section
 
 \section{Non-Functional Requirements}
 \label{sec:non-functional_requirements}
+
+
+\begin{itemize}
+	\item For each non-functional requirement, provide a justification/rationale for it.\\
+	{\bf Example:} \\
+	SC1. \emph{The device should not explode in a customer’s pocket.}\\
+	{\bf Rationale:} Other companies have had issues with the batteries they used in their phones randomly exploding [insert citation]. This causes a safety issue, as the phone is often carried in a person's hand or pocket.	
+	\item If you're making a guess because you couldn't really talk to stakeholders, you can say "We imagined stakeholders would want...because..."
+	\item Each requirement should have a unique label/number for it.
+\end{itemize}
+
 % Begin Section
 \subsection{Look and Feel Requirements}
 \label{sub:look_and_feel_requirements}
@@ -266,7 +335,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Appearance Requirements}
 \label{ssub:appearance_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{LF}1. ]
+\begin{enumerate}[{LF-A}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -274,7 +343,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Style Requirements}
 \label{ssub:style_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{LF}1. ]
+\begin{enumerate}[{LF-S}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -288,7 +357,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Ease of Use Requirements}
 \label{ssub:ease_of_use_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{UH}1. ]
+\begin{enumerate}[{UH-EOU}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -296,7 +365,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Personalization and Internationalization Requirements}
 \label{ssub:personalization_and_internationalization_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{UH}1. ]
+\begin{enumerate}[{UH-PI}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -304,7 +373,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Learning Requirements}
 \label{ssub:learning_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{UH}1. ]
+\begin{enumerate}[{UH-L}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -312,7 +381,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Understandability and Politeness Requirements}
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{UH}1. ]
+\begin{enumerate}[{UH-UP}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -320,7 +389,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Accessibility Requirements}
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{UH}1. ]
+\begin{enumerate}[{UH-A}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -334,7 +403,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Speed and Latency Requirements}
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
+\begin{enumerate}[{PR-SL}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -342,7 +411,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Safety-Critical Requirements}
 \label{ssub:safety_critical_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
+\begin{enumerate}[{PR-SC}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -350,7 +419,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Precision or Accuracy Requirements}
 \label{ssub:precision_or_accuracy_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
+\begin{enumerate}[{PR-PA}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -358,7 +427,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Reliability and Availability Requirements}
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
+\begin{enumerate}[{PR-RA}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -366,7 +435,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Robustness or Fault-Tolerance Requirements}
 \label{ssub:robustness_or_fault_tolerance_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
+\begin{enumerate}[{PR-RFT}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -374,7 +443,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Capacity Requirements}
 \label{ssub:capacity_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
+\begin{enumerate}[{PR-C}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -382,7 +451,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Scalability or Extensibility Requirements}
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
+\begin{enumerate}[{PR-SE}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -390,7 +459,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Longevity Requirements}
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
+\begin{enumerate}[{PR-L}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -404,7 +473,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Expected Physical Environment}
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
-\begin{enumerate}[{OE}1. ]
+\begin{enumerate}[{OE-EPE}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -412,7 +481,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Requirements for Interfacing with Adjacent Systems}
 \label{ssub:requirements_for_interfacing_with_adjacent_systems}
 % Begin SubSubSection
-\begin{enumerate}[{OE}1. ]
+\begin{enumerate}[{OE-IA}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -420,7 +489,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Productization Requirements}
 \label{ssub:productization_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{OE}1. ]
+\begin{enumerate}[{OE-P}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -428,7 +497,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Release Requirements}
 \label{ssub:release_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{OE}1. ]
+\begin{enumerate}[{OE-R}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -442,7 +511,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Maintenance Requirements}
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{MS}1. ]
+\begin{enumerate}[{MS-M}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -450,7 +519,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Supportability Requirements}
 \label{ssub:supportability_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{MS}1. ]
+\begin{enumerate}[{MS-S}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -458,7 +527,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Adaptability Requirements}
 \label{ssub:adaptability_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{MS}1. ]
+\begin{enumerate}[{MS-A}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -472,7 +541,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Access Requirements}
 \label{ssub:access_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR}1. ]
+\begin{enumerate}[{SR-AC}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -480,7 +549,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Integrity Requirements}
 \label{ssub:integrity_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR}1. ]
+\begin{enumerate}[{SR-INT}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -488,7 +557,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Privacy Requirements}
 \label{ssub:privacy_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR}1. ]
+\begin{enumerate}[{SR-P}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -496,7 +565,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Audit Requirements}
 \label{ssub:audit_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR}1. ]
+\begin{enumerate}[{SR-AU}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -504,7 +573,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Immunity Requirements}
 \label{ssub:immunity_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR}1. ]
+\begin{enumerate}[{SR-IM}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -518,7 +587,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Cultural Requirements}
 \label{ssub:cultural_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{CP}1. ]
+\begin{enumerate}[{CP-C}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -526,7 +595,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Political Requirements}
 \label{ssub:political_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{CP}1. ]
+\begin{enumerate}[{CP-P}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -540,7 +609,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Compliance Requirements}
 \label{ssub:compliance_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{LR}1. ]
+\begin{enumerate}[{LR-COMP}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
@@ -548,7 +617,7 @@ For example, if you wish to organization by business events:
 \subsubsection{Standards Requirements}
 \label{ssub:standards_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{LR}1. ]
+\begin{enumerate}[{LR-STD}1. ]
 	\item 
 \end{enumerate}
 % End SubSubSection
