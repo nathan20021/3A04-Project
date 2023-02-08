@@ -386,7 +386,8 @@
 \label{ssub:learning_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-L}1. ]
-	\item 
+	\item The product should be able to be used immediately, with no learning curve required to learn how to effectively use the app. \\
+	{\bf Rationale:} Mobile apps designed for general users should have no learning curve. Upon using the app for the first time, the app should be designed in such a way that the user immediately knows how to use it. If users take a while to learn how to effectively use the app, they will not come back to it.
 \end{enumerate}
 % End SubSubSection
 
@@ -394,7 +395,8 @@
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-UP}1. ]
-	\item 
+	\item The product should use symbols and language that are naturally understandable to the general Canadian population \\
+	{\bf Rationale:} The app is aimed to be used by anyone in Canada, so the symbols and language used must be understandable by the general Canadian population. Using symbols and language or slang that is specific to a certain group or culture would make the app hard to understand for some of the target users.
 \end{enumerate}
 % End SubSubSection
 
@@ -402,7 +404,12 @@
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-A}1. ]
-	\item 
+	\item The product should be able to be used by partially sighted users \\
+	{\bf Rationale:} A successful mobile app should be accessible to all users, no matter what physical impairments they may face. The app should allow partially sighted or blind users to use the app through their voice or some other means that does not require them to be fully sighted.
+	\item The product should provide captions or symbols for audio content to allow users with hearing impairments to access that content. \\
+	{\bf Rationale:} A successful mobile app should be accessible to all users, no matter what physical impairments they may face. The app should allow users with hearing impairments to still access any audio content within the app through captions, symbols or some other visual means so they are still able to access the content.
+	\item The product should conform to the WCAG (Web Content Accessibility Guidelines) 2.0 Level AA 
+	{\bf Rationale:} According to https://www.accessibility.com/blog/introduction-to-canadian-digital-accessibility-laws, the WCAG are a global standard on the accessibility of web based applications. In Ontario, all private organizations with 50 or more employees are required to be WCAG 2.0 AA accessible. Our company is not yet 50+ people but the hope is to one day get there, so implementing these accessibility features now makes for a smoother transition when the company expands.
 \end{enumerate}
 % End SubSubSection
 
@@ -416,7 +423,8 @@
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SL}1. ]
-	\item 
+	\item All responses from the product to the user should be within 50 milliseconds
+	{\bf Rationale:} According to https://www.pingplotter.com/wisdom/article/is-my-connection-good, the perfect latency is between 20 to 40 milliseconds. If all product-to-user responses for our app are 50 milliseconds are better, this is an excellent latency and will bring users back to the app.
 \end{enumerate}
 % End SubSubSection
 
@@ -424,7 +432,8 @@
 \label{ssub:safety_critical_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SC}1. ]
-	\item 
+	\item All taxi services, drivers and other carpoolers will go through a safety check before being allowed to offer rides or join carpools on the app \\
+	{\bf Rationale:} Our app connects users with random members of the public, whether that be taxi drivers or fellow carpoolers. To ensure the safety of all users of the app, all drivers and carpoolers will have to go through a safety verification process to verify their intentions and ensure that the safety of the riders is guaranteed.
 \end{enumerate}
 % End SubSubSection
 
@@ -432,7 +441,12 @@
 \label{ssub:precision_or_accuracy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-PA}1. ]
-	\item 
+	\item All monetary amounts displayed within the application should be accurate to two decimal places \\
+	{\bf Rationale:} Given that this app will involve payments for the taxi rides, all payment amounts will be displayed to two decimal places, which is accurate to the number of dollars and cents for the transaction. For example, ``the total cost of the ride is \$3.40'' \\
+	\item All times should be displayed in the form HH:MM PM/AM where HH is between 01 and 12. \\
+	{\bf Rationale:} The app may show estimated time of arrival, which will be shown using the HH:MM format, showing only the hours and minutes and not anything more. If the app showed seconds or below it would be inaccurate and confusing for users. For example, ``the estimated time of arrival is 10:04 PM'' \\
+	\item All distance measurements should be accurate to one decimal place. \\
+	{\bf Rationale:} The app may show distance to a destination or how far the driver is from picking you up. These should be shown with one decimal place as more decimal places would make it harder to understand and would make it lose meaning. For example, ``your driver is 3.2 km away''
 \end{enumerate}
 % End SubSubSection
 
@@ -440,7 +454,12 @@
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RA}1. ]
-	\item 
+	\item The product shall be available for use 24 hours per day, 365 days per year \\
+	{\bf Rationale:} An app that allows users to book carpool rides should be available 24/7, 365 days a year because users should be able to book a carpool at any time of the day on any day of the year.
+	\item The product must perform without failure in 98\% of use cases \\
+	{\bf Rationale:} Failures are expected to occur in any software application, but if the app performs without failure for the majority of uses then it can be deemed to be a reliable application that only fails on the rare occasion
+	\item The mean time to restore the product following a failure must not be greater than 10 minutes \\
+	{\bf Rationale:} When the product does fail, it should recover and become usable again within 10 minutes max, otherwise users will begin to question the reliability and usage of the app.
 \end{enumerate}
 % End SubSubSection
 
@@ -448,7 +467,8 @@
 \label{ssub:robustness_or_fault_tolerance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RFT}1. ]
-	\item 
+	\item The product should continue to be usable if external services it relies on go down.\\
+	{\bf Rationale:} The app will rely on some external third party services, and it needs to be tolerant to faults in those systems. For example, if the app interfaces with an API from the taxi service and that API goes down, the app needs to continue to be usable. If an AWS region goes down and the app uses AWS cloud services, it must change to another region to ensure it continues to be usable.
 \end{enumerate}
 % End SubSubSection
 
@@ -456,7 +476,8 @@
 \label{ssub:capacity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-C}1. ]
-	\item 
+	\item The product should be able to handle up to 10000 users simultaneously at any given time \\
+	{\bf Rationale:} Although the app will not start with 10000 concurrent users right away, 10000 is a good estimate as to how many concurrent users the app may have within a few years of business. Given that Uber, a similar ride sharing application has millions of concurrent users, 10000 is a realistic capacity limit for this app.
 \end{enumerate}
 % End SubSubSection
 
@@ -464,16 +485,15 @@
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SE}1. ]
-	\item 
+	\item The product should be able to handle any increases to the number of concurrent users \\
+	{\bf Rationale:} In a previous requirement it was defined that the product should be able to handle 10000 concurrent users. Once the app scales, it should be able to handle increases to this value. Popular ride sharing app Uber serves millions of concurrent requests, so this app should be able to scale to these values as well.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Longevity Requirements}
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR-L}1. ]
-	\item 
-\end{enumerate}
+	Not applicable
 % End SubSubSection
 
 % End SubSection
@@ -486,7 +506,8 @@
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
 \begin{enumerate}[{OE-EPE}1. ]
-	\item 
+	\item The product should be able to be used on a mobile application in any physical environment \\
+	{\bf Rationale:} The physical environment the user is in while using the app (weather, temperature, time of day) should not affect the ability to use the app whatsoever.
 \end{enumerate}
 % End SubSubSection
 
@@ -502,7 +523,8 @@
 \label{ssub:productization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE-P}1. ]
-	\item 
+	\item The product should be distributed as a mobile application
+	{\bf Rationale:} The product being developed is a mobile app, therefore it should only be distributed as a mobile app and nothing else.
 \end{enumerate}
 % End SubSubSection
 
@@ -510,7 +532,8 @@
 \label{ssub:release_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE-R}1. ]
-	\item 
+	\item Any subsequent releases of the product should not affect backwards-compatability with previous releases \\
+	{\bf Rationale:} Backwards compatability between releases should always be maintained so new releases do not affect the usage of users who are still using previous releases.
 \end{enumerate}
 % End SubSubSection
 
@@ -524,23 +547,23 @@
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS-M}1. ]
-	\item 
+	\item The product should be designed in a maintainable way such that future changes are able to be easily added or removed \\
+	{\bf Rationale:} Writing maintainable software allows for quicker implementation and debugging. Iterations of the product will be able to be released faster if maintainable code and design principles are followed.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Supportability Requirements}
 \label{ssub:supportability_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{MS-S}1. ]
-	\item 
-\end{enumerate}
+Not applicable.
 % End SubSubSection
 
 \subsubsection{Adaptability Requirements}
 \label{ssub:adaptability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS-A}1. ]
-	\item 
+	\item The product should be able to run on iOS and Android mobile devices. \\
+	{\bf Rationale:} According to https://gs.statcounter.com/os-market-share/mobile/worldwide, iOS and Android make up 99.23\% of the mobile device market. The product being built is a mobile application, so in order for the large majority of mobile device users to use the app, it must run on both iOS and Android.
 \end{enumerate}
 % End SubSubSection
 
