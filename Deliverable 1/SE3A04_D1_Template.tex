@@ -317,16 +317,6 @@
 \section{Non-Functional Requirements}
 \label{sec:non-functional_requirements}
 
-
-\begin{itemize}
-	\item For each non-functional requirement, provide a justification/rationale for it.\\
-	{\bf Example:} \\
-	SC1. \emph{The device should not explode in a customer’s pocket.}\\
-	{\bf Rationale:} Other companies have had issues with the batteries they used in their phones randomly exploding [insert citation]. This causes a safety issue, as the phone is often carried in a person's hand or pocket.	
-	\item If you're making a guess because you couldn't really talk to stakeholders, you can say "We imagined stakeholders would want...because..."
-	\item Each requirement should have a unique label/number for it.
-\end{itemize}
-
 % Begin Section
 \subsection{Look and Feel Requirements}
 \label{sub:look_and_feel_requirements}
@@ -423,7 +413,7 @@
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SL}1. ]
-	\item All responses from the product to the user should be within 50 milliseconds
+	\item All responses from the product to the user should be within 50 milliseconds \\
 	{\bf Rationale:} According to https://www.pingplotter.com/wisdom/article/is-my-connection-good, the perfect latency is between 20 to 40 milliseconds. If all product-to-user responses for our app are 50 milliseconds are better, this is an excellent latency and will bring users back to the app.
 \end{enumerate}
 % End SubSubSection
@@ -515,7 +505,8 @@
 \label{ssub:requirements_for_interfacing_with_adjacent_systems}
 % Begin SubSubSection
 \begin{enumerate}[{OE-IA}1. ]
-	\item 
+	\item The product should only interface with adjacent systems that it absolutely needs to \\
+	{\bf Rationale:} The more adjacent systems that the app interfaces, the more maintenance that is needed to support all of the adjacent systems. The more of the system built in-house the better, we should only interface with adjacent systems that we absolutely have to.
 \end{enumerate}
 % End SubSubSection
 
@@ -523,7 +514,7 @@
 \label{ssub:productization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE-P}1. ]
-	\item The product should be distributed as a mobile application
+	\item The product should be distributed as a mobile application \\
 	{\bf Rationale:} The product being developed is a mobile app, therefore it should only be distributed as a mobile app and nothing else.
 \end{enumerate}
 % End SubSubSection
@@ -577,7 +568,10 @@ Not applicable.
 \label{ssub:access_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-AC}1. ]
-	\item 
+	\item General users of the application should not have access to sensitive information \\
+	{\bf Rationale:} The app is designed to be used by any member of the general public, members of the general public should not have access to private or sensitive information about other users or about the taxi services 
+	\item Special users who are administrators and work for the company are the only users who have access to sensitive user information \\
+	{\bf Rationale:} For testing, debugging and management purposes, users with higher access to sensitive data are needed. The users with this access are only people who are trusted who work for the company in an authoritative, high-ranking position.
 \end{enumerate}
 % End SubSubSection
 
@@ -585,7 +579,10 @@ Not applicable.
 \label{ssub:integrity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-INT}1. ]
-	\item 
+	\item The system should be secure against outside threats that look to access/change the data \\
+	{\bf Rationale:} All software systems come with the threat of external hackers. We must ensure that the system is secure and cannot be hacked, otherwise data can be changed and it will no longer be consistent, violating data integrity 
+	\item All data input into the database will be automated where possible \\
+	{\bf Rationale:} A big cause of data inconsistency in software applications is manual input. It is much easier for a human to make a mistake while manually inputting data than it is for an automated process to input data to the database. To maintain integrity of the data, the system should eliminate the risk of manual data input mistakes as much as possible.
 \end{enumerate}
 % End SubSubSection
 
@@ -593,7 +590,10 @@ Not applicable.
 \label{ssub:privacy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-P}1. ]
-	\item 
+	\item The product should notify the user whenever they are required to enter private information \\
+	{\bf Rationale:} The user should be aware whenever they are entering personal or private information so they can make an informed decision on whether they want to enter that information.
+	\item The product should guarantee that all private information is kept secure \\
+	{\bf Rationale:} Any private information from the user such as their password, address and other sensitive information should be secured through verified security measures, hashing, locking, whatever needs to be used to guarantee data privacy.
 \end{enumerate}
 % End SubSubSection
 
@@ -601,7 +601,8 @@ Not applicable.
 \label{ssub:audit_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-AU}1. ]
-	\item 
+	\item All releases of the product should conform to the guidelines of both the Android and iOS mobile app stores \\
+	{\bf Rationale:} Whenever an app is released to either app store, whether brand new or an updated release, it must go through the app store's review process. Audits must be done within the company before the app is released to ensure the app passes all guidelines.
 \end{enumerate}
 % End SubSubSection
 
@@ -609,7 +610,8 @@ Not applicable.
 \label{ssub:immunity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-IM}1. ]
-	\item 
+	\item The product should be immune to infection from unauthorized malicious attackers \\
+	{\bf Rationale:} There are many types of malware that can attack software, SQL injections, trojan horses, viruses. The system must be immune to infection from all of these, to ensure data privacy and security is maintained at all times.
 \end{enumerate}
 % End SubSubSection
 
@@ -623,7 +625,8 @@ Not applicable.
 \label{ssub:cultural_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CP-C}1. ]
-	\item 
+	\item All numbering systems, road systems and any other systems will use the Canadian standard \\
+	{\bf Rationale:} The app will initially be launched in Canada only, so all systems will use the canadian standard. Metric system for numbering and measurements, Canadian road systems, everything that requires a national standard will use the Canadian standard.
 \end{enumerate}
 % End SubSubSection
 
@@ -631,7 +634,8 @@ Not applicable.
 \label{ssub:political_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CP-P}1. ]
-	\item 
+	\item The product should not use any emojis, language or symbols that could be considered offensive \\
+	{\bf Rationale:} Given that our app is designed to be used by anyone in the general Canadian population, we must ensure that no controversial language or emojis are used. Many cultural, ethnic and religious groups will exist within the userbase and some words or symbols or emojis might be offensive to a certain group, which must be prevented.
 \end{enumerate}
 % End SubSubSection
 
@@ -645,7 +649,8 @@ Not applicable.
 \label{ssub:compliance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR-COMP}1. ]
-	\item 
+	\item The product should comply with the Data Protection Act \\
+	{\bf Rationale:} Any Canadian product that deals with personal information from users. This app deals with lots of personal user information, so it must be implemented in a way that complies with the Data Protection Act
 \end{enumerate}
 % End SubSubSection
 
@@ -653,7 +658,8 @@ Not applicable.
 \label{ssub:standards_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR-STD}1. ]
-	\item 
+	\item The development and implementation of the product should conform to the IEEE and ISO standards \\
+	{\bf Rationale:} Both the IEEE and ISO are well-defined, internationally acclaimed standards for engineering projects. The development of this product will follow the standards defined in IEEE and ISO to ensure consistency across the team.
 \end{enumerate}
 % End SubSubSection
 
