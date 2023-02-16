@@ -13,7 +13,7 @@
 \usepackage{extarrows}
 \usepackage{setspace}
 \usepackage{graphicx}
-\graphicspath{ {./} }
+\graphicspath{ {./asset/} }
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -103,14 +103,19 @@ This section of the SRS should describe the general factors that affect the prod
 \begin{enumerate}[a)]
 	\item The product being developed is an Android application which empowers the ability to book carpool via a user-friendly interface using a taxi company. The application will securely store customer personal information such as carpool request histories, and personal data inputted by the user. The product is not self-contained since its functionality depends heavily on the taxi service provider. There are several out-of-scope concerns such as: driver\textquotesingle s information input (profile, shift, locations, etc.) and payment processing.
 	\item The general interaction can be visualized as follows: 
-	\includegraphics{app-context.png}
+	\begin{center}
+		\includegraphics[scale=0.5]{app-context.png}
+	\end{center}
 \end{enumerate}
 % End SubSection
 
 \subsection{Product Functions}
 \label{sub:product_functions}
 % Begin SubSection
-\includegraphics{subsys-relationship.png}
+	\begin{center}
+		\includegraphics[scale=0.5]{subsys-relationship.png}
+	\end{center}
+
 \begin{enumerate}[a)]
 	\item The app will be able to book taxi.
 	\begin{itemize}
