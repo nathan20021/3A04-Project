@@ -12,6 +12,8 @@
 \usepackage{graphicx}
 \usepackage{extarrows}
 \usepackage{setspace}
+\usepackage{graphicx}
+\graphicspath{ {./} }
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -99,26 +101,31 @@ This section of the SRS should describe the general factors that affect the prod
 \label{sub:product_perspective}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item Put the product into perspective with other related products, i.e., context
-	\item If the product is independent and totally self-contained, it should be stated here
-	\item If the SRS defines a product that is a component of a larger system, as frequently occurs, then this subsection should relate the requirements of that larger system to functionality of the software and should identify interfaces between that system and the software
-	\item A block diagram showing the major components of the larger system, interconnections, and external interfaces can be helpful
+	\item The product being developed is an Android application which empowers the ability to book carpool via a user-friendly interface using a taxi company. The application will securely store customer personal information such as carpool request histories, and personal data inputted by the user. The product is not self-contained since its functionality depends heavily on the taxi service provider. There are several out-of-scope concerns such as: driver\textquotesingle s information input (profile, shift, locations, etc.) and payment processing.
+	\item The general interaction can be visualized as follows: 
+	\includegraphics{app-context.png}
 \end{enumerate}
 % End SubSection
 
 \subsection{Product Functions}
 \label{sub:product_functions}
 % Begin SubSection
+\includegraphics{subsys-relationship.png}
 \begin{enumerate}[a)]
-	\item Provide a summary of the major functions that the software will perform.
+	\item The app will be able to book taxi.
 	\begin{itemize}
-		\item \textbf{Example}: An SRS for an accounting program may use this part to address customer account maintenance, customer statement, and invoice preparation without mentioning the vast amount of detail that each of those functions requires.
+		\item Able to communicate with taxi\textquotesingle s service API.
+		\item Able to handle and display taxi data correctly.	
 	\end{itemize}
-	\item Functions should be organized in a way that makes the list of functions understandable to the customer or to anyone else reading the document for the first time
-	\item Textual or graphical methods can be used to show the different functions and their relationships
+	\item The app be able to handle carpool scheduling and coordination.
 	\begin{itemize}
-		\item Such a diagram is not intended to show a design of a product, but simply shows the logical relationships among variables
-	\end{itemize} 
+		\item Able to plan the most optimal route and let the driver follow the calculated route.
+	\end{itemize}
+	\item The app be able to display the estimate time-of-arrival (ETA) of taxis.
+	\begin{itemize}
+		\item Able to calculate ETA in real-time
+	\end{itemize}
+	\item The app be able to input the taxi\textquotesingle s unique identifier via the mobile app.
 \end{enumerate}
 % End SubSection
 
@@ -126,8 +133,40 @@ This section of the SRS should describe the general factors that affect the prod
 \label{sub:user_characteristics}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item Describe those general characteristics of the intended users of the product including educational level, experience, and technical expertise
-	\item Do not state specific requirements, but rather provide the reasons why certain specific requirements are later specified
+	\item Riders
+	\begin{itemize}
+		\item Riders are users who use the app to request car pool.
+		\item Riders can be anyone from any background of tech-expertise
+		\item Riders are expected to:
+		\begin{itemize}
+			\item Input personal information only a few times.
+			\item Have stable and highly available mobile internet connection.
+		\end{itemize}
+		
+		\item Riders might be interested one or more following characteristics of the app:
+		\begin{itemize}
+			\item User interface and experience of navigating the mobile app.
+			\item Realtime taxi information display (ETA, location, route, …)
+			\item Ease of taxi booking, and check-in.  
+		\end{itemize}
+	\end{itemize}
+	
+	\item Taxi Drivers
+	\begin{itemize}
+		\item Drivers are users who drive and operate taxis, fulfill carpool requests, and ensure the safety of the riders.
+		\item Drivers must be registered with the taxi service and from any background of tech-expertise.  
+		\item Drivers are expected to have stable and highly available mobile internet connection.
+		\item Drivers might be interested one or more following characteristics of the app:
+		\begin{itemize}
+			\item Accuracy display of real-time pick-up and drop-off information.
+			\item Accuracy of aggregating and storing of rides information (since it ties directly to their performance).
+			\item Accuracy display of user\textquotesingle s profile summarization.
+			\item User interface and experience of navigating the mobile app.
+			\item Ease of accepting/ rejecting rides.
+		\end{itemize}
+
+	\end{itemize}
+
 \end{enumerate}
 % End SubSection
 
@@ -135,7 +174,11 @@ This section of the SRS should describe the general factors that affect the prod
 \label{sub:constraints}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item Provide a general description of any other items that will limit the developer's options
+	\item \textbf{Geographical}: The app can only operate on the land which the taxi service operate.
+	\item \textbf{Technological}: App must be integrated with softwares that the taxi service provider uses.
+	\item \textbf{Fare Determination}: Since the app does\textquotesingle t support payment processing directly, the fare has to be determined and processed through the taxi service provider.
+	\item \textbf{Data Privacy Regulation}: Data which transmits and stored within the app needs to be processed in a way which complies with the data protection act.
+
 \end{enumerate}
 % End SubSection
 
@@ -143,10 +186,21 @@ This section of the SRS should describe the general factors that affect the prod
 \label{sub:assumptions_and_dependencies}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item List each of the factors that affect the requirements stated in the SRS
-	\item These factors are not design constraints on the software but are, rather, any changes to them that can affect the requirements in the SRS
+	\item Assumptions
 	\begin{itemize}
-		\item \textbf{Example}: An assumption may be that a specific operating system will be available on the hardware designated for the software product. If, in fact, the operating system is not available, the SRS would then have to change accordingly.
+		\item Drivers information are provided by the taxi provider (driver profile and shift).
+		\item The taxi provider has dedicated API which provide real-time data on driver\textquotesingle s availability.
+		\item The taxi provider determines trip prices.
+		\item Payment processing is external and not under the scope of the application.
+
+	\end{itemize}
+
+	\item Many problems may occur when the following assumptions failed to hold:
+	\begin{itemize}
+		\item If trip prices are not determined by the taxi service provider, additional calculations must be performed to find fare fees after each trip.
+		\item If drivers data are stored and handled within the context of the app, additional mechanism must be provided for drivers to update their information. In addition, driver\textquotesingle s data storage must comply with the Canadian Data Protection Act. 
+
+
 	\end{itemize}
 \end{enumerate}
 % End SubSection
@@ -155,7 +209,8 @@ This section of the SRS should describe the general factors that affect the prod
 \label{sub:apportioning_of_requirements}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item Identify requirements that may be delayed until future versions of the system
+	\item \textbf{Technological}: Some specific technilogical requirements (Database type, Integration with taxi provider, etc...) have to be delayed untill the implementation phase.
+	\item Non-function Requiremens such as UI,UX, or performance can be finetuned when the app is being implemented or after release.
 \end{enumerate}
 % End SubSection
 
