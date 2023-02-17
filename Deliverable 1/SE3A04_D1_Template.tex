@@ -44,38 +44,35 @@
 \label{sec:introduction}
 % Begin Section
 
-\begin{itemize}
-	\item This section of the SRS should provide an overview of the entire SRS.
-\end{itemize}
-
+The following document is dedicated to showcasing the requirements of the taxi carpool app requested by a local taxi company. The app is dedicated to make rides cheaper and more convenient for their riders. This app is also meant to be a long-term project for the company, meaning this SRS is a living document which has the possibility of changing in the future. This document will explain the important stakeholders involved, requirements and viewpoints of each while also explaining the main functions of the app.
 
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-\begin{itemize}
-	\item Specify the purpose of the SRS
-	\item Specify the intended audience for the SRS
-\end{itemize}
+This SRS is meant for developers, stakeholders and direct players in the planning and development of the app and should be understandable for all those involved. This SRS will further break down the functionalities, constraints, use cases and overall design of the project in further detail. 
+
 % End SubSection
 
 \subsection{Scope}
 \label{sub:scope}
 % Begin SubSection
-\begin{itemize}
-	\item Identify the software product(s) to be produced, and name each (e.g., Host DBMS, Report Generator, etc.)
-	\item Explain what the software product(s) will do (and, if necessary, also state what they will not do)
-	\item Describe the application of the software being specified, including relevant benefits, objectives, and goals
-	\item Be consistent with similar statements in higher-level specifications (e.g., the system requirements specification), if they exist
-\end{itemize}
+To develop this project the production of the main taxi request and offer app called TaxiCarPool, the Conversation Prompt Generator and a variety of databases will have to be produced. There will not be a need to produce a payment system into the app as this will be handled by the taxi company payment systems. The project will only project the cost of the ride but will not handle the payments as it is not part of the app’s main functionality.
+\newline \newline
+The TaxiCarPool app will perform the main functions of the app. This will include allowing users to request a carpool taxi, receive a list of possible rides to select and allow current rides to allow carpooling in their car. This product’s objective is to perform the main functions of matchmaking users to a carpool to save money. 
+\newline \newline
+The Conversation Prompt Generator will randomly generate a conversation starter for the riders to use based on their profile. Their profile will specify if they want to use this feature and if so, what they are interested in. The generator will not be forced upon any of the users and can be switched off if desired. The goal of this product is to create a friendly environment when carpooling with others that one may not know. This function is mostly dedicated to benefit those who are carpooling to a further distance.
+\newline \newline
+The creation of a database will hold all the necessary information for the app to function, making it easily accessible and manageable. The information being stored can range from user information; name, email, phone number, to riding history, to preferences of taxi times, models, or other passengers. 
 % End SubSection
 
 \subsection{Definitions, Acronyms, and Abbreviations}
 \label{sub:definitions_acronyms_and_abbreviations}
 % Begin SubSection
-\begin{itemize}
-	\item Provide the definitions of all terms, acronyms, and abbreviations required to properly interpret the SRS
-	\item This should be in alphabetical order.
-\end{itemize}
+BE: Business Event is something that occurs between the client/stakeholder and the system. 
+\newline \newline
+SRS: Software Requirements Specification is a document that explains the requirements of the software being developed.
+\newline \newline
+VP: Viewpoint, often in reference to a stakeholder/client interested in the system and how they view the business event.
 % End SubSection
 
 \subsection{References}
@@ -93,10 +90,7 @@
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-\begin{itemize}
-	\item Describe what the rest of the SRS contains
-	\item Explain how the SRS is organized
-\end{itemize}
+This SRS is structured to first give background information about the app. This will include how the app will interface with the taxi companies, along with the general functionalities and assumptions that are being made. The document will then follow with showcasing one of the main business events and its related use cases. This will explain how the main function will work across different scenarios and stakeholders in a visual manner. This will be further expanded upon in more detail throughout the document. It will include more business events with a variety of viewpoints and scenarios for both the function shown in the use case diagram and other main function of the project. This document will conclude by explaining the non-functional requirements involving presentation, performance, usability, security, and maintainability notes of the project.
 % End SubSection
 
 % End Section
@@ -250,10 +244,8 @@
 \section{Use Case Diagram}
 \label{sec:use_case_diagram}
 % Begin Section
-\begin{itemize}
-	\item Provide \emph{one} use case diagram for the most important Business Event.
-	\item The text of all use cases will be specified under "Highlights of Functional Requirements"
-\end{itemize}
+\includegraphics[scale = 0.8]{Use_Case_Diagram.png}
+
 %In this section, select the most important Business Event that your system responds to and give its use case diagram.  Only one use case diagram is needed.  Give a brief textual description of the use case without repeating what is in the scenarios of the corresponding Business Event.
 
 %
