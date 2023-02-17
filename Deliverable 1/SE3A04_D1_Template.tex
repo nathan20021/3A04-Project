@@ -249,136 +249,384 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{sec:use_case_diagram}
 % Begin Section
 \includegraphics[scale = 0.8]{Use_Case_Diagram.png}
+% End Section
 
-%In this section, select the most important Business Event that your system responds to and give its use case diagram.  Only one use case diagram is needed.  Give a brief textual description of the use case without repeating what is in the scenarios of the corresponding Business Event.
-
-%
-%
-%
-%This section should provide a use case diagram for your application. 
-%\begin{enumerate}[a)]
-%	\item Each use case appearing in the diagram should be accompanied by a text description. 
-%\end{enumerate}
-%% End Section
-
-\section{Highlights of Functional Requirements}
+\newpage
+\section{Functional Requirements}
 \label{sec:functional_requirements}
 % Begin Section
-\begin{itemize}
-	\item Specify the "use cases" organized by Business Event. (The Global Scenario is what you might think of as a use case). Be sure to consider Business Events that aren't just triggered by users with goals (e.g. something happens in the environment that your system needs to respond to)
-	\item Your focus should be on what the system needs to do, not how to do it. Specify it in enough detail that it clearly specifies what needs to be accomplished, but not so detailed that you start programming or making design decisions.
-	\item Keep the length of each use case (Global Scenario) manageable. If it's getting too long, you need to condense your steps and give a name to what's accomplished by that sequence of steps. (e.g. "Authenticate user" in one line, instead of a list of steps of how to; that's a design decision anyways)
-	\item You are \emph{not} specifying a complete and consistent set of functional requirements here. (i.e. you are providing them in the form of use cases/global scenarios, not a refined list). For the purpose of this project, you do not need to reduce them to a list; the global scenarios format is all you need.
-\end{itemize}
-	Below, we organize by Business Event.
-	\begin{enumerate}[{BE}1.]
-		\item Business Event name
-		\begin{enumerate}[{VP1}.1]
-			\item Viewpoint name \newline
-			\noindent\fbox{%
-				\parbox{0.5\textwidth}{%
-					\begin{itemize}
-						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-						\item[] $\cdots$
-						\item {\bf $S_{n}$:}  Response of the system to $E_{(n-1)}$
-						\item {\bf $E_{n}$:}  Reaction of the environment to $E_{(n-1)}$
-						\item {\bf $S_{(n+1)}$:} Final response of the system concluding its function regarding the Business Event
-					\end{itemize}
-				}%
-			}
-			\item Viewpoint name\newline
-			\noindent\fbox{%
-				\parbox{0.5\textwidth}{%
-					\begin{itemize}
-						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-						\item[] $\cdots$
-						\item {\bf $S_{k}$:}  Response of the system to $E_{(k-1)}$
-						\item {\bf $E_{k}$:}  Reaction of the environment to $E_{(k-1)}$
-						\item {\bf $S_{(k+1)}$:} Final response of the system concluding its function regarding the Business Event
-					\end{itemize}
-				}%
-			}
-			\item \dots
-			\item \dots
-			\item \dots
-			\item[\dots]
-		\end{enumerate}	
-		\item[] {\bf Global Scenario of {\it Business Event Name}:} It is the scenario corresponding to the integration of all the above scenarios from the different Viewpoints of the Business Event BE1.\newline
-		\noindent\fbox{%
-			\parbox{0.5\textwidth}{%
-				\begin{itemize}
-					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-					\item[] $\cdots$
-					\item {\bf $S_{m}$:}  Response of the system to $E_{(m-1)}$
-					\item {\bf $E_{m}$:}  Reaction of the environment to $E_{(m-1)}$
-					\item {\bf $S_{(m+1)}$:} Final response of the system concluding its function regarding the Business Event
-				\end{itemize}
-			}%
-		}	
-		%\end{enumerate}
-		\item Business Event name
-		\begin{enumerate}[{VP1}.1]
-			\item Viewpoint name \newline
-			\noindent\fbox{%
-				\parbox{0.5\textwidth}{%
-					\begin{itemize}
-						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-						\item[] $\cdots$
-						\item {\bf $S_{n'}$:}  Response of the system to $E_{(n'-1)}$
-						\item {\bf $E_{n'}$:}  Reaction of the environment to $E_{(n'-1)}$
-						\item {\bf $S_{(n'+1)}$:} Final response of the system concluding its function regarding the Business Event
-					\end{itemize}
-				}%
-			}
-			\item Viewpoint name\newline
-			\noindent\fbox{%
-				\parbox{0.5\textwidth}{%
-					\begin{itemize}
-						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-						\item[] $\cdots$
-						\item {\bf $S_{k'}$:}  Response of the system to $E_{(k'-1)}$
-						\item {\bf $E_{k'}$:}  Reaction of the environment to $E_{(k'-1)}$
-						\item {\bf $S_{(k'+1)}$:} Final response of the system concluding its function regarding the Business Event
-					\end{itemize}
-				}%
-			}
-			\item \dots
-			\item \dots
-			\item \dots
-			\item[\dots]
-		\end{enumerate}	
-		\item[] {\bf Global Scenario of {\it Business Event Name}:} It is the scenario corresponding to the integration of all the above scenarios from the different Viewpoints of the Business Event BE2.\newline
-		\noindent\fbox{%
-			\parbox{0.5\textwidth}{%
-				\begin{itemize}
-					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-					\item[] $\cdots$
-					\item {\bf $S_{m'}$:}  Response of the system to $E_{(m'-1)}$
-					\item {\bf $E_{m'}$:}  Reaction of the environment to $E_{(m'-1)}$
-					\item {\bf $S_{(m'+1)}$:} Final response of the system concluding its function regarding the Business Event
-				\end{itemize}
-			}%
-		}		
-	\end{enumerate}
 
+\begin{enumerate}[{\textbf{BE}}1.]
+    \item Customer creates new user profile
+    \begin{enumerate}[{\textbf{VP}1}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] System asks for customer’s information (full name, email or phone number, username, password, riding/ social preferences)
+                \item[$E_1$] Customer must input their information in all mandatory fields (full name, email or phone number, username, password) and optional fields (riding/ social preferences) if they choose
+                \begin{enumerate}
+                    \item[$S_{1.1}$] Username, email, and phone number must be unique
+                \end{enumerate}
+                \item[$S_2$] System asks customer to verify email or phone number
+                \item[$E_2$] Customer verifies email or phone number
+                \item[$S_3$] System registers customer profile as user in system
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[$S_1$] System sends new user data to taxi company
+                \item[$E_1$] Taxi company logs data in their database
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[$S_1$] Every new 1000 sign-ups, system sends notification to investors
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[$S_1$] System securely stores user data to comply with GDPR privacy
+            \end{enumerate}
+        \item[Global] Scenario for BE1
+            \begin{enumerate}
+                \item[$S_1$] System asks for customer’s information (username, password, email or phone number, riding/social preferences)
+                \item[$E_1$] Customer must input their information in all mandatory fields (full name, username, email, password, phone number) and optional fields (riding/social preferences) if they choose
+                \begin{enumerate}
+                \item[$E_{1.1}$] Username, email, and phone number must be unique
+                \end{enumerate}
+                \item[$S_2$] System asks customer to verify email or phone number
+                \item[$E_2$] Customer verifies email or phone number
+                \item[$S_3$] System registers customer profile as user in system
+                \begin{enumerate}
+                \item[$S_{3.1}$] System sends new user data to taxi company
+                \item[$E_{3.1}$] Taxi company logs data in their database
+                \item[$S_{3.2}$] Every new 1000 sign-ups, system sends notification to investors
+                \item[$S_{3.3}$] System securely stores user data to comply with GDPR privacy
+                \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+    \item User edits their profile
+    \begin{enumerate}[{VP2}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] System asks customer to authenticate themselves
+                    \item[$E_1$] Customer completes authentication process
+                \item[S2] System displays all fields (full name, username, email, phone number, riding/social preferences) of user profile
+                \begin{enumerate}
+                    \item[$E_{2.1}$] Customer edits desired fields
+                    \item[$E_{2.2}$] Customer saves edits, given that all mandatory fields are filled
+                \end{enumerate}
+                \item[$S_3$] System updates user profile
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[$S_1$] System sends updated user data to taxi company
+                \item[$E_1$] Taxi company logs updated information in their database
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[$S_1$] System securely stores user data to comply with GDPR privacy
+            \end{enumerate}
+        \item[Global] Scenario for BE2
+            \begin{enumerate}
+                \item[$S_1$] System asks customer to authenticate themselves
+                    \item[$E_{1.1}$] Customer completes authentication process
+                \item[$S_2$] System displays all fields (full name, username, email, phone number, riding/social preferences) of user profile
+                \begin{enumerate}
+                    \item[$E_{2.1}$] Customer edits desired fields
+                    \item[$E_{2.2}$] Customer saves edits, given that all mandatory fields are filled
+                \end{enumerate}
+                \item[$S_3$] System updates user profile
+                \begin{enumerate}
+                    \item[$S_{3.1}$] System sends updated user data to taxi company
+                    \item[$E_{3.1}$] Taxi company logs updated information in their database
+                    \item[$S_{3.2}$] System securely stores user data to comply with GDPR privacy
+                \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+    \item Taxi carpool is requested
+    \begin{enumerate}[{VP3}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] System asks customers to input their destination
+                \item[$E_1$] Customer inputs destination
+                \item[$S_2$] System allows customers to sort carpools by search criteria (nearest cab, highest rating, friends first, number of people in carpool)
+                \item[$E_2$] Customer selects taxi to send their carpool request to
+                \begin{enumerate}
+                    \item[$S_{3.1}$] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
+                    \item[$S_{3.2}$] Customers notified if request is accepted
+                \end{enumerate}
+                \item[$E_3$] Customers can track location of designated cab
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[$S_1$] System notifies taxi company of new carpool
+                \item[$E_1$] Taxi company computes estimated payment split (i.e. based on their fares)
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item[Global] Scenario for BE3
+            \begin{enumerate}
+                \item[$S_1$] System asks customers to input their destination
+                \item[$E_1$] Customer inputs destination
+                \item[$S_2$] System notifies taxi company of new carpool
+                \item[$E_2$] Taxi company computes estimated payment split (i.e. based on their fares)
+                \item[$S_3$] System allows customers to sort carpools by search criteria (nearest cab, highest rating, friends first, number of people in carpool)
+                \item[$E_3$] Customer selects taxi to send their carpool request to
+                \begin{enumerate}
+                    \item[$S_{3.1}$] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
+                    \item[$S_{3.2}$] Customers notified if request is accepted
+                \end{enumerate}
+                \item[$E_4$] Customers can track location of designated cab
+            \end{enumerate}
+    \end{enumerate}
+    \item Taxi carpool is offered
+    \begin{enumerate}[{VP4}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] System asks customers to scan QR code
+                \item[$E_1$] Customer scans QR code
+                \item[$S_2$] System asks customer to input destination, taxi ID, maximum number of customers to share with, and ride preferences
+                \item[$E_2$] Customer inputs destination, taxi ID, maximum number of customers to share with, and ride preferences
+                \item[$S_3$] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
+                \begin{enumerate}
+                    \item[$E_{3.1}$] Customer accepts match
+                    \item[$E_{3.2}$] Customer rejects match, return to S3
+                    \item[$E_{3.3}$] Customer aborts offer mode
+                \end{enumerate}
+                \item[$S_4$] System matches users
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[$S_1$] New offer sent to dispatcher
+                \item[$E_1$] Dispatcher stores offer in pool of live offers
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[$S_1$] Driver is given pick-up location and directions (i.e. detour) for new customer in carpool
+                \item[$E_1$] Driver follows directions of detour to pick-up carpooler
+                \item[$S_2$] Once detour is complete and carpooler is in the taxi, system displays original destination with updated directions
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item[Global] Scenario for BE4
+            \begin{enumerate}
+                \item[$S_1$] New offer sent to dispatcher
+                \item[$E_1$] Dispatcher stores offer in pool of live offers
+                \item[$S_2$] System asks customers to scan QR code
+                \item[$E_2$] Customer scans QR code
+                \item[$S_3$] System asks customer to input destination, taxi ID, maximum number of customers to share with, and ride preferences
+                \item[$E_3$] Customer inputs destination, taxi ID, maximum number of customers to share with, and ride preferences
+                \item[$S_4$] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
+                \begin{enumerate}
+                    \item[$E_{4.1}$] Customer accepts match
+                    	\item[$S_{4.1.1}$] Driver is given pick-up location and directions (i.e. detour) for new customer in carpool
+                    	\item[$E_{4.1.1}$] Driver follows directions of detour to pick-up carpooler
+                    	\item[$S_{4.1.2}$] Once detour is complete and carpooler is in the taxi, system displays original destination with updated directions
+                \end{enumerate}
+                \item[$E_{4.2}$] Customer rejects match, return to S3
+                \item[$E_{4.3}$] Customer aborts offer mode
+                \item[$S_5$] System matches users
+            \end{enumerate}
+    \end{enumerate}
+    \item Taxi carpool arrives at destination
+    \begin{enumerate}[{VP5}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] System displays fare to each customer
+                \item[$E_1$] Customer pay taxi driver
+                \item[$S_2$] Once payment approved, system prompts customer to rate, out of 5 stars,  the other customers they shared a ride with, with an option to leave a review
+                \item[$E_2$] Customers input rating and optional review
+                \item[$S_3$] System stores rating and review in customers’ profile
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[$E_1$] Drivers obtain payment from customers
+                \item[$E_2$] Driver inputs that payment is complete
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[$E_1$] Driver obtains payment from customers
+                \item[$E_2$] Driver inputs into system that payment is complete
+                \item[$S_2$] System logs end of carpool
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[$S_1$] Every new 10 000 completed carpools, system sends notification to investors
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item[Global] Scenario for BE5
+            \begin{enumerate}
+                \item[$S_1$] System displays fare to each customer
+                \item[$E_1$] Customer pay taxi driver
+                \begin{enumerate}
+                    \item[$E_{1.1}$] Drivers obtain payment from customers
+                    \item[$E_{1.2}$] Driver input that payment is complete
+                \end{enumerate}
+                \item[$S_2$] Once payment approved, system prompts customer to rate, out of 5 stars,  the other customers they shared a ride with, with an option to leave a review
+                \item[$E_2$] Customers input rating and optional review
+                \item[$S_3$] System stores rating and review in customers’ profile
+                \item[$S_4$] System logs end of carpool
+                \begin{enumerate}
+                    \item[$E_{4.1}$] Every new 10 000 completed carpools, system sends notification to investors
+                \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+    \item User activates emergency button
+    \begin{enumerate}[{VP6}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] System runs procedure to ensure activation of emergency button is not accidental
+                \begin{enumerate}
+                    \item[$E_{1.1}$] Customer exits emergency mode
+                    \item[$S_{1.1}$] App is returned to normal home screen, end of business event
+                    \item[$E_{1.2}$] Customer responds to procedure, confirming that it is intentional
+                \end{enumerate}
+                \item[$S_2$] Customer connected to 911 dispatcher
+                \item[$E_3$] Customer completes call with 911 dispatcher
+                \item[$S_3$] App remains in emergency mode, emergency call button easily accessible
+                \item[$E_4$] Customer inputs that emergency has been dealt with
+                \item[$S_4$] App is returned to normal home screen
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[$S_1$] System shows that emergency activated in new taxi
+                \item[$E_1$] Taxi company monitors emergency-activated taxis
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[$E_{1.1}$] Taxi driver activates emergency mode
+                \begin{enumerate}
+                    \item[$S_{1.1}$] System connects taxi driver to 911 dispatcher
+                    \item[$E_{2.1}$] Call with 911 dispatcher complete
+                    \item[$S_{2.1}$] System remains in emergency mode
+                    \item[$E_{3.1}$] Driver notifies system that emergency is taken care of, branch to S3
+                \end{enumerate}
+                \item[$E_{1.2}$] Customer notifies system of emergency
+                \begin{enumerate}
+                    \item[$S_{1.2}$] System is in emergency mode, driver can still see directions.
+                    \item[$E_{2.2}$] Emergency is taken care of, branch to S3
+                \end{enumerate}
+                \item[$S_3$] System returns to normal mode
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[$S_1$] System notifies local emergency services of emergency call
+                \item[$E_1$] Emergency services connect app caller to emergency dispatcher
+                \item[$S_2$] System sends taxi tracking information to emergency dispatcher
+
+            \end{enumerate}
+        \item[Global] Scenario for BE6
+            \begin{enumerate}
+                \item[$S_1$] System runs procedure to ensure activation of emergency button is not accidental
+                \begin{enumerate}
+                    \item[$_{1.1}$] Customer exits emergency mode
+                    \item[$S_{1.1}$] App is returned to normal home screen, end of business event
+                    \item[$E_{1.2}$] Customer responds to procedure, confirming that it is intentional
+                \end{enumerate}
+                \item[$S_2$] Customer connected to 911 dispatcher
+                \begin{enumerate}
+                    \item[$S_{2.1}$] System notifies local emergency services of emergency call
+                    \item[$S_{2.2}$] System shows that emergency activated in new taxi
+                    \item[$E_{2.2}$] Taxi company monitors emergency-activated taxis
+                \end{enumerate}
+                \item[$E_3$] Customer completes call with 911 dispatcher
+                \item[$S_3$] App remains in emergency mode, emergency call button easily accessible
+                \item[$E_4$] Customer inputs that emergency has been dealt with
+                \item[$S_4$] App is returned to normal home screen
+                \item[$S_5$] Taxi driver activates emergency mode
+                \begin{enumerate}
+                    \item[$S_{5.1}$] System connects taxi driver to 911 dispatcher
+                    \item[$E_{5.1}$] Call with 911 dispatcher complete
+                    \item[$S_{5.2}$] System remains in emergency mode
+                    \item[$E_{5.2}$] Driver notifies system that emergency is taken care of, branch to S3
+                    \end{enumerate}
+                \item[$E_{1.2}$] Customer notifies system of emergency
+                \begin{enumerate}
+                    \item[$S_{1.2}$] System is in emergency mode, driver can still see directions.
+                    \item[$E_{2.2}$] Emergency is taken care of, branch to S3
+                \end{enumerate}
+                \item[$S_3$] System returns to normal mode
+            \end{enumerate}
+    \end{enumerate}
+    \item Carpoolers activate prompts
+    \begin{enumerate}[{VP7}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] Carpool has started
+                \item[$E_1$] Customers indicate that they want to enter prompts mode
+                \item[$S_2$] Random prompt is generated
+                \begin{enumerate}
+                    \item[$E_{2.1}$] Customers interact between each other based on prompt
+                    \item[$E_{2.2}$] Customers select new prompt, branch to S2
+                    \item[$E_{2.3}$] Customers exit prompt mode, branch to S3
+                \end{enumerate}
+                \item[$S_3$] System returns to home screen
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[$E_1$] Driver begins commute once new customer is seated in taxi
+                \item[$S_1$] System registers that carpool has started
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item[Global] Scenario for BE7
+            \begin{enumerate}
+                \item[$S_1$] Carpool has started
+                \item[$E_1$] Driver begins commute once new customer is seated in taxi
+                \item[$S_2$] System registers that carpool has started
+                \item[$E_2$] Customers indicate that they want to enter prompts mode
+                \item[$S_3$] Random prompt is generated
+                \begin{enumerate}
+                    \item[$E_{3.1}$] Customers interact between each other based on prompt
+                    \item[$E_{3.2}$] Customers select new prompt, branch to S2
+                    \item[$E_{3.3}$] Customers exit prompt mode, branch to S3
+                \end{enumerate}
+                \item[$S4$] System returns to home screen
+            \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
 %End Section
 
 \section{Non-Functional Requirements}
