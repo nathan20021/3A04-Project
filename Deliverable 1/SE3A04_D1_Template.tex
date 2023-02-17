@@ -173,86 +173,379 @@ This section should provide a use case diagram for your application.
 \section{Functional Requirements}
 \label{sec:functional_requirements}
 % Begin Section
-This section of the SRS should contain all of the software requirements to a level of detail sufficient to enable designers to design a system to satisfy those requirements, and testers to test that the system satisfies those requirements. Throughout this section, every stated requirement should be externally perceivable by users, operators, or other external systems. These requirements should include at a minimum a description of every input (stimulus) into the system, every output (response) from the system, and all functions performed by the system in response to an input or in support of an output.
 
-You normally have two options for organizing your functional requirements:
-\begin{enumerate}
-	\item Organize first by \emph{business events}, then by \emph{viewpoints}
-	\item Organize first by \emph{viewpoints}, then by \emph{business events}
-\end{enumerate}
-Choose the one which makes the most sense.
-
-For example, if you wish to organization by business events:
 \begin{enumerate}[{BE}1.]
-	\item Business Event
+	\item Customer creates new user profile
 	\begin{enumerate}[{VP1}.1]
-		\item Viewpoint
+		\item Customers
 			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
+				\item[S1] System asks for customer’s information (full name, email or phone number, username, password, riding/ social preferences)
+				\item[E1] Customer must input their information in all mandatory fields (full name, email or phone number, username, password) and optional fields (riding/ social preferences) if they choose
+				\begin{enumerate}
+					\item[E1.1] Username, email, and phone number must be unique
+				\end{enumerate}
+				\item[S2] System asks customer to verify email or phone number
+				\item[E2] Customer verifies email or phone number
+				\item[S3] System registers customer profile as user in system
 			\end{enumerate}
-		\item Viewpoint
+		\item Taxi company
 			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
+				\item[S1] System sends new user data to taxi company
+				\item[E1] Taxi company logs data in their database
 			\end{enumerate}
-		\item \dots
+		\item Taxi drivers
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item Investors
+			\begin{enumerate}
+				\item[S1] Every new 1000 sign-ups, system sends notification to investors
+			\end{enumerate}
+		\item Legal
+			\begin{enumerate}
+				\item[S1] System securely stores user data to comply with GDPR privacy
+			\end{enumerate}
+		\item[Global] Scenario for BE1
+			\begin{enumerate}
+				\item[S1] System asks for customer’s information (username, password, email or phone number, riding/social preferences)
+				\item[E1] Customer must input their information in all mandatory fields (full name, username, email, password, phone number) and optional fields (riding/social preferences) if they choose
+				\begin{enumerate}
+				\item[E1.1] Username, email, and phone number must be unique
+				\end{enumerate}
+				\item[S2] System asks customer to verify email or phone number
+				\item[E2] Customer verifies email or phone number
+				\item[S3] System registers customer profile as user in system
+				\begin{enumerate}
+				\item[S3.1] System sends new user data to taxi company
+				\item[E3.1] Taxi company logs data in their database
+				\item[S3.2] Every new 1000 sign-ups, system sends notification to investors
+				\item[S3.3] System securely stores user data to comply with GDPR privacy
+				\end{enumerate}
+			\end{enumerate}
 	\end{enumerate}
-	\item Business Event
+	\item User edits their profile
 	\begin{enumerate}[{VP2}.1]
-		\item Viewpoint
+		\item Customers
 			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
+				\item[S1] System asks customer to authenticate themselves
+           			\item[E1] Customer completes authentication process
+				\item[S2] System displays all fields (full name, username, email, phone number, riding/social preferences) of user profile
+				\begin{enumerate}
+					\item[E2.1] Customer edits desired fields
+					\item[E2.2] Customer saves edits, given that all mandatory fields are filled
+				\end{enumerate}
+				\item[S3] System updates user profile
 			\end{enumerate}
-		\item Viewpoint
+		\item Taxi company
 			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
+				\item[S1] System sends updated user data to taxi company
+				\item[E1] Taxi company logs updated information in their database
 			\end{enumerate}
-		\item \dots
+		\item Taxi drivers
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item Investors
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item Legal
+			\begin{enumerate}
+				\item[S1] System securely stores user data to comply with GDPR privacy
+			\end{enumerate}
+		\item[Global] Scenario for BE2
+			\begin{enumerate}
+				\item[S1] System asks customer to authenticate themselves
+           			\item[E1] Customer completes authentication process
+				\item[S2] System displays all fields (full name, username, email, phone number, riding/social preferences) of user profile
+				\begin{enumerate}
+					\item[E2.1] Customer edits desired fields
+					\item[E2.2] Customer saves edits, given that all mandatory fields are filled
+				\end{enumerate}
+				\item[S3] System updates user profile
+				\begin{enumerate}
+					\item[S3.1] System sends updated user data to taxi company
+					\item[E3.1] Taxi company logs updated information in their database
+					\item[S3.2] System securely stores user data to comply with GDPR privacy
+				\end{enumerate}
+			\end{enumerate}
+	\end{enumerate}
+	\item Taxi carpool is requested
+	\begin{enumerate}[{VP3}.1]
+		\item Customers
+			\begin{enumerate}
+				\item[S1] System asks customers to input their destination
+				\item[E1] Customer inputs destination
+				\item[S2] System allows customers to sort carpools by search criteria (nearest cab, highest rating, friends first, number of people in carpool)
+				\item[E2] Customer selects taxi to send their carpool request to
+				\begin{enumerate}
+					\item[S3.1] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
+					\item[S3.2] Customers notified if request is accepted
+				\end{enumerate}
+				\item[E3] Customers can track location of designated cab
+			\end{enumerate}
+		\item Taxi company
+			\begin{enumerate}
+				\item[S1] System notifies taxi company of new carpool
+				\item[E1] Taxi company computes estimated payment split (i.e. based on their fares)
+			\end{enumerate}
+		\item Taxi drivers
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item Investors
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item Legal
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item[Global] Scenario for BE3
+			\begin{enumerate}
+				\item[S1] System asks customers to input their destination
+				\item[E1] Customer inputs destination
+				\item[S2] System notifies taxi company of new carpool
+				\item[E2] Taxi company computes estimated payment split (i.e. based on their fares)
+				\item[S3] System allows customers to sort carpools by search criteria (nearest cab, highest rating, friends first, number of people in carpool)
+				\item[E3] Customer selects taxi to send their carpool request to
+				\begin{enumerate}
+					\item[S3.1] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
+					\item[S3.2] Customers notified if request is accepted
+				\end{enumerate}
+				\item[E4] Customers can track location of designated cab
+			\end{enumerate}
+	\end{enumerate}
+	\item Taxi carpool is offered
+	\begin{enumerate}[{VP4}.1]
+		\item Customers
+			\begin{enumerate}
+				\item[S1] System asks customers to scan QR code
+				\item[E1] Customer scans QR code
+				\item[S2] System asks customer to input destination, taxi ID, maximum number of customers to share with, and ride preferences
+				\item[E2] Customer inputs destination, taxi ID, maximum number of customers to share with, and ride preferences
+				\item[S3] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
+				\begin{enumerate}
+					\item[E3.1] Customer accepts match
+					\item[E3.2] Customer rejects match, return to S3
+					\item[E3.3] Customer aborts offer mode
+				\end{enumerate}
+				\item[S4] System matches users
+			\end{enumerate}
+		\item Taxi company
+			\begin{enumerate}
+				\item[S1] New offer sent to dispatcher
+				\item[E1] Dispatcher stores offer in pool of live offers
+			\end{enumerate}
+		\item Taxi drivers
+			\begin{enumerate}
+				\item[S1] Driver is given pick-up location and directions (i.e. detour) for new customer in carpool
+				\item[E1] Driver follows directions of detour to pick-up carpooler
+				\item[S2] Once detour is complete and carpooler is in the taxi, system displays original destination with updated directions
+			\end{enumerate}
+		\item Investors
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item Legal
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item[Global] Scenario for BE4
+			\begin{enumerate}
+				\item[S1] New offer sent to dispatcher
+				\item[E1] Dispatcher stores offer in pool of live offers
+				\item[S2] System asks customers to scan QR code
+				\item[E2] Customer scans QR code
+				\item[S3] System asks customer to input destination, taxi ID, maximum number of customers to share with, and ride preferences
+				\item[E3] Customer inputs destination, taxi ID, maximum number of customers to share with, and ride preferences
+				\item[S4] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
+				\begin{enumerate}
+					\item[E4.1] Customer accepts match
+					\item[S4.1.1] Driver is given pick-up location and directions (i.e. detour) for new customer in carpool
+					\item[E4.1.1] Driver follows directions of detour to pick-up carpooler
+					\item[S4.1.2] Once detour is complete and carpooler is in the taxi, system displays original destination with updated directions
+				\end{enumerate}
+				\item[E4.2] Customer rejects match, return to S3
+				\item[E4.3] Customer aborts offer mode
+				\item[S5] System matches users
+			\end{enumerate}
+	\end{enumerate}
+	\item Taxi carpool arrives at destination
+	\begin{enumerate}[{VP5}.1]
+		\item Customers
+			\begin{enumerate}
+				\item[S1] System displays fare to each customer
+				\item[E1] Customer pay taxi driver
+				\item[S2] Once payment approved, system prompts customer to rate, out of 5 stars,  the other customers they shared a ride with, with an option to leave a review
+				\item[E2] Customers input rating and optional review
+				\item[S3] System stores rating and review in customers’ profile
+			\end{enumerate}
+		\item Taxi company
+			\begin{enumerate}
+				\item[E1] Drivers obtain payment from customers
+				\item[E2] Driver inputs that payment is complete
+			\end{enumerate}
+		\item Taxi drivers
+			\begin{enumerate}
+				\item[E1] Driver obtains payment from customers
+				\item[E2] Driver inputs into system that payment is complete
+				\item[S2] System logs end of carpool
+			\end{enumerate}
+		\item Investors
+			\begin{enumerate}
+				\item[S1] Every new 10 000 completed carpools, system sends notification to investors
+			\end{enumerate}
+		\item Legal
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item[Global] Scenario for BE5
+			\begin{enumerate}
+				\item[S1] System displays fare to each customer
+				\item[E1] Customer pay taxi driver
+				\begin{enumerate}
+					\item[E1.1] Drivers obtain payment from customers
+					\item[E1.2] Driver input that payment is complete
+				\end{enumerate}
+				\item[S2] Once payment approved, system prompts customer to rate, out of 5 stars,  the other customers they shared a ride with, with an option to leave a review
+				\item[E2] Customers input rating and optional review
+				\item[S3] System stores rating and review in customers’ profile
+				\item[S4] System logs end of carpool
+				\begin{enumerate}
+					\item[E4.1] Every new 10 000 completed carpools, system sends notification to investors
+				\end{enumerate}
+			\end{enumerate}
+	\end{enumerate}
+	\item User activates emergency button
+	\begin{enumerate}[{VP6}.1]
+		\item Customers
+			\begin{enumerate}
+				\item[S1] System runs procedure to ensure activation of emergency button is not accidental
+				\begin{enumerate}
+					\item[E1.1] Customer exits emergency mode
+					\item[S1.1] App is returned to normal home screen, end of business event
+					\item[E1.2] Customer responds to procedure, confirming that it is intentional
+				\end{enumerate}
+				\item[S2] Customer connected to 911 dispatcher
+				\item[E3] Customer completes call with 911 dispatcher
+				\item[S3] App remains in emergency mode, emergency call button easily accessible
+				\item[E4] Customer inputs that emergency has been dealt with
+				\item[S4] App is returned to normal home screen
+			\end{enumerate}
+		\item Taxi company
+			\begin{enumerate}
+				\item[S1] System shows that emergency activated in new taxi
+				\item[E1] Taxi company monitors emergency-activated taxis
+			\end{enumerate}
+		\item Taxi drivers
+			\begin{enumerate}
+				\item[E1.1] Taxi driver activates emergency mode
+				\begin{enumerate}
+					\item[S1.1] System connects taxi driver to 911 dispatcher
+					\item[E2.1] Call with 911 dispatcher complete
+					\item[S2.1] System remains in emergency mode
+					\item[E3.1] Driver notifies system that emergency is taken care of, branch to S3
+				\end{enumerate}
+				\item[E1.2] Customer notifies system of emergency
+				\begin{enumerate}
+					\item[S1.2] System is in emergency mode, driver can still see directions.
+					\item[E2.2] Emergency is taken care of, branch to S3
+				\end{enumerate}
+				\item[S3] System returns to normal mode
+			\end{enumerate}
+		\item Investors
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item Legal
+			\begin{enumerate}
+				\item[S1] System notifies local emergency services of emergency call
+				\item[E1] Emergency services connect app caller to emergency dispatcher
+				\item[S2] System sends taxi tracking information to emergency dispatcher
+
+			\end{enumerate}
+		\item[Global] Scenario for BE6
+			\begin{enumerate}
+				\item[S1] System runs procedure to ensure activation of emergency button is not accidental
+				\begin{enumerate}
+					\item[E1.1] Customer exits emergency mode
+					\item[S1.1] App is returned to normal home screen, end of business event
+					\item[E1.2] Customer responds to procedure, confirming that it is intentional
+				\end{enumerate}
+				\item[S2] Customer connected to 911 dispatcher
+				\begin{enumerate}
+					\item[S2.1] System notifies local emergency services of emergency call
+					\item[S2.2] System shows that emergency activated in new taxi
+					\item[E2.2] Taxi company monitors emergency-activated taxis
+				\end{enumerate}
+				\item[E3] Customer completes call with 911 dispatcher
+				\item[S3] App remains in emergency mode, emergency call button easily accessible
+				\item[E4] Customer inputs that emergency has been dealt with
+				\item[S4] App is returned to normal home screen
+				\item[S5] Taxi driver activates emergency mode
+				\begin{enumerate}
+					\item[S5.1] System connects taxi driver to 911 dispatcher
+					\item[E5.1] Call with 911 dispatcher complete
+					\item[S5.2] System remains in emergency mode
+					\item[E5.2] Driver notifies system that emergency is taken care of, branch to S3
+					\end{enumerate}
+				\item[E1.2] Customer notifies system of emergency
+				\begin{enumerate}
+					\item[S1.2] System is in emergency mode, driver can still see directions.
+					\item[E2.2] Emergency is taken care of, branch to S3
+				\end{enumerate}
+				\item[S3] System returns to normal mode
+			\end{enumerate}
+	\end{enumerate}
+	\item Carpoolers activate prompts
+	\begin{enumerate}[{VP7}.1]
+		\item Customers
+			\begin{enumerate}
+				\item[S1] Carpool has started
+				\item[E1] Customers indicate that they want to enter prompts mode
+				\item[S2] Random prompt is generated
+				\begin{enumerate}
+					\item[E2.1] Customers interact between each other based on prompt
+					\item[E2.2] Customers select new prompt, branch to S2
+					\item[E2.3] Customers exit prompt mode, branch to S3
+				\end{enumerate}
+				\item[S3] System returns to home screen
+			\end{enumerate}
+		\item Taxi company
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item Taxi drivers
+			\begin{enumerate}
+				\item[E1] Driver begins commute once new customer is seated in taxi
+				\item[S1] System registers that carpool has started
+			\end{enumerate}
+		\item Investors
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item Legal
+			\begin{enumerate}
+				\item[N/A]
+			\end{enumerate}
+		\item[Global] Scenario for BE7
+			\begin{enumerate}
+				\item[S1] Carpool has started
+				\item[E1] Driver begins commute once new customer is seated in taxi
+				\item[S2] System registers that carpool has started
+				\item[E2] Customers indicate that they want to enter prompts mode
+				\item[S3] Random prompt is generated
+				\begin{enumerate}
+					\item[E3.1] Customers interact between each other based on prompt
+					\item[E3.2] Customers select new prompt, branch to S2
+					\item[E3.3] Customers exit prompt mode, branch to S3
+				\end{enumerate}
+				\item[S4] System returns to home screen
+			\end{enumerate}
 	\end{enumerate}
 \end{enumerate}
 
-\underline{OR}, if you wish to organization by viewpoints:
-\begin{enumerate}[{VP}1.]
-	\item Viewpoint 
-	\begin{enumerate}[{BE1}.1]
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item \dots
-	\end{enumerate}
-	\item Viewpoint
-	\begin{enumerate}[{BE2}.1]
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item \dots
-	\end{enumerate}
-\end{enumerate}
 
 % End Section
 
