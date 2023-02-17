@@ -29,9 +29,9 @@
 
 % Title Details
 %------------------------------------------------------------------------------
-\title{Deliverable \#1 Template}
+\title{Deliverable \#1 Software Requirement Specification (SRS)}
 \author{SE 3A04: Software Design II -- Large System Design}
-\date{}                               
+\date{}                              
 %------------------------------------------------------------------------------
 
 % Document
@@ -39,17 +39,26 @@
 \begin{document}
 
 \maketitle	
+\noindent{\bf Tutorial Number:} T01\\
+{\bf Group Number:} G6 \\
+{\bf Group Members:} 
+\begin{itemize}
+	\item Jane Klavir
+	\item Nathan Luong
+	\item Areez Visram
+	\item Jennifer Ye
+\end{itemize}
 
 \section{Introduction}
 \label{sec:introduction}
 % Begin Section
 
-The following document is dedicated to showcasing the requirements of the taxi carpool app requested by a local taxi company. The app is dedicated to make rides cheaper and more convenient for their riders. This app is also meant to be a long-term project for the company, meaning this SRS is a living document which has the possibility of changing in the future. This document will explain the important stakeholders involved, requirements and viewpoints of each while also explaining the main functions of the app.
+The following document is dedicated to showcasing the requirements of the taxi carpool app requested by a local taxi company. The app is dedicated to make rides cheaper and more convenient for their riders. This app is also meant to be a long-term project for the company, meaning this \textbf{SRS} is a living document which has the possibility of changing in the future. This document will explain the important stakeholders involved, requirements and viewpoints of each while also explaining the main functions of the app.
 
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-This SRS is meant for developers, stakeholders and direct players in the planning and development of the app and should be understandable for all those involved. This SRS will further break down the functionalities, constraints, use cases and overall design of the project in further detail. 
+This \textbf{SRS} is meant for developers, stakeholders and direct players in the planning and development of the app and should be understandable for all those involved. This \textbf{SRS} will further break down the functionalities, constraints, use cases and overall design of the project in further detail. 
 
 % End SubSection
 
@@ -72,7 +81,8 @@ BE: Business Event is something that occurs between the client/stakeholder and t
 \newline \newline
 SRS: Software Requirements Specification is a document that explains the requirements of the software being developed.
 \newline \newline
-VP: Viewpoint, often in reference to a stakeholder/client interested in the system and how they view the business event.
+VP: Viewpoint, often in reference to a stakeholder/client interested in the system and how they view the business event. \\
+CF: Creative Feature, an indication to one of the creative/innovative features
 % End SubSection
 
 \subsection{References}
@@ -90,7 +100,7 @@ VP: Viewpoint, often in reference to a stakeholder/client interested in the syst
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-This SRS is structured to first give background information about the app. This will include how the app will interface with the taxi companies, along with the general functionalities and assumptions that are being made. The document will then follow with showcasing one of the main business events and its related use cases. This will explain how the main function will work across different scenarios and stakeholders in a visual manner. This will be further expanded upon in more detail throughout the document. It will include more business events with a variety of viewpoints and scenarios for both the function shown in the use case diagram and other main function of the project. This document will conclude by explaining the non-functional requirements involving presentation, performance, usability, security, and maintainability notes of the project.
+This \textbf{SRS} is structured to first give background information about the app. This will include how the app will interface with the taxi companies, along with the general functionalities and assumptions that are being made. The document will then follow with showcasing one of the main business events and its related use cases. This will explain how the main function will work across different scenarios and stakeholders in a visual manner. This will be further expanded upon in more detail throughout the document. It will include more business events with a variety of viewpoints and scenarios for both the function shown in the use case diagram and other main function of the project. This document will conclude by explaining the non-functional requirements involving presentation, performance, usability, security, and maintainability notes of the project.
 % End SubSection
 
 % End Section
@@ -98,12 +108,6 @@ This SRS is structured to first give background information about the app. This 
 \section{Overall Description}
 \label{sec:overall_description}
 % Begin Section
-
-\begin{itemize}
-	\item This section of the SRS should describe the general factors that affect the product and its requirements. 
-	\item It does not state specific requirements.
-	\item It provides a \emph{background} for those requirements and makes them easier to understand.
-\end{itemize}
 
 
 \subsection{Product Perspective}
@@ -735,6 +739,20 @@ Not applicable.
 \label{sec:division_of_labour}
 % Begin Section
 Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
+% End Section
+
+\section{Creative Features}
+\label{sec:creative_features}
+% Begin Section
+Below is a list of creative/innovative features that were brainstormed by the team. The features that were ultimately chosen for implementation are bolded.
+\begin{itemize}
+	\item Friends (preferred to carpool with friends)
+	\item Pre-book (pre book carpools with others for big events)
+	\item \textbf{Prompts + social games in the car (add preferences on what kind of level of socialness you want)} 
+	\item \textbf{Emergency button}
+	\item In app payments (integrate with PSP's) 
+
+\end{itemize}
 % End Section
 
 \newpage
