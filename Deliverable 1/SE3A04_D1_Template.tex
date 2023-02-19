@@ -650,9 +650,9 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{ssub:style_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LF-S}1. ]
-	\item The app must have an attractive, responsive UI \\
-	{\bf Rationale:} Users are more likely to use and come back to attractive, responsive mobile apps which helps increase the user base and branding power of the app (Johns, 2022). 
-	\item The app must have a minimalist design \\
+	\item The app must have a UI that is clear (makes important information obvious), consistent, aesthetically pleasing \\
+	{\bf Rationale:} Users are more likely to use and come back to mobile apps which have UIs that are clear, consistent and simple. This helps increase the user base and branding power of the app (Johns, 2022). 
+	\item The app must have a simple, easy on the eyes, minimalist (not overflown with UI elements) design \\
 	{\bf Rationale:} Minimalist designed mobile applications have faster loading times, easier navigation within the app, less maintenance and time spent on design/frontend and allow businesses to more clearly give messages to users within the application (UGEM, 2020).
 \end{enumerate}
 % End SubSubSection
@@ -667,7 +667,7 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{ssub:ease_of_use_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-EOU}1. ]
-	\item The product must be easy to use for people aged 18 years or older \\
+	\item The product must be easy to use for people aged 18 years or older, meaning the users can just straight into using the app with minimal to no training \\
 	{\bf Rationale:} The intended audience of this application is adults who need to carpool, so anyone 18 or older must find the app easy to understand and use. People under this age may use the app but most likely their rides would be booked by parents/guardians, so the focus is on this age range.
 	\item The user must not encounter any unclear prompts from which they do not know how to proceed \\
 	{\bf Rationale:} If the app is prompting the user to do something, that prompt must be clear and easy to understand so it is easy for the user to use the app.
@@ -691,7 +691,7 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{ssub:learning_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-L}1. ]
-	\item The product must be able to be used immediately, with no learning curve required to learn how to effectively use the app. \\
+	\item The product must be able to be used immediately without any training, with no learning curve required to learn how to effectively use the app. \\
 	{\bf Rationale:} Mobile apps designed for general users should have no learning curve. Upon using the app for the first time, the app should be designed in such a way that the user immediately knows how to use it. If users take a while to learn how to effectively use the app, they will not come back to it.
 \end{enumerate}
 % End SubSubSection
@@ -700,7 +700,7 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-UP}1. ]
-	\item The product must use symbols and language that are naturally understandable to the general Canadian population \\
+	\item The product must use language that any user of the app can understand clearly without having to try and interpret its meaning.  \\
 	{\bf Rationale:} The app is aimed to be used by anyone in Canada, so the symbols and language used must be understandable by the general Canadian population. Using symbols and language or slang that is specific to a certain group or culture would make the app hard to understand for some of the target users.
 \end{enumerate}
 % End SubSubSection
@@ -709,11 +709,11 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-A}1. ]
-	\item The product must be able to be used by partially sighted users \\
+	\item The product must be able to be used by partially sighted users by providing text-to-speech and voice activation for all features of the app. \\
 	{\bf Rationale:} A successful mobile app should be accessible to all users, no matter what physical impairments they may face. The app should allow partially sighted or blind users to use the app through their voice or some other means that does not require them to be fully sighted.
-	\item The product must provide captions or symbols for audio content to allow users with hearing impairments to access that content. \\
+	\item The product must provide captions for audio content to allow users with hearing impairments to access that content. \\
 	{\bf Rationale:} A successful mobile app should be accessible to all users, no matter what physical impairments they may face. The app should allow users with hearing impairments to still access any audio content within the app through captions, symbols or some other visual means so they are still able to access the content.
-	\item The product must conform to the WCAG (Web Content Accessibility Guidelines) 2.0 Level AA 
+	\item The product must conform to the WCAG (Web Content Accessibility Guidelines) 2.0 Level AA, meaning all content must be perceivable, operable, understandable and robust for all users.
 	{\bf Rationale:} The WCAG are a global standard on the accessibility of web based applications. In Ontario, all private organizations with 50 or more employees are required to be WCAG 2.0 AA accessible (Yee). Our company is not yet 50+ people but the hope is to one day get there, so implementing these accessibility features now makes for a smoother transition when the company expands.
 \end{enumerate}
 % End SubSubSection
@@ -737,7 +737,7 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{ssub:safety_critical_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SC}1. ]
-	\item All taxi services, drivers and other carpoolers will go through a safety check before being allowed to offer rides or join carpools on the app \\
+	\item All taxi services, drivers and other carpoolers will go through an external (out of app) safety check before being allowed to offer rides or join carpools on the app. \\
 	{\bf Rationale:} Our app connects users with random members of the public, whether that be taxi drivers or fellow carpoolers. To ensure the safety of all users of the app, all drivers and carpoolers will have to go through a safety verification process to verify their intentions and ensure that the safety of the riders is guaranteed.
 \end{enumerate}
 % End SubSubSection
@@ -759,12 +759,12 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RA}1. ]
-	\item The product must be available for use 24 hours per day, 365 days per year \\
-	{\bf Rationale:} An app that allows users to book carpool rides should be available 24/7, 365 days a year because users should be able to book a carpool at any time of the day on any day of the year.
+	\item The product must be available for use 24 hours per day, but will be unavailable for 5 hours a month for maintenance. The downtime will be in the middle of the night when the user activity is the lowest. \\
+	{\bf Rationale:} An app that allows users to book carpool rides should be available 24/7 because users should be able to book a carpool at any time of the day on any day of the year. However, it is unrealistic that the app will be available 24/7, so there will be chosen periods of downtime that affect as little of the user base as possible.
 	\item The product must perform without failure in 98\% of use cases \\
-	{\bf Rationale:} Failures are expected to occur in any software application, but if the app performs without failure for the majority of uses then it can be deemed to be a reliable application that only fails on the rare occasion
-	\item The mean time to restore the product following a failure must not be greater than 10 minutes \\
-	{\bf Rationale:} When the product does fail, it should recover and become usable again within 10 minutes max, otherwise users will begin to question the reliability and usage of the app.
+	{\bf Rationale:} Failures are expected to occur in any software application, but if the app performs without failure for the majority of uses then it can be deemed to be a reliable application that only fails on the rare occasion. 98\% is chosen because given the expected size of user base the app projects to have, a 98\% failure rate would mean very few failures for a large set of users.
+	\item The mean time to restore the product following a failure must not be greater than 10 minutes unless a malicious attack occurs, in which case the app will stay unavailable until the threat has been completely removed. \\
+	{\bf Rationale:} When the product does fail, it should recover and become usable again within 10 minutes max, otherwise users will begin to question the reliability and usage of the app. If an attack causes the app to go down, 10 minute recovery time is unattainable, so the app will only be restored once the threat has been completely removed.
 \end{enumerate}
 % End SubSubSection
 
@@ -772,8 +772,8 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{ssub:robustness_or_fault_tolerance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RFT}1. ]
-	\item The product must continue to be usable if external services it relies on go down.\\
-	{\bf Rationale:} The app will rely on some external third party services, and it needs to be tolerant to faults in those systems. For example, if the app interfaces with an API from the taxi service and that API goes down, the app needs to continue to be usable. If an AWS region goes down and the app uses AWS cloud services, it must change to another region to ensure it continues to be usable.
+	\item The product must continue to be usable if external services it relies on go down, barring the Internet/cell tower failures.\\
+	{\bf Rationale:} The app will rely on some external third party services, and it needs to be tolerant to faults in those systems. For example, if the app interfaces with an API from the taxi service and that API goes down, the app needs to continue to be usable. If an AWS region goes down and the app uses AWS cloud services, it must change to another region to ensure it continues to be usable. However if the Internet or cell towers go down, this is out of our control and the app will not be able to be used.
 \end{enumerate}
 % End SubSubSection
 
@@ -790,7 +790,7 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SE}1. ]
-	\item The product must be able to handle any increases to the number of concurrent users \\
+	\item The product must be able to handle increases to the number of concurrent users \\
 	{\bf Rationale:} In a previous requirement it was defined that the product should be able to handle 10000 concurrent users. Once the app scales, it should be able to handle increases to this value. Popular ride sharing app Uber serves millions of concurrent requests, so this app should be able to scale to these values as well.
 \end{enumerate}
 % End SubSubSection
@@ -798,7 +798,7 @@ This \textbf{SRS} is structured to first give background information about the a
 \subsubsection{Longevity Requirements}
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
-	Not applicable
+	Not applicable.
 % End SubSubSection
 
 % End SubSection
@@ -810,26 +810,20 @@ This \textbf{SRS} is structured to first give background information about the a
 \subsubsection{Expected Physical Environment}
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
-\begin{enumerate}[{OE-EPE}1. ]
-	\item The product must be able to be used on a mobile application in any physical environment \\
-	{\bf Rationale:} The physical environment the user is in while using the app (weather, temperature, time of day) should not affect the ability to use the app whatsoever.
-\end{enumerate}
+Not applicable.
 % End SubSubSection
 
 \subsubsection{Requirements for Interfacing with Adjacent Systems}
 \label{ssub:requirements_for_interfacing_with_adjacent_systems}
 % Begin SubSubSection
-\begin{enumerate}[{OE-IA}1. ]
-	\item The product must only interface with adjacent systems that it absolutely needs to \\
-	{\bf Rationale:} The more adjacent systems that the app interfaces, the more maintenance that is needed to support all of the adjacent systems. The more of the system built in-house the better, we should only interface with adjacent systems that we absolutely have to.
-\end{enumerate}
+Not applicable.
 % End SubSubSection
 
 \subsubsection{Productization Requirements}
 \label{ssub:productization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE-P}1. ]
-	\item The product must be distributed as a mobile application \\
+	\item The product must be distributed as an Android mobile application \\
 	{\bf Rationale:} The product being developed is a mobile app, therefore it should only be distributed as a mobile app and nothing else.
 \end{enumerate}
 % End SubSubSection
@@ -853,7 +847,7 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS-M}1. ]
-	\item The product must be designed in a maintainable way such that future changes are able to be easily added or removed \\
+	\item The product must be designed in a maintainable way by following the open-closed principle and strong object-oriented techniques. It will be designed in such that future changes are able to be easily added or removed (small changes take less than a week to implement) \\
 	{\bf Rationale:} Writing maintainable software allows for quicker implementation and debugging. Iterations of the product will be able to be released faster if maintainable code and design principles are followed.
 \end{enumerate}
 % End SubSubSection
@@ -868,7 +862,7 @@ Not applicable.
 \label{ssub:adaptability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS-A}1. ]
-	\item The product must be able to run on Android mobile devices. \\
+	\item The product must be able to run on all versions of all Android mobile devices. \\
 	{\bf Rationale:} Android makes up 69.74\% of the mobile device market (statcounter). The product being built is a mobile application, so in order for the large majority of mobile device users to use the app, it must run on and Android. Furthermore, we are developing in Java which will only run on Android.
 \end{enumerate}
 % End SubSubSection
@@ -883,9 +877,9 @@ Not applicable.
 \label{ssub:access_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-AC}1. ]
-	\item General users of the application must not have access to sensitive information \\
+	\item General users of the application must not have access to identifying and private information of users that would allow them to be identified or hacked. \\
 	{\bf Rationale:} The app is designed to be used by any member of the general public, members of the general public should not have access to private or sensitive information about other users or about the taxi services 
-	\item Special users who are administrators and work for the company are the only users who have access to sensitive user information \\
+	\item Special users who are administrators and work for the company are the only users who have read-only access to sensitive user information \\
 	{\bf Rationale:} For testing, debugging and management purposes, users with higher access to sensitive data are needed. The users with this access are only people who are trusted who work for the company in an authoritative, high-ranking position.
 \end{enumerate}
 % End SubSubSection
@@ -894,10 +888,8 @@ Not applicable.
 \label{ssub:integrity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-INT}1. ]
-	\item The system must be secure against outside threats that look to access/change the data \\
+	\item The system must not be able to be infiltrated by outside threats that look to access/change the data by having security measures such as encryption and proper authentication. \\
 	{\bf Rationale:} All software systems come with the threat of external hackers. We must ensure that the system is secure and cannot be hacked, otherwise data can be changed and it will no longer be consistent, violating data integrity 
-	\item All data input into the database will be automated where possible \\
-	{\bf Rationale:} A big cause of data inconsistency in software applications is manual input. It is much easier for a human to make a mistake while manually inputting data than it is for an automated process to input data to the database. To maintain integrity of the data, the system should eliminate the risk of manual data input mistakes as much as possible.
 \end{enumerate}
 % End SubSubSection
 
@@ -905,10 +897,10 @@ Not applicable.
 \label{ssub:privacy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-P}1. ]
-	\item The product must notify the user whenever they are required to enter private information \\
+	\item The product must make the user aware that they are entering private information whenever they must so the user can make an informed decision on whether they want to include that information. \\
 	{\bf Rationale:} The user should be aware whenever they are entering personal or private information so they can make an informed decision on whether they want to enter that information.
 	\item The product must guarantee that all private information is kept secure \\
-	{\bf Rationale:} Any private information from the user such as their password, address and other sensitive information should be secured through verified security measures, hashing, locking, whatever needs to be used to guarantee data privacy.
+	{\bf Rationale:} Any private information from the user such as their password, address and other sensitive information should be secured through verified security measures, hashing, locking, encryption and authentication.
 \end{enumerate}
 % End SubSubSection
 
@@ -916,7 +908,7 @@ Not applicable.
 \label{ssub:audit_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-AU}1. ]
-	\item All releases of the product must conform to the guidelines of the Android mobile app store \\
+	\item All releases of the product must conform to the guidelines of the Android mobile app store (found here: https://play.google.com/about/developer-content-policy/) \\
 	{\bf Rationale:} Whenever an app is released to the app store, whether brand new or an updated release, it must go through the app store's review process. Audits must be done within the company before the app is released to ensure the app passes all guidelines.
 \end{enumerate}
 % End SubSubSection
@@ -925,7 +917,7 @@ Not applicable.
 \label{ssub:immunity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-IM}1. ]
-	\item The product must be immune to infection from unauthorized malicious attackers \\
+	\item The product must implement security measures such as encryption and authentication to make it immune to infection from unauthorized malicious attackers \\
 	{\bf Rationale:} There are many types of malware that can attack software, SQL injections, trojan horses, viruses. The system must be immune to infection from all of these, to ensure data privacy and security is maintained at all times.
 \end{enumerate}
 % End SubSubSection
@@ -964,7 +956,7 @@ Not applicable.
 \label{ssub:compliance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR-COMP}1. ]
-	\item The product must comply with the Data Protection Act \\
+	\item The product must comply with the Data Protection Act, meaning no user data should be visible nor accessible \\
 	{\bf Rationale:} Any Canadian product that deals with personal information from users. This app deals with lots of personal user information, so it must be implemented in a way that complies with the Data Protection Act
 \end{enumerate}
 % End SubSubSection
@@ -973,7 +965,7 @@ Not applicable.
 \label{ssub:standards_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR-STD}1. ]
-	\item The development and implementation of the product must conform to the IEEE and ISO standards \\
+	\item The development and implementation of the product must conform to the IEEE and ISO software development standards \\
 	{\bf Rationale:} Both the IEEE and ISO are well-defined, internationally acclaimed standards for engineering projects. The development of this product will follow the standards defined in IEEE and ISO to ensure consistency across the team.
 \end{enumerate}
 % End SubSubSection
