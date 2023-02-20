@@ -256,24 +256,27 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{sec:functional_requirements}
 % Begin Section
 
+Note: Requirements in blue are "extra" and can be ignored in initial design stages\\
+
 \begin{enumerate}[{\textbf{BE}}1.]
     \item Customer creates new user profile
     \begin{enumerate}[{\textbf{VP}1}.1]
         \item Customers
             \begin{enumerate}
-                \item[$S_1$] System asks for customer’s information (full name, email or phone number, username, password, riding/ social preferences)
-                \item[$E_1$] Customer must input their information in all mandatory fields (full name, email or phone number, username, password) and optional fields (riding/ social preferences) if they choose
+                \item[$S_1$] System asks for customer’s information
+                \item[$E_1$] Customer inputs their information
                 \begin{enumerate}
-                    \item[$S_{1.1}$] Username, email, and phone number must be unique
+                    \item[$S_{1.1}$] Certain information must be unique
                 \end{enumerate}
+\color{blue}
                 \item[$S_2$] System asks customer to verify email or phone number
                 \item[$E_2$] Customer verifies email or phone number
-                \item[$S_3$] System registers customer profile as user in system
+\color{black}
+                \item[$S_3$] System stores customer profile in database
             \end{enumerate}
         \item Taxi company
             \begin{enumerate}
-                \item[$S_1$] System sends new user data to taxi company
-                \item[$E_1$] Taxi company logs data in their database
+                \item[N/A]
             \end{enumerate}
         \item Taxi drivers
             \begin{enumerate}
@@ -281,7 +284,9 @@ This \textbf{SRS} is structured to first give background information about the a
             \end{enumerate}
         \item Investors
             \begin{enumerate}
+	       \color{blue}
                 \item[$S_1$] Every new 1000 sign-ups, system sends notification to investors
+                \color{black}
             \end{enumerate}
         \item Legal
             \begin{enumerate}
@@ -289,10 +294,10 @@ This \textbf{SRS} is structured to first give background information about the a
             \end{enumerate}
         \item[Global] Scenario for BE1
             \begin{enumerate}
-                \item[$S_1$] System asks for customer’s information (username, password, email or phone number, riding/social preferences)
-                \item[$E_1$] Customer must input their information in all mandatory fields (full name, username, email, password, phone number) and optional fields (riding/social preferences) if they choose
+                \item[$S_1$] System asks for customer’s information
+                \item[$E_1$] Customer inputs their information in all mandatory fields
                 \begin{enumerate}
-                \item[$E_{1.1}$] Username, email, and phone number must be unique
+                \item[$E_{1.1}$] Certain information must be unique
                 \end{enumerate}
                 \item[$S_2$] System asks customer to verify email or phone number
                 \item[$E_2$] Customer verifies email or phone number
@@ -300,8 +305,10 @@ This \textbf{SRS} is structured to first give background information about the a
                 \begin{enumerate}
                 \item[$S_{3.1}$] System sends new user data to taxi company
                 \item[$E_{3.1}$] Taxi company logs data in their database
-                \item[$S_{3.2}$] Every new 1000 sign-ups, system sends notification to investors
-                \item[$S_{3.3}$] System securely stores user data to comply with GDPR privacy
+                \item[$S_{3.2}$] System securely stores user data to comply with GDPR privacy
+\color{blue}
+                \item[$S_{3.3}$] Every new 1000 sign-ups, system sends notification to investors
+\color{black}
                 \end{enumerate}
             \end{enumerate}
     \end{enumerate}
@@ -311,17 +318,16 @@ This \textbf{SRS} is structured to first give background information about the a
             \begin{enumerate}
                 \item[$S_1$] System asks customer to authenticate themselves
                     \item[$E_1$] Customer completes authentication process
-                \item[S2] System displays all fields (full name, username, email, phone number, riding/social preferences) of user profile
+                \item[S2] System displays user profile
                 \begin{enumerate}
-                    \item[$E_{2.1}$] Customer edits desired fields
-                    \item[$E_{2.2}$] Customer saves edits, given that all mandatory fields are filled
+                    \item[$E_{2.1}$] Customer edits information
+                    \item[$E_{2.2}$] Customer saves edits, given that all mandatory information is entered
                 \end{enumerate}
-                \item[$S_3$] System updates user profile
+                \item[$S_3$] System saves user profile
             \end{enumerate}
         \item Taxi company
             \begin{enumerate}
-                \item[$S_1$] System sends updated user data to taxi company
-                \item[$E_1$] Taxi company logs updated information in their database
+                \item[N/A]
             \end{enumerate}
         \item Taxi drivers
             \begin{enumerate}
@@ -338,17 +344,15 @@ This \textbf{SRS} is structured to first give background information about the a
         \item[Global] Scenario for BE2
             \begin{enumerate}
                 \item[$S_1$] System asks customer to authenticate themselves
-                    \item[$E_{1.1}$] Customer completes authentication process
-                \item[$S_2$] System displays all fields (full name, username, email, phone number, riding/social preferences) of user profile
+                    \item[$E_1$] Customer completes authentication process
+                \item[$S_2$] System displays user profile
                 \begin{enumerate}
-                    \item[$E_{2.1}$] Customer edits desired fields
-                    \item[$E_{2.2}$] Customer saves edits, given that all mandatory fields are filled
+                    \item[$E_{2.1}$] Customer edits desired information
+                    \item[$E_{2.2}$] Customer saves edits, given that all mandatory information is entered
                 \end{enumerate}
-                \item[$S_3$] System updates user profile
+                \item[$S_3$] System saves user profile
                 \begin{enumerate}
-                    \item[$S_{3.1}$] System sends updated user data to taxi company
-                    \item[$E_{3.1}$] Taxi company logs updated information in their database
-                    \item[$S_{3.2}$] System securely stores user data to comply with GDPR privacy
+                    \item[$S_{3.1}$] System securely stores user data to comply with GDPR privacy
                 \end{enumerate}
             \end{enumerate}
     \end{enumerate}
@@ -356,20 +360,23 @@ This \textbf{SRS} is structured to first give background information about the a
     \begin{enumerate}[{VP3}.1]
         \item Customers
             \begin{enumerate}
-                \item[$S_1$] System asks customers to input their destination
+                \item[$S_1$] System asks customer to input their destination
                 \item[$E_1$] Customer inputs destination
-                \item[$S_2$] System allows customers to sort carpools by search criteria (nearest cab, highest rating, friends first, number of people in carpool)
-                \item[$E_2$] Customer selects taxi to send their carpool request to
+	     \item[$S_2$] System asks customers to enter search criteria
+	     \item[$E_2$] Customer inputs search criteria
+ 	     \item[$S_3$] System returns best matches
+                \item[$E_3$] Customer selects taxi to send their carpool request to
+\item[$S_{4.1}$] System sends customer's request to carpool offerer
                 \begin{enumerate}
-                    \item[$S_{3.1}$] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
-                    \item[$S_{3.2}$] Customers notified if request is accepted
+                    \item[$S_{4.2}$] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
+                    \item[$S_{4.3}$] Customers notified if request is accepted
                 \end{enumerate}
-                \item[$E_3$] Customers can track location of designated cab
+                \item[$E_4$] Customers can track location of designated cab
             \end{enumerate}
         \item Taxi company
             \begin{enumerate}
-                \item[$S_1$] System notifies taxi company of new carpool
-                \item[$E_1$] Taxi company computes estimated payment split (i.e. based on their fares)
+                \item[$S_1$] System computes estimated payment split based on taxi company's fares
+	        \item[$S_2$] System notifies taxi company of new carpool
             \end{enumerate}
         \item Taxi drivers
             \begin{enumerate}
@@ -387,32 +394,36 @@ This \textbf{SRS} is structured to first give background information about the a
             \begin{enumerate}
                 \item[$S_1$] System asks customers to input their destination
                 \item[$E_1$] Customer inputs destination
-                \item[$S_2$] System notifies taxi company of new carpool
-                \item[$E_2$] Taxi company computes estimated payment split (i.e. based on their fares)
-                \item[$S_3$] System allows customers to sort carpools by search criteria (nearest cab, highest rating, friends first, number of people in carpool)
-                \item[$E_3$] Customer selects taxi to send their carpool request to
+                \item[$S_{2.1}$] System computes estimated payment split based on taxi company's fares
+                \item[$S_{2.2}$] System asks cutomers to input search criteria
+                \item[$E_3$] Customer inputs search criteria
+	          \item[$S_4$] System returns best matches
+                \item[$E_4$] Customer selects taxi to send their carpool request to
+		    \item[$S_{5.1}$] System sends customer's request to carpool offerer
                 \begin{enumerate}
-                    \item[$S_{3.1}$] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
-                    \item[$S_{3.2}$] Customers notified if request is accepted
+                    \item[$S_{5.2}$] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
+                    \item[$S_{5.3}$] Customers notified if request is accepted
                 \end{enumerate}
-                \item[$E_4$] Customers can track location of designated cab
+                \item[$E_5$] Customers can track location of designated cab
             \end{enumerate}
     \end{enumerate}
     \item Taxi carpool is offered
     \begin{enumerate}[{VP4}.1]
         \item Customers
             \begin{enumerate}
-                \item[$S_1$] System asks customers to scan QR code
+                \item[$S_1$] System asks customer to scan QR code
                 \item[$E_1$] Customer scans QR code
-                \item[$S_2$] System asks customer to input destination, taxi ID, maximum number of customers to share with, and ride preferences
-                \item[$E_2$] Customer inputs destination, taxi ID, maximum number of customers to share with, and ride preferences
-                \item[$S_3$] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
+                \item[$S_2$] System asks customer to input offer information
+                \item[$E_2$] Customer inputs offer information
+                \item[$S_3$] System shows offer to other customers looking to join a taxi
+                \item[$E_3$] Customer looking to join a taxi requests to join carpool
+                \item[$S_4$] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
                 \begin{enumerate}
-                    \item[$E_{3.1}$] Customer accepts match
-                    \item[$E_{3.2}$] Customer rejects match, return to S3
-                    \item[$E_{3.3}$] Customer aborts offer mode
+                    \item[$E_{4.1}$] Customer accepts match
+                    \item[$E_{4.2}$] Customer rejects match, return to S3
+                    \item[$E_{4.3}$] Customer aborts offer mode
                 \end{enumerate}
-                \item[$S_4$] System matches users
+                \item[$S_4$] Offer is removed from list of active offers
             \end{enumerate}
         \item Taxi company
             \begin{enumerate}
@@ -437,20 +448,23 @@ This \textbf{SRS} is structured to first give background information about the a
             \begin{enumerate}
                 \item[$S_1$] New offer sent to dispatcher
                 \item[$E_1$] Dispatcher stores offer in pool of live offers
-                \item[$S_2$] System asks customers to scan QR code
+                \item[$S_2$] System asks customer to scan QR code
                 \item[$E_2$] Customer scans QR code
-                \item[$S_3$] System asks customer to input destination, taxi ID, maximum number of customers to share with, and ride preferences
-                \item[$E_3$] Customer inputs destination, taxi ID, maximum number of customers to share with, and ride preferences
-                \item[$S_4$] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
+                \item[$S_3$] System asks customer to input offer information
+                \item[$E_3$] Customer inputs offer information
+                \item[$S_4$] System shows offer to other customers looking to join a taxi
+                \item[$E_4$] Customer looking to join a taxi requests to join carpool
+                \item[$S_5$] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
                 \begin{enumerate}
-                    \item[$E_{4.1}$] Customer accepts match
-                    	\item[$S_{4.1.1}$] Driver is given pick-up location and directions (i.e. detour) for new customer in carpool
-                    	\item[$E_{4.1.1}$] Driver follows directions of detour to pick-up carpooler
-                    	\item[$S_{4.1.2}$] Once detour is complete and carpooler is in the taxi, system displays original destination with updated directions
-                \end{enumerate}
-                \item[$E_{4.2}$] Customer rejects match, return to S3
-                \item[$E_{4.3}$] Customer aborts offer mode
-                \item[$S_5$] System matches users
+                    \item[$E_{5.1}$] Customer accepts match
+                      \item[$S_{5_2}$] Offer is removed from list of active offers
+                    	\item[$S_{5.2.1}$] Driver is given pick-up location and directions (i.e. detour) for new customer in carpool
+                    	\item[$E_{5.2.1}$] Driver follows directions of detour to pick-up carpooler
+                    	\item[$S_{5.2.2}$] Once detour is complete and carpooler is in the taxi, system displays original destination with updated directions
+               
+                \item[$E_{5.2}$] Customer rejects match, return to S3
+                \item[$E_{5.3}$] Customer aborts offer mode
+                 \end{enumerate}
             \end{enumerate}
     \end{enumerate}
     \item Taxi carpool arrives at destination
@@ -458,10 +472,11 @@ This \textbf{SRS} is structured to first give background information about the a
         \item Customers
             \begin{enumerate}
                 \item[$S_1$] System displays fare to each customer
-                \item[$E_1$] Customer pay taxi driver
-                \item[$S_2$] Once payment approved, system prompts customer to rate, out of 5 stars,  the other customers they shared a ride with, with an option to leave a review
-                \item[$E_2$] Customers input rating and optional review
-                \item[$S_3$] System stores rating and review in customers’ profile
+                \item[$E_1$] Customer pays taxi driver [out of scope for system]
+		   \item[$S_2$] Driver inputs that payment is complete
+                \item[$S_3$] System prompts customer to rate the other customers they shared a ride with, with an option to leave a review
+                \item[$E_3$] Customers input rating and optional review
+                \item[$S_4$] System stores rating and review in customers’ profile
             \end{enumerate}
         \item Taxi company
             \begin{enumerate}
@@ -476,7 +491,9 @@ This \textbf{SRS} is structured to first give background information about the a
             \end{enumerate}
         \item Investors
             \begin{enumerate}
+		\color{blue}
                 \item[$S_1$] Every new 10 000 completed carpools, system sends notification to investors
+		\color{black}
             \end{enumerate}
         \item Legal
             \begin{enumerate}
@@ -485,114 +502,34 @@ This \textbf{SRS} is structured to first give background information about the a
         \item[Global] Scenario for BE5
             \begin{enumerate}
                 \item[$S_1$] System displays fare to each customer
-                \item[$E_1$] Customer pay taxi driver
+                \item[$E_1$] Customer pays taxi driver
                 \begin{enumerate}
-                    \item[$E_{1.1}$] Drivers obtain payment from customers
+                    \item[$E_{1.1}$] Drivers obtain payment from customers [out of scope for system]
                     \item[$E_{1.2}$] Driver input that payment is complete
                 \end{enumerate}
-                \item[$S_2$] Once payment approved, system prompts customer to rate, out of 5 stars,  the other customers they shared a ride with, with an option to leave a review
+                \item[$S_2$] Once payment approved, system prompts customer to rate the other customers they shared a ride with, with an option to leave a review
                 \item[$E_2$] Customers input rating and optional review
                 \item[$S_3$] System stores rating and review in customers’ profile
                 \item[$S_4$] System logs end of carpool
                 \begin{enumerate}
+			\color{blue}
                     \item[$E_{4.1}$] Every new 10 000 completed carpools, system sends notification to investors
+\color{black}
                 \end{enumerate}
             \end{enumerate}
     \end{enumerate}
-    \item User activates emergency button
+    \item Carpoolers activate conversation prompts
     \begin{enumerate}[{VP6}.1]
         \item Customers
             \begin{enumerate}
-                \item[$S_1$] System runs procedure to ensure activation of emergency button is not accidental
-                \begin{enumerate}
-                    \item[$E_{1.1}$] Customer exits emergency mode
-                    \item[$S_{1.1}$] App is returned to normal home screen, end of business event
-                    \item[$E_{1.2}$] Customer responds to procedure, confirming that it is intentional
-                \end{enumerate}
-                \item[$S_2$] Customer connected to 911 dispatcher
-                \item[$E_3$] Customer completes call with 911 dispatcher
-                \item[$S_3$] App remains in emergency mode, emergency call button easily accessible
-                \item[$E_4$] Customer inputs that emergency has been dealt with
-                \item[$S_4$] App is returned to normal home screen
-            \end{enumerate}
-        \item Taxi company
-            \begin{enumerate}
-                \item[$S_1$] System shows that emergency activated in new taxi
-                \item[$E_1$] Taxi company monitors emergency-activated taxis
-            \end{enumerate}
-        \item Taxi drivers
-            \begin{enumerate}
-                \item[$E_{1.1}$] Taxi driver activates emergency mode
-                \begin{enumerate}
-                    \item[$S_{1.1}$] System connects taxi driver to 911 dispatcher
-                    \item[$E_{2.1}$] Call with 911 dispatcher complete
-                    \item[$S_{2.1}$] System remains in emergency mode
-                    \item[$E_{3.1}$] Driver notifies system that emergency is taken care of, branch to S3
-                \end{enumerate}
-                \item[$E_{1.2}$] Customer notifies system of emergency
-                \begin{enumerate}
-                    \item[$S_{1.2}$] System is in emergency mode, driver can still see directions.
-                    \item[$E_{2.2}$] Emergency is taken care of, branch to S3
-                \end{enumerate}
-                \item[$S_3$] System returns to normal mode
-            \end{enumerate}
-        \item Investors
-            \begin{enumerate}
-                \item[N/A]
-            \end{enumerate}
-        \item Legal
-            \begin{enumerate}
-                \item[$S_1$] System notifies local emergency services of emergency call
-                \item[$E_1$] Emergency services connect app caller to emergency dispatcher
-                \item[$S_2$] System sends taxi tracking information to emergency dispatcher
-
-            \end{enumerate}
-        \item[Global] Scenario for BE6
-            \begin{enumerate}
-                \item[$S_1$] System runs procedure to ensure activation of emergency button is not accidental
-                \begin{enumerate}
-                    \item[$_{1.1}$] Customer exits emergency mode
-                    \item[$S_{1.1}$] App is returned to normal home screen, end of business event
-                    \item[$E_{1.2}$] Customer responds to procedure, confirming that it is intentional
-                \end{enumerate}
-                \item[$S_2$] Customer connected to 911 dispatcher
-                \begin{enumerate}
-                    \item[$S_{2.1}$] System notifies local emergency services of emergency call
-                    \item[$S_{2.2}$] System shows that emergency activated in new taxi
-                    \item[$E_{2.2}$] Taxi company monitors emergency-activated taxis
-                \end{enumerate}
-                \item[$E_3$] Customer completes call with 911 dispatcher
-                \item[$S_3$] App remains in emergency mode, emergency call button easily accessible
-                \item[$E_4$] Customer inputs that emergency has been dealt with
-                \item[$S_4$] App is returned to normal home screen
-                \item[$S_5$] Taxi driver activates emergency mode
-                \begin{enumerate}
-                    \item[$S_{5.1}$] System connects taxi driver to 911 dispatcher
-                    \item[$E_{5.1}$] Call with 911 dispatcher complete
-                    \item[$S_{5.2}$] System remains in emergency mode
-                    \item[$E_{5.2}$] Driver notifies system that emergency is taken care of, branch to S3
-                    \end{enumerate}
-                \item[$E_{1.2}$] Customer notifies system of emergency
-                \begin{enumerate}
-                    \item[$S_{1.2}$] System is in emergency mode, driver can still see directions.
-                    \item[$E_{2.2}$] Emergency is taken care of, branch to S3
-                \end{enumerate}
-                \item[$S_3$] System returns to normal mode
-            \end{enumerate}
-    \end{enumerate}
-    \item Carpoolers activate prompts
-    \begin{enumerate}[{VP7}.1]
-        \item Customers
-            \begin{enumerate}
-                \item[$S_1$] Carpool has started
+                \item[$S_1$] Precondition: Carpool has started
                 \item[$E_1$] Customers indicate that they want to enter prompts mode
                 \item[$S_2$] Random prompt is generated
                 \begin{enumerate}
                     \item[$E_{2.1}$] Customers interact between each other based on prompt
                     \item[$E_{2.2}$] Customers select new prompt, branch to S2
-                    \item[$E_{2.3}$] Customers exit prompt mode, branch to S3
+                    \item[$E_{2.3}$] Customers exit prompt mode
                 \end{enumerate}
-                \item[$S_3$] System returns to home screen
             \end{enumerate}
         \item Taxi company
             \begin{enumerate}
@@ -611,9 +548,9 @@ This \textbf{SRS} is structured to first give background information about the a
             \begin{enumerate}
                 \item[N/A]
             \end{enumerate}
-        \item[Global] Scenario for BE7
+        \item[Global] Scenario for BE6
             \begin{enumerate}
-                \item[$S_1$] Carpool has started
+                \item[$S_1$] Precondition: Carpool has started
                 \item[$E_1$] Driver begins commute once new customer is seated in taxi
                 \item[$S_2$] System registers that carpool has started
                 \item[$E_2$] Customers indicate that they want to enter prompts mode
@@ -621,9 +558,8 @@ This \textbf{SRS} is structured to first give background information about the a
                 \begin{enumerate}
                     \item[$E_{3.1}$] Customers interact between each other based on prompt
                     \item[$E_{3.2}$] Customers select new prompt, branch to S2
-                    \item[$E_{3.3}$] Customers exit prompt mode, branch to S3
+                    \item[$E_{3.3}$] Customers exit prompt mode
                 \end{enumerate}
-                \item[$S4$] System returns to home screen
             \end{enumerate}
     \end{enumerate}
 \end{enumerate}
