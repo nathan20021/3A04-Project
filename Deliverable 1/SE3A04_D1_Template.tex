@@ -12,6 +12,12 @@
 \usepackage{graphicx}
 \usepackage{extarrows}
 \usepackage{setspace}
+\usepackage{graphicx}
+\graphicspath{ {./asset/} }
+%\usepackage{extarrows}
+%\usepackage{setspace}
+%\usepackage{xcolor}
+\usepackage{color}
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -23,9 +29,9 @@
 
 % Title Details
 %------------------------------------------------------------------------------
-\title{Deliverable \#1 Template}
+\title{Deliverable \#1 Software Requirement Specification (SRS)}
 \author{SE 3A04: Software Design II -- Large System Design}
-\date{}                               
+\date{}                              
 %------------------------------------------------------------------------------
 
 % Document
@@ -33,58 +39,68 @@
 \begin{document}
 
 \maketitle	
+\noindent{\bf Tutorial Number:} T01\\
+{\bf Group Number:} G6 \\
+{\bf Group Members:} 
+\begin{itemize}
+	\item Jane Klavir
+	\item Nathan Luong
+	\item Areez Visram
+	\item Jennifer Ye
+\end{itemize}
 
 \section{Introduction}
 \label{sec:introduction}
 % Begin Section
 
-This section of the SRS should provide an overview of the entire SRS.
+The following document is dedicated to showcasing the requirements of the taxi carpool app requested by a local taxi company. The app is dedicated to make rides cheaper and more convenient for their riders. This app is also meant to be a long-term project for the company, meaning this \textbf{SRS} is a living document which has the possibility of changing in the future. This document will explain the important stakeholders involved, requirements and viewpoints of each while also explaining the main functions of the app.
 
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Delineate the purpose of the SRS
-	\item Specify the intended audience for the SRS
-\end{enumerate}
+This \textbf{SRS} is meant for developers, stakeholders and direct players in the planning and development of the app and should be understandable for all those involved. This \textbf{SRS} will further break down the functionalities, constraints, use cases and overall design of the project in further detail. 
+
 % End SubSection
 
 \subsection{Scope}
 \label{sub:scope}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Identify the software product(s) to be produced by name (e.g., Host DBMS, Report Generator, etc.)
-	\item Explain what the software product(s) will, and, if necessary, will not do
-	\item Describe the application of the software being specified, including relevant benefits, objectives, and goals
-	\item Be consistent with similar statements in higher-level specifications (e.g., the system requirements specification), if they exist
-\end{enumerate}
+To develop this project the production of the main taxi request and offer app called TaxiCarPool, the Conversation Prompt Generator and a variety of databases will have to be produced. There will not be a need to produce a payment system into the app as this will be handled by the taxi company payment systems. The project will only project the cost of the ride but will not handle the payments as it is not part of the app’s main functionality.
+\newline \newline
+The TaxiCarPool app will perform the main functions of the app. This will include allowing users to request a carpool taxi, receive a list of possible rides to select and allow current rides to allow carpooling in their car. This product’s objective is to perform the main functions of matchmaking users to a carpool to save money. 
+\newline \newline
+The Conversation Prompt Generator will randomly generate a conversation starter for the riders to use based on their profile. Their profile will specify if they want to use this feature and if so, what they are interested in. The generator will not be forced upon any of the users and can be switched off if desired. The goal of this product is to create a friendly environment when carpooling with others that one may not know. This function is mostly dedicated to benefit those who are carpooling to a further distance.
+\newline \newline
+The creation of a database will hold all the necessary information for the app to function, making it easily accessible and manageable. The information being stored can range from user information; name, email, phone number, to riding history, to preferences of taxi times, models, or other passengers. 
 % End SubSection
 
 \subsection{Definitions, Acronyms, and Abbreviations}
 \label{sub:definitions_acronyms_and_abbreviations}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Provide the definitions of all terms, acronyms, and abbreviations required to properly interpret the SRS
-\end{enumerate}
+BE: Business Event is something that occurs between the client/stakeholder and the system. 
+\newline \newline
+SRS: Software Requirements Specification is a document that explains the requirements of the software being developed.
+\newline \newline
+VP: Viewpoint, often in reference to a stakeholder/client interested in the system and how they view the business event. \\
+CF: Creative Feature, an indication to one of the creative/innovative features
 % End SubSection
 
 \subsection{References}
 \label{sub:references}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Provide a complete list of all documents referenced elsewhere in the SRS
-	\item Identify each document by title, report number (if applicable), date, and publishing organization
-	\item Specify the sources from which the references can be obtained
-\end{enumerate}
+\begin{itemize}
+	\item Johns, K. (2022, July 7). Why design is the most important factor in a mobile app development?: ISHIR- mobile application development company india. ISHIR. Retrieved February 11, 2023, from https://www.ishir.com/blog/9633/why-design-is-the-most-important-factor-in-a-mobile-app-development.htm 
+	\item Schoenfelder, N. (n.d.). What are good latency \& ping speeds? Graphical Network Monitoring and Troubleshooting. Retrieved February 11, 2023, from https://www.pingplotter.com/wisdom/article/is-my-connection-good 
+	\item statcounter. (n.d.). Mobile Operating System Market Share Worldwide. StatCounter Global Stats. Retrieved February 11, 2023, from https://gs.statcounter.com/os-market-share/mobile/worldwide 
+	\item UGEM. (2020, June 15). What are the core features of Minimalist app design? UGEM. Retrieved February 11, 2023, from https://ugem.design/blog/minimal-app-design 
+	\item Yee, J. (n.d.). Introduction to canadian digital accessibility laws. Accessibility.com: Empowering digital accessibility for businesses. Retrieved February 11, 2023, from https://www.accessibility.com/blog/introduction-to-canadian-digital-accessibility-laws 
+\end{itemize}
 % End SubSection
 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Describe what the rest of the SRS contains
-	\item Explain how the SRS is organized
-\end{enumerate}
+This \textbf{SRS} is structured to first give background information about the app. This will include how the app will interface with the taxi companies, along with the general functionalities and assumptions that are being made. The document will then follow with showcasing one of the main business events and its related use cases. This will explain how the main function will work across different scenarios and stakeholders in a visual manner. This will be further expanded upon in more detail throughout the document. It will include more business events with a variety of viewpoints and scenarios for both the function shown in the use case diagram and other main function of the project. This document will conclude by explaining the non-functional requirements involving presentation, performance, usability, security, and maintainability notes of the project.
 % End SubSection
 
 % End Section
@@ -93,60 +109,126 @@ This section of the SRS should provide an overview of the entire SRS.
 \label{sec:overall_description}
 % Begin Section
 
-This section of the SRS should describe the general factors that affect the product and its requirements. It does not state specific requirements; it provides a background for those requirements and makes them easier to understand.
 
 \subsection{Product Perspective}
 \label{sub:product_perspective}
 % Begin SubSection
+
 \begin{enumerate}[a)]
-	\item Put the product into perspective with other related products, i.e., context
-	\item If the product is independent and totally self-contained, it should be stated here
-	\item If the SRS defines a product that is a component of a larger system, as frequently occurs, then this subsection should relate the requirements of that larger system to functionality of the software and should identify interfaces between that system and the software
-	\item A block diagram showing the major components of the larger system, interconnections, and external interfaces can be helpful
+	\item The product being developed is an Android application which empowers the ability to book carpool via a user-friendly interface using a taxi company. The application will securely store customer personal information such as carpool request histories, and personal data inputted by the user. The product is not self-contained since its functionality depends heavily on the taxi service provider. There are several out-of-scope concerns such as: driver\textquotesingle s information input (profile, shift, locations, etc.) and payment processing.
+	\item The general interaction can be visualized as follows: 
+	\begin{center}
+		\includegraphics[scale=0.5]{app-context.png}
+	\end{center}
 \end{enumerate}
+
 % End SubSection
 
 \subsection{Product Functions}
 \label{sub:product_functions}
 % Begin SubSection
+	\begin{center}
+		\includegraphics[scale=0.5]{subsys-relationship.png}
+	\end{center}
+
 \begin{enumerate}[a)]
-	\item Provide a summary of the major functions that the software will perform.
+	\item The app will be able to book taxi.
+
 	\begin{itemize}
-		\item \textbf{Example}: An SRS for an accounting program may use this part to address customer account maintenance, customer statement, and invoice preparation without mentioning the vast amount of detail that each of those functions requires.
+		\item Able to communicate with taxi\textquotesingle s service API.
+		\item Able to handle and display taxi data correctly.	
 	\end{itemize}
-	\item Functions should be organized in a way that makes the list of functions understandable to the customer or to anyone else reading the document for the first time
-	\item Textual or graphical methods can be used to show the different functions and their relationships
+	\item The app be able to handle carpool scheduling and coordination.
 	\begin{itemize}
-		\item Such a diagram is not intended to show a design of a product, but simply shows the logical relationships among variables
-	\end{itemize} 
+		\item Able to plan the most optimal route and let the driver follow the calculated route.
+	\end{itemize}
+	\item The app be able to display the estimate time-of-arrival (ETA) of taxis.
+	\begin{itemize}
+		\item Able to calculate ETA in real-time
+	\end{itemize}
+	\item The app be able to input the taxi\textquotesingle s unique identifier via the mobile app.
 \end{enumerate}
+
 % End SubSection
 
 \subsection{User Characteristics}
 \label{sub:user_characteristics}
 % Begin SubSection
+
 \begin{enumerate}[a)]
-	\item Describe those general characteristics of the intended users of the product including educational level, experience, and technical expertise
-	\item Do not state specific requirements, but rather provide the reasons why certain specific requirements are later specified
+	\item Riders
+	\begin{itemize}
+		\item Riders are users who use the app to request car pool.
+		\item Riders can be anyone from any background of tech-expertise
+		\item Riders are expected to:
+		\begin{itemize}
+			\item Input personal information only a few times.
+			\item Have stable and highly available mobile internet connection.
+		\end{itemize}
+		
+		\item Riders might be interested one or more following characteristics of the app:
+		\begin{itemize}
+			\item User interface and experience of navigating the mobile app.
+			\item Realtime taxi information display (ETA, location, route, …)
+			\item Ease of taxi booking, and check-in.  
+		\end{itemize}
+	\end{itemize}
+	
+	\item Taxi Drivers
+	\begin{itemize}
+		\item Drivers are users who drive and operate taxis, fulfill carpool requests, and ensure the safety of the riders.
+		\item Drivers must be registered with the taxi service and from any background of tech-expertise.  
+		\item Drivers are expected to have stable and highly available mobile internet connection.
+		\item Drivers might be interested one or more following characteristics of the app:
+		\begin{itemize}
+			\item Accuracy display of real-time pick-up and drop-off information.
+			\item Accuracy of aggregating and storing of rides information (since it ties directly to their performance).
+			\item Accuracy display of user\textquotesingle s profile summarization.
+			\item User interface and experience of navigating the mobile app.
+			\item Ease of accepting/ rejecting rides.
+		\end{itemize}
+
+	\end{itemize}
+
 \end{enumerate}
+
 % End SubSection
 
 \subsection{Constraints}
 \label{sub:constraints}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item Provide a general description of any other items that will limit the developer's options
+	\item \textbf{Geographical}: The app can only operate on the land which the taxi service operate.
+	\item \textbf{Technological}: App must be integrated with softwares that the taxi service provider uses.
+	\item \textbf{Fare Determination}: Since the app does\textquotesingle t support payment processing directly, the fare has to be determined and processed through the taxi service provider.
+	\item \textbf{Data Privacy Regulation}: Data which transmits and stored within the app needs to be processed in a way which complies with the data protection act.
+
 \end{enumerate}
+
 % End SubSection
 
 \subsection{Assumptions and Dependencies}
 \label{sub:assumptions_and_dependencies}
 % Begin SubSection
+
+
 \begin{enumerate}[a)]
-	\item List each of the factors that affect the requirements stated in the SRS
-	\item These factors are not design constraints on the software but are, rather, any changes to them that can affect the requirements in the SRS
+	\item Assumptions
+
 	\begin{itemize}
-		\item \textbf{Example}: An assumption may be that a specific operating system will be available on the hardware designated for the software product. If, in fact, the operating system is not available, the SRS would then have to change accordingly.
+		\item Drivers information are provided by the taxi provider (driver profile and shift).
+		\item The taxi provider has dedicated API which provide real-time data on driver\textquotesingle s availability.
+		\item The taxi provider determines trip prices.
+		\item Payment processing is external and not under the scope of the application.
+
+	\end{itemize}
+
+	\item Many problems may occur when the following assumptions failed to hold:
+	\begin{itemize}
+		\item If trip prices are not determined by the taxi service provider, additional calculations must be performed to find fare fees after each trip.
+		\item If drivers data are stored and handled within the context of the app, additional mechanism must be provided for drivers to update their information. In addition, driver\textquotesingle s data storage must comply with the Canadian Data Protection Act. 
+
+
 	\end{itemize}
 \end{enumerate}
 % End SubSection
@@ -154,403 +236,338 @@ This section of the SRS should describe the general factors that affect the prod
 \subsection{Apportioning of Requirements}
 \label{sub:apportioning_of_requirements}
 % Begin SubSection
+
 \begin{enumerate}[a)]
-	\item Identify requirements that may be delayed until future versions of the system
+	\item \textbf{Technological}: Some specific technilogical requirements (Database type, Integration with taxi provider, etc...) have to be delayed untill the implementation phase.
+	\item Non-function Requiremens such as UI,UX, or performance can be finetuned when the app is being implemented or after release.
 \end{enumerate}
+
 % End SubSection
 
 % End Section
-
 \section{Use Case Diagram}
 \label{sec:use_case_diagram}
 % Begin Section
-This section should provide a use case diagram for your application. 
-\begin{enumerate}[a)]
-	\item Each use case appearing in the diagram should be accompanied by a text description. 
-\end{enumerate}
+\includegraphics[scale = 0.8]{Use_Case_Diagram.png}
 % End Section
 
+\newpage
 \section{Functional Requirements}
 \label{sec:functional_requirements}
 % Begin Section
 
-\begin{enumerate}[{BE}1.]
-	\item Customer creates new user profile
-	\begin{enumerate}[{VP1}.1]
-		\item Customers
-			\begin{enumerate}
-				\item[S1] System asks for customer’s information (full name, email or phone number, username, password, riding/ social preferences)
-				\item[E1] Customer must input their information in all mandatory fields (full name, email or phone number, username, password) and optional fields (riding/ social preferences) if they choose
-				\begin{enumerate}
-					\item[E1.1] Username, email, and phone number must be unique
-				\end{enumerate}
-				\item[S2] System asks customer to verify email or phone number
-				\item[E2] Customer verifies email or phone number
-				\item[S3] System registers customer profile as user in system
-			\end{enumerate}
-		\item Taxi company
-			\begin{enumerate}
-				\item[S1] System sends new user data to taxi company
-				\item[E1] Taxi company logs data in their database
-			\end{enumerate}
-		\item Taxi drivers
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item Investors
-			\begin{enumerate}
-				\item[S1] Every new 1000 sign-ups, system sends notification to investors
-			\end{enumerate}
-		\item Legal
-			\begin{enumerate}
-				\item[S1] System securely stores user data to comply with GDPR privacy
-			\end{enumerate}
-		\item[Global] Scenario for BE1
-			\begin{enumerate}
-				\item[S1] System asks for customer’s information (username, password, email or phone number, riding/social preferences)
-				\item[E1] Customer must input their information in all mandatory fields (full name, username, email, password, phone number) and optional fields (riding/social preferences) if they choose
-				\begin{enumerate}
-				\item[E1.1] Username, email, and phone number must be unique
-				\end{enumerate}
-				\item[S2] System asks customer to verify email or phone number
-				\item[E2] Customer verifies email or phone number
-				\item[S3] System registers customer profile as user in system
-				\begin{enumerate}
-				\item[S3.1] System sends new user data to taxi company
-				\item[E3.1] Taxi company logs data in their database
-				\item[S3.2] Every new 1000 sign-ups, system sends notification to investors
-				\item[S3.3] System securely stores user data to comply with GDPR privacy
-				\end{enumerate}
-			\end{enumerate}
-	\end{enumerate}
-	\item User edits their profile
-	\begin{enumerate}[{VP2}.1]
-		\item Customers
-			\begin{enumerate}
-				\item[S1] System asks customer to authenticate themselves
-           			\item[E1] Customer completes authentication process
-				\item[S2] System displays all fields (full name, username, email, phone number, riding/social preferences) of user profile
-				\begin{enumerate}
-					\item[E2.1] Customer edits desired fields
-					\item[E2.2] Customer saves edits, given that all mandatory fields are filled
-				\end{enumerate}
-				\item[S3] System updates user profile
-			\end{enumerate}
-		\item Taxi company
-			\begin{enumerate}
-				\item[S1] System sends updated user data to taxi company
-				\item[E1] Taxi company logs updated information in their database
-			\end{enumerate}
-		\item Taxi drivers
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item Investors
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item Legal
-			\begin{enumerate}
-				\item[S1] System securely stores user data to comply with GDPR privacy
-			\end{enumerate}
-		\item[Global] Scenario for BE2
-			\begin{enumerate}
-				\item[S1] System asks customer to authenticate themselves
-           			\item[E1] Customer completes authentication process
-				\item[S2] System displays all fields (full name, username, email, phone number, riding/social preferences) of user profile
-				\begin{enumerate}
-					\item[E2.1] Customer edits desired fields
-					\item[E2.2] Customer saves edits, given that all mandatory fields are filled
-				\end{enumerate}
-				\item[S3] System updates user profile
-				\begin{enumerate}
-					\item[S3.1] System sends updated user data to taxi company
-					\item[E3.1] Taxi company logs updated information in their database
-					\item[S3.2] System securely stores user data to comply with GDPR privacy
-				\end{enumerate}
-			\end{enumerate}
-	\end{enumerate}
-	\item Taxi carpool is requested
-	\begin{enumerate}[{VP3}.1]
-		\item Customers
-			\begin{enumerate}
-				\item[S1] System asks customers to input their destination
-				\item[E1] Customer inputs destination
-				\item[S2] System allows customers to sort carpools by search criteria (nearest cab, highest rating, friends first, number of people in carpool)
-				\item[E2] Customer selects taxi to send their carpool request to
-				\begin{enumerate}
-					\item[S3.1] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
-					\item[S3.2] Customers notified if request is accepted
-				\end{enumerate}
-				\item[E3] Customers can track location of designated cab
-			\end{enumerate}
-		\item Taxi company
-			\begin{enumerate}
-				\item[S1] System notifies taxi company of new carpool
-				\item[E1] Taxi company computes estimated payment split (i.e. based on their fares)
-			\end{enumerate}
-		\item Taxi drivers
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item Investors
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item Legal
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item[Global] Scenario for BE3
-			\begin{enumerate}
-				\item[S1] System asks customers to input their destination
-				\item[E1] Customer inputs destination
-				\item[S2] System notifies taxi company of new carpool
-				\item[E2] Taxi company computes estimated payment split (i.e. based on their fares)
-				\item[S3] System allows customers to sort carpools by search criteria (nearest cab, highest rating, friends first, number of people in carpool)
-				\item[E3] Customer selects taxi to send their carpool request to
-				\begin{enumerate}
-					\item[S3.1] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
-					\item[S3.2] Customers notified if request is accepted
-				\end{enumerate}
-				\item[E4] Customers can track location of designated cab
-			\end{enumerate}
-	\end{enumerate}
-	\item Taxi carpool is offered
-	\begin{enumerate}[{VP4}.1]
-		\item Customers
-			\begin{enumerate}
-				\item[S1] System asks customers to scan QR code
-				\item[E1] Customer scans QR code
-				\item[S2] System asks customer to input destination, taxi ID, maximum number of customers to share with, and ride preferences
-				\item[E2] Customer inputs destination, taxi ID, maximum number of customers to share with, and ride preferences
-				\item[S3] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
-				\begin{enumerate}
-					\item[E3.1] Customer accepts match
-					\item[E3.2] Customer rejects match, return to S3
-					\item[E3.3] Customer aborts offer mode
-				\end{enumerate}
-				\item[S4] System matches users
-			\end{enumerate}
-		\item Taxi company
-			\begin{enumerate}
-				\item[S1] New offer sent to dispatcher
-				\item[E1] Dispatcher stores offer in pool of live offers
-			\end{enumerate}
-		\item Taxi drivers
-			\begin{enumerate}
-				\item[S1] Driver is given pick-up location and directions (i.e. detour) for new customer in carpool
-				\item[E1] Driver follows directions of detour to pick-up carpooler
-				\item[S2] Once detour is complete and carpooler is in the taxi, system displays original destination with updated directions
-			\end{enumerate}
-		\item Investors
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item Legal
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item[Global] Scenario for BE4
-			\begin{enumerate}
-				\item[S1] New offer sent to dispatcher
-				\item[E1] Dispatcher stores offer in pool of live offers
-				\item[S2] System asks customers to scan QR code
-				\item[E2] Customer scans QR code
-				\item[S3] System asks customer to input destination, taxi ID, maximum number of customers to share with, and ride preferences
-				\item[E3] Customer inputs destination, taxi ID, maximum number of customers to share with, and ride preferences
-				\item[S4] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
-				\begin{enumerate}
-					\item[E4.1] Customer accepts match
-					\item[S4.1.1] Driver is given pick-up location and directions (i.e. detour) for new customer in carpool
-					\item[E4.1.1] Driver follows directions of detour to pick-up carpooler
-					\item[S4.1.2] Once detour is complete and carpooler is in the taxi, system displays original destination with updated directions
-				\end{enumerate}
-				\item[E4.2] Customer rejects match, return to S3
-				\item[E4.3] Customer aborts offer mode
-				\item[S5] System matches users
-			\end{enumerate}
-	\end{enumerate}
-	\item Taxi carpool arrives at destination
-	\begin{enumerate}[{VP5}.1]
-		\item Customers
-			\begin{enumerate}
-				\item[S1] System displays fare to each customer
-				\item[E1] Customer pay taxi driver
-				\item[S2] Once payment approved, system prompts customer to rate, out of 5 stars,  the other customers they shared a ride with, with an option to leave a review
-				\item[E2] Customers input rating and optional review
-				\item[S3] System stores rating and review in customers’ profile
-			\end{enumerate}
-		\item Taxi company
-			\begin{enumerate}
-				\item[E1] Drivers obtain payment from customers
-				\item[E2] Driver inputs that payment is complete
-			\end{enumerate}
-		\item Taxi drivers
-			\begin{enumerate}
-				\item[E1] Driver obtains payment from customers
-				\item[E2] Driver inputs into system that payment is complete
-				\item[S2] System logs end of carpool
-			\end{enumerate}
-		\item Investors
-			\begin{enumerate}
-				\item[S1] Every new 10 000 completed carpools, system sends notification to investors
-			\end{enumerate}
-		\item Legal
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item[Global] Scenario for BE5
-			\begin{enumerate}
-				\item[S1] System displays fare to each customer
-				\item[E1] Customer pay taxi driver
-				\begin{enumerate}
-					\item[E1.1] Drivers obtain payment from customers
-					\item[E1.2] Driver input that payment is complete
-				\end{enumerate}
-				\item[S2] Once payment approved, system prompts customer to rate, out of 5 stars,  the other customers they shared a ride with, with an option to leave a review
-				\item[E2] Customers input rating and optional review
-				\item[S3] System stores rating and review in customers’ profile
-				\item[S4] System logs end of carpool
-				\begin{enumerate}
-					\item[E4.1] Every new 10 000 completed carpools, system sends notification to investors
-				\end{enumerate}
-			\end{enumerate}
-	\end{enumerate}
-	\item User activates emergency button
-	\begin{enumerate}[{VP6}.1]
-		\item Customers
-			\begin{enumerate}
-				\item[S1] System runs procedure to ensure activation of emergency button is not accidental
-				\begin{enumerate}
-					\item[E1.1] Customer exits emergency mode
-					\item[S1.1] App is returned to normal home screen, end of business event
-					\item[E1.2] Customer responds to procedure, confirming that it is intentional
-				\end{enumerate}
-				\item[S2] Customer connected to 911 dispatcher
-				\item[E3] Customer completes call with 911 dispatcher
-				\item[S3] App remains in emergency mode, emergency call button easily accessible
-				\item[E4] Customer inputs that emergency has been dealt with
-				\item[S4] App is returned to normal home screen
-			\end{enumerate}
-		\item Taxi company
-			\begin{enumerate}
-				\item[S1] System shows that emergency activated in new taxi
-				\item[E1] Taxi company monitors emergency-activated taxis
-			\end{enumerate}
-		\item Taxi drivers
-			\begin{enumerate}
-				\item[E1.1] Taxi driver activates emergency mode
-				\begin{enumerate}
-					\item[S1.1] System connects taxi driver to 911 dispatcher
-					\item[E2.1] Call with 911 dispatcher complete
-					\item[S2.1] System remains in emergency mode
-					\item[E3.1] Driver notifies system that emergency is taken care of, branch to S3
-				\end{enumerate}
-				\item[E1.2] Customer notifies system of emergency
-				\begin{enumerate}
-					\item[S1.2] System is in emergency mode, driver can still see directions.
-					\item[E2.2] Emergency is taken care of, branch to S3
-				\end{enumerate}
-				\item[S3] System returns to normal mode
-			\end{enumerate}
-		\item Investors
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item Legal
-			\begin{enumerate}
-				\item[S1] System notifies local emergency services of emergency call
-				\item[E1] Emergency services connect app caller to emergency dispatcher
-				\item[S2] System sends taxi tracking information to emergency dispatcher
+Note: Requirements in blue are "extra" and can be ignored in initial design stages\\
 
-			\end{enumerate}
-		\item[Global] Scenario for BE6
-			\begin{enumerate}
-				\item[S1] System runs procedure to ensure activation of emergency button is not accidental
-				\begin{enumerate}
-					\item[E1.1] Customer exits emergency mode
-					\item[S1.1] App is returned to normal home screen, end of business event
-					\item[E1.2] Customer responds to procedure, confirming that it is intentional
-				\end{enumerate}
-				\item[S2] Customer connected to 911 dispatcher
-				\begin{enumerate}
-					\item[S2.1] System notifies local emergency services of emergency call
-					\item[S2.2] System shows that emergency activated in new taxi
-					\item[E2.2] Taxi company monitors emergency-activated taxis
-				\end{enumerate}
-				\item[E3] Customer completes call with 911 dispatcher
-				\item[S3] App remains in emergency mode, emergency call button easily accessible
-				\item[E4] Customer inputs that emergency has been dealt with
-				\item[S4] App is returned to normal home screen
-				\item[S5] Taxi driver activates emergency mode
-				\begin{enumerate}
-					\item[S5.1] System connects taxi driver to 911 dispatcher
-					\item[E5.1] Call with 911 dispatcher complete
-					\item[S5.2] System remains in emergency mode
-					\item[E5.2] Driver notifies system that emergency is taken care of, branch to S3
-					\end{enumerate}
-				\item[E1.2] Customer notifies system of emergency
-				\begin{enumerate}
-					\item[S1.2] System is in emergency mode, driver can still see directions.
-					\item[E2.2] Emergency is taken care of, branch to S3
-				\end{enumerate}
-				\item[S3] System returns to normal mode
-			\end{enumerate}
-	\end{enumerate}
-	\item Carpoolers activate prompts
-	\begin{enumerate}[{VP7}.1]
-		\item Customers
-			\begin{enumerate}
-				\item[S1] Carpool has started
-				\item[E1] Customers indicate that they want to enter prompts mode
-				\item[S2] Random prompt is generated
-				\begin{enumerate}
-					\item[E2.1] Customers interact between each other based on prompt
-					\item[E2.2] Customers select new prompt, branch to S2
-					\item[E2.3] Customers exit prompt mode, branch to S3
-				\end{enumerate}
-				\item[S3] System returns to home screen
-			\end{enumerate}
-		\item Taxi company
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item Taxi drivers
-			\begin{enumerate}
-				\item[E1] Driver begins commute once new customer is seated in taxi
-				\item[S1] System registers that carpool has started
-			\end{enumerate}
-		\item Investors
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item Legal
-			\begin{enumerate}
-				\item[N/A]
-			\end{enumerate}
-		\item[Global] Scenario for BE7
-			\begin{enumerate}
-				\item[S1] Carpool has started
-				\item[E1] Driver begins commute once new customer is seated in taxi
-				\item[S2] System registers that carpool has started
-				\item[E2] Customers indicate that they want to enter prompts mode
-				\item[S3] Random prompt is generated
-				\begin{enumerate}
-					\item[E3.1] Customers interact between each other based on prompt
-					\item[E3.2] Customers select new prompt, branch to S2
-					\item[E3.3] Customers exit prompt mode, branch to S3
-				\end{enumerate}
-				\item[S4] System returns to home screen
-			\end{enumerate}
-	\end{enumerate}
+\begin{enumerate}[{\textbf{BE}}1.]
+    \item Customer creates new user profile
+    \begin{enumerate}[{\textbf{VP}1}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] System asks for customer’s information
+                \item[$E_1$] Customer inputs their information
+                \begin{enumerate}
+                    \item[$S_{1.1}$] Certain information must be unique
+                \end{enumerate}
+\color{blue}
+                \item[$S_2$] System asks customer to verify email or phone number
+                \item[$E_2$] Customer verifies email or phone number
+\color{black}
+                \item[$S_3$] System stores customer profile in database
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+	       \color{blue}
+                \item[$S_1$] Every new 1000 sign-ups, system sends notification to investors
+                \color{black}
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[$S_1$] System securely stores user data to comply with GDPR privacy
+            \end{enumerate}
+        \item[Global] Scenario for BE1
+            \begin{enumerate}
+                \item[$S_1$] System asks for customer’s information
+                \item[$E_1$] Customer inputs their information in all mandatory fields
+                \begin{enumerate}
+                \item[$E_{1.1}$] Certain information must be unique
+                \end{enumerate}
+                \item[$S_2$] System asks customer to verify email or phone number
+                \item[$E_2$] Customer verifies email or phone number
+                \item[$S_3$] System registers customer profile as user in system
+                \begin{enumerate}
+                \item[$S_{3.1}$] System sends new user data to taxi company
+                \item[$E_{3.1}$] Taxi company logs data in their database
+                \item[$S_{3.2}$] System securely stores user data to comply with GDPR privacy
+\color{blue}
+                \item[$S_{3.3}$] Every new 1000 sign-ups, system sends notification to investors
+\color{black}
+                \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+    \item User edits their profile
+    \begin{enumerate}[{VP2}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] System asks customer to authenticate themselves
+                    \item[$E_1$] Customer completes authentication process
+                \item[S2] System displays user profile
+                \begin{enumerate}
+                    \item[$E_{2.1}$] Customer edits information
+                    \item[$E_{2.2}$] Customer saves edits, given that all mandatory information is entered
+                \end{enumerate}
+                \item[$S_3$] System saves user profile
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[$S_1$] System securely stores user data to comply with GDPR privacy
+            \end{enumerate}
+        \item[Global] Scenario for BE2
+            \begin{enumerate}
+                \item[$S_1$] System asks customer to authenticate themselves
+                    \item[$E_1$] Customer completes authentication process
+                \item[$S_2$] System displays user profile
+                \begin{enumerate}
+                    \item[$E_{2.1}$] Customer edits desired information
+                    \item[$E_{2.2}$] Customer saves edits, given that all mandatory information is entered
+                \end{enumerate}
+                \item[$S_3$] System saves user profile
+                \begin{enumerate}
+                    \item[$S_{3.1}$] System securely stores user data to comply with GDPR privacy
+                \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+    \item Taxi carpool is requested
+    \begin{enumerate}[{VP3}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] System asks customer to input their destination
+                \item[$E_1$] Customer inputs destination
+	     \item[$S_2$] System asks customers to enter search criteria
+	     \item[$E_2$] Customer inputs search criteria
+ 	     \item[$S_3$] System returns best matches
+                \item[$E_3$] Customer selects taxi to send their carpool request to
+\item[$S_{4.1}$] System sends customer's request to carpool offerer
+                \begin{enumerate}
+                    \item[$S_{4.2}$] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
+                    \item[$S_{4.3}$] Customers notified if request is accepted
+                \end{enumerate}
+                \item[$E_4$] Customers can track location of designated cab
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[$S_1$] System computes estimated payment split based on taxi company's fares
+	        \item[$S_2$] System notifies taxi company of new carpool
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item[Global] Scenario for BE3
+            \begin{enumerate}
+                \item[$S_1$] System asks customers to input their destination
+                \item[$E_1$] Customer inputs destination
+                \item[$S_{2.1}$] System computes estimated payment split based on taxi company's fares
+                \item[$S_{2.2}$] System asks cutomers to input search criteria
+                \item[$E_3$] Customer inputs search criteria
+	          \item[$S_4$] System returns best matches
+                \item[$E_4$] Customer selects taxi to send their carpool request to
+		    \item[$S_{5.1}$] System sends customer's request to carpool offerer
+                \begin{enumerate}
+                    \item[$S_{5.2}$] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
+                    \item[$S_{5.3}$] Customers notified if request is accepted
+                \end{enumerate}
+                \item[$E_5$] Customers can track location of designated cab
+            \end{enumerate}
+    \end{enumerate}
+    \item Taxi carpool is offered
+    \begin{enumerate}[{VP4}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] System asks customer to scan QR code
+                \item[$E_1$] Customer scans QR code
+                \item[$S_2$] System asks customer to input offer information
+                \item[$E_2$] Customer inputs offer information
+                \item[$S_3$] System shows offer to other customers looking to join a taxi
+                \item[$E_3$] Customer looking to join a taxi requests to join carpool
+                \item[$S_4$] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
+                \begin{enumerate}
+                    \item[$E_{4.1}$] Customer accepts match
+                    \item[$E_{4.2}$] Customer rejects match, return to S3
+                    \item[$E_{4.3}$] Customer aborts offer mode
+                \end{enumerate}
+                \item[$S_4$] Offer is removed from list of active offers
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[$S_1$] New offer sent to dispatcher
+                \item[$E_1$] Dispatcher stores offer in pool of live offers
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[$S_1$] Driver is given pick-up location and directions (i.e. detour) for new customer in carpool
+                \item[$E_1$] Driver follows directions of detour to pick-up carpooler
+                \item[$S_2$] Once detour is complete and carpooler is in the taxi, system displays original destination with updated directions
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item[Global] Scenario for BE4
+            \begin{enumerate}
+                \item[$S_1$] New offer sent to dispatcher
+                \item[$E_1$] Dispatcher stores offer in pool of live offers
+                \item[$S_2$] System asks customer to scan QR code
+                \item[$E_2$] Customer scans QR code
+                \item[$S_3$] System asks customer to input offer information
+                \item[$E_3$] Customer inputs offer information
+                \item[$S_4$] System shows offer to other customers looking to join a taxi
+                \item[$E_4$] Customer looking to join a taxi requests to join carpool
+                \item[$S_5$] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
+                \begin{enumerate}
+                    \item[$E_{5.1}$] Customer accepts match
+                      \item[$S_{5_2}$] Offer is removed from list of active offers
+                    	\item[$S_{5.2.1}$] Driver is given pick-up location and directions (i.e. detour) for new customer in carpool
+                    	\item[$E_{5.2.1}$] Driver follows directions of detour to pick-up carpooler
+                    	\item[$S_{5.2.2}$] Once detour is complete and carpooler is in the taxi, system displays original destination with updated directions
+               
+                \item[$E_{5.2}$] Customer rejects match, return to S3
+                \item[$E_{5.3}$] Customer aborts offer mode
+                 \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+    \item Taxi carpool arrives at destination
+    \begin{enumerate}[{VP5}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] System displays fare to each customer
+                \item[$E_1$] Customer pays taxi driver [out of scope for system]
+		   \item[$S_2$] Driver inputs that payment is complete
+                \item[$S_3$] System prompts customer to rate the other customers they shared a ride with, with an option to leave a review
+                \item[$E_3$] Customers input rating and optional review
+                \item[$S_4$] System stores rating and review in customers’ profile
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[$E_1$] Drivers obtain payment from customers
+                \item[$E_2$] Driver inputs that payment is complete
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[$E_1$] Driver obtains payment from customers
+                \item[$E_2$] Driver inputs into system that payment is complete
+                \item[$S_2$] System logs end of carpool
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+		\color{blue}
+                \item[$S_1$] Every new 10 000 completed carpools, system sends notification to investors
+		\color{black}
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item[Global] Scenario for BE5
+            \begin{enumerate}
+                \item[$S_1$] System displays fare to each customer
+                \item[$E_1$] Customer pays taxi driver
+                \begin{enumerate}
+                    \item[$E_{1.1}$] Drivers obtain payment from customers [out of scope for system]
+                    \item[$E_{1.2}$] Driver input that payment is complete
+                \end{enumerate}
+                \item[$S_2$] Once payment approved, system prompts customer to rate the other customers they shared a ride with, with an option to leave a review
+                \item[$E_2$] Customers input rating and optional review
+                \item[$S_3$] System stores rating and review in customers’ profile
+                \item[$S_4$] System logs end of carpool
+                \begin{enumerate}
+			\color{blue}
+                    \item[$E_{4.1}$] Every new 10 000 completed carpools, system sends notification to investors
+\color{black}
+                \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+    \item Carpoolers activate conversation prompts
+    \begin{enumerate}[{VP6}.1]
+        \item Customers
+            \begin{enumerate}
+                \item[$S_1$] Precondition: Carpool has started
+                \item[$E_1$] Customers indicate that they want to enter prompts mode
+                \item[$S_2$] Random prompt is generated
+                \begin{enumerate}
+                    \item[$E_{2.1}$] Customers interact between each other based on prompt
+                    \item[$E_{2.2}$] Customers select new prompt, branch to S2
+                    \item[$E_{2.3}$] Customers exit prompt mode
+                \end{enumerate}
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[$E_1$] Driver begins commute once new customer is seated in taxi
+                \item[$S_1$] System registers that carpool has started
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item[Global] Scenario for BE6
+            \begin{enumerate}
+                \item[$S_1$] Precondition: Carpool has started
+                \item[$E_1$] Driver begins commute once new customer is seated in taxi
+                \item[$S_2$] System registers that carpool has started
+                \item[$E_2$] Customers indicate that they want to enter prompts mode
+                \item[$S_3$] Random prompt is generated
+                \begin{enumerate}
+                    \item[$E_{3.1}$] Customers interact between each other based on prompt
+                    \item[$E_{3.2}$] Customers select new prompt, branch to S2
+                    \item[$E_{3.3}$] Customers exit prompt mode
+                \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
 \end{enumerate}
-
-
-% End Section
+%End Section
 
 \section{Non-Functional Requirements}
 \label{sec:non-functional_requirements}
+
 % Begin Section
 \subsection{Look and Feel Requirements}
 \label{sub:look_and_feel_requirements}
@@ -559,16 +576,20 @@ This section should provide a use case diagram for your application.
 \subsubsection{Appearance Requirements}
 \label{ssub:appearance_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{LF}1. ]
-	\item 
+\begin{enumerate}[{LF-A}1. ]
+	\item The colour scheme of the application must match the branding colours of the company \\
+	{\bf Rationale:} For marketing purposes, the colour scheme within the app need to match the branding colours of the company so the brand becomes well-recognized and there is no confusion among users about the brand.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Style Requirements}
 \label{ssub:style_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{LF}1. ]
-	\item 
+\begin{enumerate}[{LF-S}1. ]
+	\item The app must have an attractive, responsive UI \\
+	{\bf Rationale:} Users are more likely to use and come back to attractive, responsive mobile apps which helps increase the user base and branding power of the app (Johns, 2022). 
+	\item The app must have a minimalist design \\
+	{\bf Rationale:} Minimalist designed mobile applications have faster loading times, easier navigation within the app, less maintenance and time spent on design/frontend and allow businesses to more clearly give messages to users within the application (UGEM, 2020).
 \end{enumerate}
 % End SubSubSection
 
@@ -581,40 +602,55 @@ This section should provide a use case diagram for your application.
 \subsubsection{Ease of Use Requirements}
 \label{ssub:ease_of_use_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{UH}1. ]
-	\item 
+\begin{enumerate}[{UH-EOU}1. ]
+	\item The product must be easy to use for people aged 18 years or older \\
+	{\bf Rationale:} The intended audience of this application is adults who need to carpool, so anyone 18 or older must find the app easy to understand and use. People under this age may use the app but most likely their rides would be booked by parents/guardians, so the focus is on this age range.
+	\item The user must not encounter any unclear prompts from which they do not know how to proceed \\
+	{\bf Rationale:} If the app is prompting the user to do something, that prompt must be clear and easy to understand so it is easy for the user to use the app.
+	\item The user must not encounter any errors while using the app, and if they do, what to do next must be clear \\
+	{\bf Rationale:} The app must not show the user any errors while they are using it to prevent confusion and to make the app easy to use. On the chance an error does appear to the user, it must be clear on what the user has to do next to remove the error or continue. If the error is generic and confusing to understand, the app is no longer easy to use and leaves the user in confusion.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Personalization and Internationalization Requirements}
 \label{ssub:personalization_and_internationalization_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{UH}1. ]
-	\item 
+\begin{enumerate}[{UH-PI}1. ]
+	\item The product will operate in both English and French and the user will be able to set their preferred language \\
+	{\bf Rationale:} The app will be available only in Canada, so it needs to contain support for both the national languages of Canada and allow the user to choose their preferred language
+	\item The product will allow the user to set their preference for dark mode and light mode \\
+	{\bf Rationale:} To make the app more personal, users must be able to customize the appearance to their liking. Its important for users to enjoy the appearance of the app so allowing them to personalize dark mode or light mode will help contribute to that.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Learning Requirements}
 \label{ssub:learning_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{UH}1. ]
-	\item 
+\begin{enumerate}[{UH-L}1. ]
+	\item The product must be able to be used immediately, with no learning curve required to learn how to effectively use the app. \\
+	{\bf Rationale:} Mobile apps designed for general users should have no learning curve. Upon using the app for the first time, the app should be designed in such a way that the user immediately knows how to use it. If users take a while to learn how to effectively use the app, they will not come back to it.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Understandability and Politeness Requirements}
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{UH}1. ]
-	\item 
+\begin{enumerate}[{UH-UP}1. ]
+	\item The product must use symbols and language that are naturally understandable to the general Canadian population \\
+	{\bf Rationale:} The app is aimed to be used by anyone in Canada, so the symbols and language used must be understandable by the general Canadian population. Using symbols and language or slang that is specific to a certain group or culture would make the app hard to understand for some of the target users.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Accessibility Requirements}
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{UH}1. ]
-	\item 
+\begin{enumerate}[{UH-A}1. ]
+	\item The product must be able to be used by partially sighted users \\
+	{\bf Rationale:} A successful mobile app should be accessible to all users, no matter what physical impairments they may face. The app should allow partially sighted or blind users to use the app through their voice or some other means that does not require them to be fully sighted.
+	\item The product must provide captions or symbols for audio content to allow users with hearing impairments to access that content. \\
+	{\bf Rationale:} A successful mobile app should be accessible to all users, no matter what physical impairments they may face. The app should allow users with hearing impairments to still access any audio content within the app through captions, symbols or some other visual means so they are still able to access the content.
+	\item The product must conform to the WCAG (Web Content Accessibility Guidelines) 2.0 Level AA 
+	{\bf Rationale:} The WCAG are a global standard on the accessibility of web based applications. In Ontario, all private organizations with 50 or more employees are required to be WCAG 2.0 AA accessible (Yee). Our company is not yet 50+ people but the hope is to one day get there, so implementing these accessibility features now makes for a smoother transition when the company expands.
 \end{enumerate}
 % End SubSubSection
 
@@ -627,65 +663,78 @@ This section should provide a use case diagram for your application.
 \subsubsection{Speed and Latency Requirements}
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
-	\item 
+\begin{enumerate}[{PR-SL}1. ]
+	\item All responses from the product to the user must be within 50 milliseconds \\
+	{\bf Rationale:} The perfect latency is between 20 to 40 milliseconds (Schoenfelder). If all product-to-user responses for our app are 50 milliseconds are better, this is an excellent latency and will bring users back to the app.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Safety-Critical Requirements}
 \label{ssub:safety_critical_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
-	\item 
+\begin{enumerate}[{PR-SC}1. ]
+	\item All taxi services, drivers and other carpoolers will go through a safety check before being allowed to offer rides or join carpools on the app \\
+	{\bf Rationale:} Our app connects users with random members of the public, whether that be taxi drivers or fellow carpoolers. To ensure the safety of all users of the app, all drivers and carpoolers will have to go through a safety verification process to verify their intentions and ensure that the safety of the riders is guaranteed.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Precision or Accuracy Requirements}
 \label{ssub:precision_or_accuracy_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
-	\item 
+\begin{enumerate}[{PR-PA}1. ]
+	\item All monetary amounts displayed within the application must be accurate to two decimal places \\
+	{\bf Rationale:} Given that this app will involve payments for the taxi rides, all payment amounts will be displayed to two decimal places, which is accurate to the number of dollars and cents for the transaction. For example, ``the total cost of the ride is \$3.40'' \\
+	\item All times must be displayed in the form HH:MM PM/AM where HH is between 01 and 12. \\
+	{\bf Rationale:} The app may show estimated time of arrival, which will be shown using the HH:MM format, showing only the hours and minutes and not anything more. If the app showed seconds or below it would be inaccurate and confusing for users. For example, ``the estimated time of arrival is 10:04 PM'' \\
+	\item All distance measurements must be accurate to one decimal place. \\
+	{\bf Rationale:} The app may show distance to a destination or how far the driver is from picking you up. These should be shown with one decimal place as more decimal places would make it harder to understand and would make it lose meaning. For example, ``your driver is 3.2 km away''
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Reliability and Availability Requirements}
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
-	\item 
+\begin{enumerate}[{PR-RA}1. ]
+	\item The product must be available for use 24 hours per day, 365 days per year \\
+	{\bf Rationale:} An app that allows users to book carpool rides should be available 24/7, 365 days a year because users should be able to book a carpool at any time of the day on any day of the year.
+	\item The product must perform without failure in 98\% of use cases \\
+	{\bf Rationale:} Failures are expected to occur in any software application, but if the app performs without failure for the majority of uses then it can be deemed to be a reliable application that only fails on the rare occasion
+	\item The mean time to restore the product following a failure must not be greater than 10 minutes \\
+	{\bf Rationale:} When the product does fail, it should recover and become usable again within 10 minutes max, otherwise users will begin to question the reliability and usage of the app.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Robustness or Fault-Tolerance Requirements}
 \label{ssub:robustness_or_fault_tolerance_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
-	\item 
+\begin{enumerate}[{PR-RFT}1. ]
+	\item The product must continue to be usable if external services it relies on go down.\\
+	{\bf Rationale:} The app will rely on some external third party services, and it needs to be tolerant to faults in those systems. For example, if the app interfaces with an API from the taxi service and that API goes down, the app needs to continue to be usable. If an AWS region goes down and the app uses AWS cloud services, it must change to another region to ensure it continues to be usable.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Capacity Requirements}
 \label{ssub:capacity_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
-	\item 
+\begin{enumerate}[{PR-C}1. ]
+	\item The product must be able to handle up to 10000 users simultaneously at any given time \\
+	{\bf Rationale:} Although the app will not start with 10000 concurrent users right away, 10000 is a good estimate as to how many concurrent users the app may have within a few years of business. Given that Uber, a similar ride sharing application has millions of concurrent users, 10000 is a realistic capacity limit for this app.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Scalability or Extensibility Requirements}
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
-	\item 
+\begin{enumerate}[{PR-SE}1. ]
+	\item The product must be able to handle any increases to the number of concurrent users \\
+	{\bf Rationale:} In a previous requirement it was defined that the product should be able to handle 10000 concurrent users. Once the app scales, it should be able to handle increases to this value. Popular ride sharing app Uber serves millions of concurrent requests, so this app should be able to scale to these values as well.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Longevity Requirements}
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
-	\item 
-\end{enumerate}
+	Not applicable
 % End SubSubSection
 
 % End SubSection
@@ -697,32 +746,36 @@ This section should provide a use case diagram for your application.
 \subsubsection{Expected Physical Environment}
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
-\begin{enumerate}[{OE}1. ]
-	\item 
+\begin{enumerate}[{OE-EPE}1. ]
+	\item The product must be able to be used on a mobile application in any physical environment \\
+	{\bf Rationale:} The physical environment the user is in while using the app (weather, temperature, time of day) should not affect the ability to use the app whatsoever.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Requirements for Interfacing with Adjacent Systems}
 \label{ssub:requirements_for_interfacing_with_adjacent_systems}
 % Begin SubSubSection
-\begin{enumerate}[{OE}1. ]
-	\item 
+\begin{enumerate}[{OE-IA}1. ]
+	\item The product must only interface with adjacent systems that it absolutely needs to \\
+	{\bf Rationale:} The more adjacent systems that the app interfaces, the more maintenance that is needed to support all of the adjacent systems. The more of the system built in-house the better, we should only interface with adjacent systems that we absolutely have to.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Productization Requirements}
 \label{ssub:productization_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{OE}1. ]
-	\item 
+\begin{enumerate}[{OE-P}1. ]
+	\item The product must be distributed as a mobile application \\
+	{\bf Rationale:} The product being developed is a mobile app, therefore it should only be distributed as a mobile app and nothing else.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Release Requirements}
 \label{ssub:release_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{OE}1. ]
-	\item 
+\begin{enumerate}[{OE-R}1. ]
+	\item Any subsequent releases of the product must not affect backwards-compatability with previous releases \\
+	{\bf Rationale:} Backwards compatability between releases should always be maintained so new releases do not affect the usage of users who are still using previous releases.
 \end{enumerate}
 % End SubSubSection
 
@@ -735,24 +788,24 @@ This section should provide a use case diagram for your application.
 \subsubsection{Maintenance Requirements}
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{MS}1. ]
-	\item 
+\begin{enumerate}[{MS-M}1. ]
+	\item The product must be designed in a maintainable way such that future changes are able to be easily added or removed \\
+	{\bf Rationale:} Writing maintainable software allows for quicker implementation and debugging. Iterations of the product will be able to be released faster if maintainable code and design principles are followed.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Supportability Requirements}
 \label{ssub:supportability_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{MS}1. ]
-	\item 
-\end{enumerate}
+Not applicable.
 % End SubSubSection
 
 \subsubsection{Adaptability Requirements}
 \label{ssub:adaptability_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{MS}1. ]
-	\item 
+\begin{enumerate}[{MS-A}1. ]
+	\item The product must be able to run on Android mobile devices. \\
+	{\bf Rationale:} Android makes up 69.74\% of the mobile device market (statcounter). The product being built is a mobile application, so in order for the large majority of mobile device users to use the app, it must run on and Android. Furthermore, we are developing in Java which will only run on Android.
 \end{enumerate}
 % End SubSubSection
 
@@ -765,40 +818,51 @@ This section should provide a use case diagram for your application.
 \subsubsection{Access Requirements}
 \label{ssub:access_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR}1. ]
-	\item 
+\begin{enumerate}[{SR-AC}1. ]
+	\item General users of the application must not have access to sensitive information \\
+	{\bf Rationale:} The app is designed to be used by any member of the general public, members of the general public should not have access to private or sensitive information about other users or about the taxi services 
+	\item Special users who are administrators and work for the company are the only users who have access to sensitive user information \\
+	{\bf Rationale:} For testing, debugging and management purposes, users with higher access to sensitive data are needed. The users with this access are only people who are trusted who work for the company in an authoritative, high-ranking position.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Integrity Requirements}
 \label{ssub:integrity_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR}1. ]
-	\item 
+\begin{enumerate}[{SR-INT}1. ]
+	\item The system must be secure against outside threats that look to access/change the data \\
+	{\bf Rationale:} All software systems come with the threat of external hackers. We must ensure that the system is secure and cannot be hacked, otherwise data can be changed and it will no longer be consistent, violating data integrity 
+	\item All data input into the database will be automated where possible \\
+	{\bf Rationale:} A big cause of data inconsistency in software applications is manual input. It is much easier for a human to make a mistake while manually inputting data than it is for an automated process to input data to the database. To maintain integrity of the data, the system should eliminate the risk of manual data input mistakes as much as possible.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Privacy Requirements}
 \label{ssub:privacy_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR}1. ]
-	\item 
+\begin{enumerate}[{SR-P}1. ]
+	\item The product must notify the user whenever they are required to enter private information \\
+	{\bf Rationale:} The user should be aware whenever they are entering personal or private information so they can make an informed decision on whether they want to enter that information.
+	\item The product must guarantee that all private information is kept secure \\
+	{\bf Rationale:} Any private information from the user such as their password, address and other sensitive information should be secured through verified security measures, hashing, locking, whatever needs to be used to guarantee data privacy.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Audit Requirements}
 \label{ssub:audit_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR}1. ]
-	\item 
+\begin{enumerate}[{SR-AU}1. ]
+	\item All releases of the product must conform to the guidelines of the Android mobile app store \\
+	{\bf Rationale:} Whenever an app is released to the app store, whether brand new or an updated release, it must go through the app store's review process. Audits must be done within the company before the app is released to ensure the app passes all guidelines.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Immunity Requirements}
 \label{ssub:immunity_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR}1. ]
-	\item 
+\begin{enumerate}[{SR-IM}1. ]
+	\item The product must be immune to infection from unauthorized malicious attackers \\
+	{\bf Rationale:} There are many types of malware that can attack software, SQL injections, trojan horses, viruses. The system must be immune to infection from all of these, to ensure data privacy and security is maintained at all times.
 \end{enumerate}
 % End SubSubSection
 
@@ -811,16 +875,18 @@ This section should provide a use case diagram for your application.
 \subsubsection{Cultural Requirements}
 \label{ssub:cultural_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{CP}1. ]
-	\item 
+\begin{enumerate}[{CP-C}1. ]
+	\item All numbering systems, road systems and any other systems must use the Canadian standard \\
+	{\bf Rationale:} The app will initially be launched in Canada only, so all systems will use the canadian standard. Metric system for numbering and measurements, Canadian road systems, everything that requires a national standard will use the Canadian standard.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Political Requirements}
 \label{ssub:political_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{CP}1. ]
-	\item 
+\begin{enumerate}[{CP-P}1. ]
+	\item The product must not use any emojis, language or symbols that could be considered offensive \\
+	{\bf Rationale:} Given that our app is designed to be used by anyone in the general Canadian population, we must ensure that no controversial language or emojis are used. Many cultural, ethnic and religious groups will exist within the userbase and some words or symbols or emojis might be offensive to a certain group, which must be prevented.
 \end{enumerate}
 % End SubSubSection
 
@@ -833,16 +899,18 @@ This section should provide a use case diagram for your application.
 \subsubsection{Compliance Requirements}
 \label{ssub:compliance_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{LR}1. ]
-	\item 
+\begin{enumerate}[{LR-COMP}1. ]
+	\item The product must comply with the Data Protection Act \\
+	{\bf Rationale:} Any Canadian product that deals with personal information from users. This app deals with lots of personal user information, so it must be implemented in a way that complies with the Data Protection Act
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Standards Requirements}
 \label{ssub:standards_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{LR}1. ]
-	\item 
+\begin{enumerate}[{LR-STD}1. ]
+	\item The development and implementation of the product must conform to the IEEE and ISO standards \\
+	{\bf Rationale:} Both the IEEE and ISO are well-defined, internationally acclaimed standards for engineering projects. The development of this product will follow the standards defined in IEEE and ISO to ensure consistency across the team.
 \end{enumerate}
 % End SubSubSection
 
@@ -855,6 +923,20 @@ This section should provide a use case diagram for your application.
 \label{sec:division_of_labour}
 % Begin Section
 Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
+% End Section
+
+\section{Creative Features}
+\label{sec:creative_features}
+% Begin Section
+Below is a list of creative/innovative features that were brainstormed by the team. The features that were ultimately chosen for implementation are bolded.
+\begin{itemize}
+	\item Friends (preferred to carpool with friends)
+	\item Pre-book (pre book carpools with others for big events)
+	\item \textbf{Prompts + social games in the car (add preferences on what kind of level of socialness you want)} 
+	\item \textbf{Emergency button}
+	\item In app payments (integrate with PSP's) 
+
+\end{itemize}
 % End Section
 
 \newpage
