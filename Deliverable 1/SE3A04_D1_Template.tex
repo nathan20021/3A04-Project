@@ -115,10 +115,11 @@ This \textbf{SRS} is structured to first give background information about the a
 % Begin SubSection
 
 \begin{enumerate}[a)]
-	\item The product being developed is an Android application which empowers the ability to book carpool via a user-friendly interface using a taxi company. The application will securely store customer personal information such as carpool request histories, and personal data inputted by the user. The product is not self-contained since its functionality depends heavily on the taxi service provider. There are several out-of-scope concerns such as: driver\textquotesingle s information input (profile, shift, locations, etc.) and payment processing.
+	\item The product being developed is an Android application which empowers the ability to book carpools via a user-friendly interface. The application will securely store customer personal information such as carpool request histories, and personal data inputted by the user. The product is not self-contained since its functionality depends on Google Maps for mapping integration. The product scope mainly covers a match making functionality to match potential carpoolers together. The feature will be implemented under a ccentrelized dispatcher which communicate with the mobile app and user’s database. Fare determination will be covered under the scope of the app, however payment processing is external to the system.
+
 	\item The general interaction can be visualized as follows: 
 	\begin{center}
-		\includegraphics[scale=0.5]{app-context.png}
+		\includegraphics[scale=0.7]{app-context.png}
 	\end{center}
 \end{enumerate}
 
@@ -128,25 +129,21 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{sub:product_functions}
 % Begin SubSection
 	\begin{center}
-		\includegraphics[scale=0.5]{subsys-relationship.png}
+		\includegraphics[scale=0.7]{subsys-relationship.png}
 	\end{center}
 
 \begin{enumerate}[a)]
-	\item The app will be able to book taxi.
+	\item \textbf{User registration and profile editing: }Users can register to use the taxi service and later can edit or remove their information.
+	\item \textbf{Requesting taxi: }Users can enter search criteria to request a taxi. Based on the user’s profile, the app will return a list of best-fit matches. Users choose the desired match and other carpooler will be notified. 
+	\item \textbf{Reviewing offer: }The app displays offers information to the users to choose between.
+	\item \textbf{Taxi check-in: }Users can scan or enter the taxi ID when it arrives to check in and use the service.
+	\item \textbf{Fare calculation and display:  }Trip prices are calculated, using a fixed rate per kilometer, and presented to the users before reaching their destination. 
+	\item \textbf{Google Maps Integration:  }The app interface will use Google Maps to visualize pick-up, drop-off loacation. 
+	\item \textbf{Data encryption:  }The software system will encrypt all messages when transmitting. Important information like password or user’s postal code will also be encrypted when storing within the database.
+	\item \textbf{Trips rating:  }After each trip, users can enter their rating to help improving the service.
+	\item \textbf{Prompts Generation:  }Users of the taxi service can engage in a prompt-based game while carpooling. When the users activate prompts, the app will return a list of personalized prompts for carpoolers to engage with when they are on the same car.
 
-	\begin{itemize}
-		\item Able to communicate with taxi\textquotesingle s service API.
-		\item Able to handle and display taxi data correctly.	
-	\end{itemize}
-	\item The app be able to handle carpool scheduling and coordination.
-	\begin{itemize}
-		\item Able to plan the most optimal route and let the driver follow the calculated route.
-	\end{itemize}
-	\item The app be able to display the estimate time-of-arrival (ETA) of taxis.
-	\begin{itemize}
-		\item Able to calculate ETA in real-time
-	\end{itemize}
-	\item The app be able to input the taxi\textquotesingle s unique identifier via the mobile app.
+
 \end{enumerate}
 
 % End SubSection
@@ -156,39 +153,13 @@ This \textbf{SRS} is structured to first give background information about the a
 % Begin SubSection
 
 \begin{enumerate}[a)]
-	\item Riders
-	\begin{itemize}
-		\item Riders are users who use the app to request car pool.
-		\item Riders can be anyone from any background of tech-expertise
-		\item Riders are expected to:
-		\begin{itemize}
-			\item Input personal information only a few times.
-			\item Have stable and highly available mobile internet connection.
-		\end{itemize}
-		
-		\item Riders might be interested one or more following characteristics of the app:
-		\begin{itemize}
-			\item User interface and experience of navigating the mobile app.
-			\item Realtime taxi information display (ETA, location, route, …)
-			\item Ease of taxi booking, and check-in.  
-		\end{itemize}
-	\end{itemize}
-	
-	\item Taxi Drivers
-	\begin{itemize}
-		\item Drivers are users who drive and operate taxis, fulfill carpool requests, and ensure the safety of the riders.
-		\item Drivers must be registered with the taxi service and from any background of tech-expertise.  
-		\item Drivers are expected to have stable and highly available mobile internet connection.
-		\item Drivers might be interested one or more following characteristics of the app:
-		\begin{itemize}
-			\item Accuracy display of real-time pick-up and drop-off information.
-			\item Accuracy of aggregating and storing of rides information (since it ties directly to their performance).
-			\item Accuracy display of user\textquotesingle s profile summarization.
-			\item User interface and experience of navigating the mobile app.
-			\item Ease of accepting/ rejecting rides.
-		\end{itemize}
+	\item Riders should be comfortable with using Android mobile devices.
+	\item Riders might be sensitive with prices and therefore opt out for carpools instead of regular taxi services.
+	\item Riders might be outgoing, socially engaged, and interested in meeting new people.
+	\item Riders are most likely live in a big city since taxi services are highly available, and parking fees are expensive.
+	\item Riders might have a busy schedule since taking public transport or maintaining their own car takes time and effort.
 
-	\end{itemize}
+
 
 \end{enumerate}
 
@@ -198,10 +169,11 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{sub:constraints}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item \textbf{Geographical}: The app can only operate on the land which the taxi service operate.
-	\item \textbf{Technological}: App must be integrated with softwares that the taxi service provider uses.
-	\item \textbf{Fare Determination}: Since the app does\textquotesingle t support payment processing directly, the fare has to be determined and processed through the taxi service provider.
-	\item \textbf{Data Privacy Regulation}: Data which transmits and stored within the app needs to be processed in a way which complies with the data protection act.
+	\item \textbf{Geographical:} The app can only operate on the land which the taxi service operate.
+	\item \textbf{Internet:} The app functionality relies heavily on the internet to book, checkin, and view taxi’s location.
+	\item \textbf{Taxi Regulation:} Since the app is working in conjunction with the taxi provider, it must follow taxi law and regulation. For example, the fare structure used by the app must be approved by the Board of Transportation for some cities.
+	\item \textbf{Data Privacy Regulation:} Personal data stored within the app needs to be encrypted and processed in a way that complies with the Canadian Personal Information Protection and Electronic Documents Act.
+	\item \textbf{Technological:} Since the app is dependent on Google Maps, it can not extend to provide a better mapping experience than what Google Maps offers. 
 
 \end{enumerate}
 
@@ -216,20 +188,13 @@ This \textbf{SRS} is structured to first give background information about the a
 	\item Assumptions
 
 	\begin{itemize}
-		\item Drivers information are provided by the taxi provider (driver profile and shift).
-		\item The taxi provider has dedicated API which provide real-time data on driver\textquotesingle s availability.
-		\item The taxi provider determines trip prices.
-		\item Payment processing is external and not under the scope of the application.
-
+		\item Users have an android mobile device. If users uses IOS or other operating system, the app would not be available.
+		\item Users have a highly available internet connection. The app will not function when internet connection is not present.
+		\item Drivers information are provided and available via the app\textquotesingle s database. If the assumption does not hold, driver's data will be pulled from an external data source.
+		\item Prices are determined via a fixed rate per kilometer.
+		\item Payment processing is external and not under the scope of the application. If the assumption does not hold, an integration with external Payment Service Provider need to be implemented.
 	\end{itemize}
 
-	\item Many problems may occur when the following assumptions failed to hold:
-	\begin{itemize}
-		\item If trip prices are not determined by the taxi service provider, additional calculations must be performed to find fare fees after each trip.
-		\item If drivers data are stored and handled within the context of the app, additional mechanism must be provided for drivers to update their information. In addition, driver\textquotesingle s data storage must comply with the Canadian Data Protection Act. 
-
-
-	\end{itemize}
 \end{enumerate}
 % End SubSection
 
@@ -238,8 +203,8 @@ This \textbf{SRS} is structured to first give background information about the a
 % Begin SubSection
 
 \begin{enumerate}[a)]
-	\item \textbf{Technological}: Some specific technilogical requirements (Database type, Integration with taxi provider, etc...) have to be delayed untill the implementation phase.
-	\item Non-function Requiremens such as UI,UX, or performance can be finetuned when the app is being implemented or after release.
+	\item Real-time trip tracking via Google Maps Interface.
+	\item Accurate personalized prompts based on user\textquotesingle trips history, behaviour, and more. 
 \end{enumerate}
 
 % End SubSection
