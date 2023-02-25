@@ -90,10 +90,10 @@ CF: Creative Feature, an indication to one of the creative/innovative features
 % Begin SubSection
 \begin{itemize}
 	\item Johns, K. (2022, July 7). Why design is the most important factor in a mobile app development?: ISHIR- mobile application development company india. ISHIR. Retrieved February 11, 2023, from https://www.ishir.com/blog/9633/why-design-is-the-most-important-factor-in-a-mobile-app-development.htm 
+	\item Office of the Privacy Commissioner of Canada. (2018, January 31). Summary of privacy laws in Canada. Office of the Privacy Commissioner of Canada. Retrieved February 25, 2023, from https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/02-05-d-15/heading-0-0-2-1
 	\item Schoenfelder, N. (n.d.). What are good latency \& ping speeds? Graphical Network Monitoring and Troubleshooting. Retrieved February 11, 2023, from https://www.pingplotter.com/wisdom/article/is-my-connection-good 
 	\item statcounter. (n.d.). Mobile Operating System Market Share Worldwide. StatCounter Global Stats. Retrieved February 11, 2023, from https://gs.statcounter.com/os-market-share/mobile/worldwide 
 	\item UGEM. (2020, June 15). What are the core features of Minimalist app design? UGEM. Retrieved February 11, 2023, from https://ugem.design/blog/minimal-app-design 
-	\item Yee, J. (n.d.). Introduction to canadian digital accessibility laws. Accessibility.com: Empowering digital accessibility for businesses. Retrieved February 11, 2023, from https://www.accessibility.com/blog/introduction-to-canadian-digital-accessibility-laws 
 \end{itemize}
 % End SubSection
 
@@ -553,8 +553,6 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
 \begin{enumerate}[{LF-S}1. ]
 	\item The app must have a UI that is clear (makes important information obvious), consistent, aesthetically pleasing \\
 	{\bf Rationale:} Users are more likely to use and come back to mobile apps which have UIs that are clear, consistent and simple. This helps increase the user base and branding power of the app (Johns, 2022). 
-	\item The app must have a simple, easy on the eyes, minimalist (not overflown with UI elements) design \\
-	{\bf Rationale:} Minimalist designed mobile applications have faster loading times, easier navigation within the app, less maintenance and time spent on design/frontend and allow businesses to more clearly give messages to users within the application (UGEM, 2020).
 \end{enumerate}
 % End SubSubSection
 
@@ -568,8 +566,6 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
 \label{ssub:ease_of_use_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-EOU}1. ]
-	\item The product must be easy to use for people aged 18 years or older, meaning the users can just straight into using the app with minimal to no training \\
-	{\bf Rationale:} The intended audience of this application is adults who need to carpool, so anyone 18 or older must find the app easy to understand and use. People under this age may use the app but most likely their rides would be booked by parents/guardians, so the focus is on this age range.
 	\item The user must not encounter any unclear prompts from which they do not know how to proceed \\
 	{\bf Rationale:} If the app is prompting the user to do something, that prompt must be clear and easy to understand so it is easy for the user to use the app.
 	\item The user must not encounter any errors while using the app, and if they do, what to do next must be clear \\
@@ -601,7 +597,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-UP}1. ]
-	\item The product must use language that any user of the app can understand clearly without having to try and interpret its meaning.  \\
+	\item The product must use standard English and French words that can be found in a standard dictionary, with no slang or acronyms. \\
 	{\bf Rationale:} The app is aimed to be used by anyone in Canada, so the symbols and language used must be understandable by the general Canadian population. Using symbols and language or slang that is specific to a certain group or culture would make the app hard to understand for some of the target users.
 \end{enumerate}
 % End SubSubSection
@@ -610,12 +606,8 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-A}1. ]
-	\item The product must be able to be used by partially sighted users by providing text-to-speech and voice activation for all features of the app. \\
-	{\bf Rationale:} A successful mobile app should be accessible to all users, no matter what physical impairments they may face. The app should allow partially sighted or blind users to use the app through their voice or some other means that does not require them to be fully sighted.
 	\item The product must provide captions for audio content to allow users with hearing impairments to access that content. \\
 	{\bf Rationale:} A successful mobile app should be accessible to all users, no matter what physical impairments they may face. The app should allow users with hearing impairments to still access any audio content within the app through captions, symbols or some other visual means so they are still able to access the content.
-	\item The product must conform to the WCAG (Web Content Accessibility Guidelines) 2.0 Level AA, meaning all content must be perceivable, operable, understandable and robust for all users.
-	{\bf Rationale:} The WCAG are a global standard on the accessibility of web based applications. In Ontario, all private organizations with 50 or more employees are required to be WCAG 2.0 AA accessible (Yee). Our company is not yet 50+ people but the hope is to one day get there, so implementing these accessibility features now makes for a smoother transition when the company expands.
 \end{enumerate}
 % End SubSubSection
 
@@ -660,7 +652,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RA}1. ]
-	\item The product must be available for use 24 hours per day, but will be unavailable for 5 hours a month for maintenance. The downtime will be in the middle of the night when the user activity is the lowest. \\
+	\item The product must be available for use at all times when Internet is available, but will be unavailable for 5 hours a month for maintenance. The downtime will be in the middle of the night when the user activity is the lowest. \\
 	{\bf Rationale:} An app that allows users to book carpool rides should be available 24/7 because users should be able to book a carpool at any time of the day on any day of the year. However, it is unrealistic that the app will be available 24/7, so there will be chosen periods of downtime that affect as little of the user base as possible.
 	\item The product must perform without failure in 98\% of use cases \\
 	{\bf Rationale:} Failures are expected to occur in any software application, but if the app performs without failure for the majority of uses then it can be deemed to be a reliable application that only fails on the rare occasion. 98\% is chosen because given the expected size of user base the app projects to have, a 98\% failure rate would mean very few failures for a large set of users.
@@ -682,18 +674,15 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
 \label{ssub:capacity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-C}1. ]
-	\item The product must be able to handle up to 10000 users simultaneously at any given time \\
-	{\bf Rationale:} Although the app will not start with 10000 concurrent users right away, 10000 is a good estimate as to how many concurrent users the app may have within a few years of business. Given that Uber, a similar ride sharing application has millions of concurrent users, 10000 is a realistic capacity limit for this app.
+	\item The product must be able to handle up to 1000 users simultaneously at any given time \\
+	{\bf Rationale:} Although the app will not start with 1000 concurrent users right away, 1000 is a good estimate as to how many concurrent users the app may have within a few years of business. Given that Uber, a similar ride sharing application has millions of concurrent users, 10000 is a realistic capacity limit for this app.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Scalability or Extensibility Requirements}
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR-SE}1. ]
-	\item The product must be able to handle increases to the number of concurrent users \\
-	{\bf Rationale:} In a previous requirement it was defined that the product should be able to handle 10000 concurrent users. Once the app scales, it should be able to handle increases to this value. Popular ride sharing app Uber serves millions of concurrent requests, so this app should be able to scale to these values as well.
-\end{enumerate}
+    Not applicable.
 % End SubSubSection
 
 \subsubsection{Longevity Requirements}
@@ -732,10 +721,7 @@ Not applicable.
 \subsubsection{Release Requirements}
 \label{ssub:release_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{OE-R}1. ]
-	\item Any subsequent releases of the product must not affect backwards-compatability with previous releases \\
-	{\bf Rationale:} Backwards compatability between releases should always be maintained so new releases do not affect the usage of users who are still using previous releases.
-\end{enumerate}
+Not applicable.
 % End SubSubSection
 
 % End SubSection
@@ -763,8 +749,8 @@ Not applicable.
 \label{ssub:adaptability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS-A}1. ]
-	\item The product must be able to run on all versions of all Android mobile devices. \\
-	{\bf Rationale:} Android makes up 69.74\% of the mobile device market (statcounter). The product being built is a mobile application, so in order for the large majority of mobile device users to use the app, it must run on and Android. Furthermore, we are developing in Java which will only run on Android.
+	\item The product must be able to run on all versions of all Android mobile devices from Version 10.0 and onwards. \\
+	{\bf Rationale:} Android makes up 69.74\% of the mobile device market (statcounter). The product being built is a mobile application, so in order for the large majority of mobile device users to use the app, it must run on and Android. Furthermore, we are developing in Java which will only run on Android. Version 10.0 and onwards are the versions still maintained so the app should function on all versions from 10.0 onwards.
 \end{enumerate}
 % End SubSubSection
 
@@ -780,8 +766,6 @@ Not applicable.
 \begin{enumerate}[{SR-AC}1. ]
 	\item General users of the application must not have access to identifying and private information of users that would allow them to be identified or hacked. \\
 	{\bf Rationale:} The app is designed to be used by any member of the general public, members of the general public should not have access to private or sensitive information about other users or about the taxi services 
-	\item Special users who are administrators and work for the company are the only users who have read-only access to sensitive user information \\
-	{\bf Rationale:} For testing, debugging and management purposes, users with higher access to sensitive data are needed. The users with this access are only people who are trusted who work for the company in an authoritative, high-ranking position.
 \end{enumerate}
 % End SubSubSection
 
@@ -842,7 +826,7 @@ Not applicable.
 \label{ssub:political_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CP-P}1. ]
-	\item The product must not use any emojis, language or symbols that could be considered offensive \\
+	\item The product must not use any emojis, language or symbols that could be considered offensive, such as any emojis involving skin colour, as well as common symbols that are globally known to be offensive.  \\
 	{\bf Rationale:} Given that our app is designed to be used by anyone in the general Canadian population, we must ensure that no controversial language or emojis are used. Many cultural, ethnic and religious groups will exist within the userbase and some words or symbols or emojis might be offensive to a certain group, which must be prevented.
 \end{enumerate}
 % End SubSubSection
@@ -857,18 +841,15 @@ Not applicable.
 \label{ssub:compliance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR-COMP}1. ]
-	\item The product must comply with the Data Protection Act, meaning no user data should be visible nor accessible \\
-	{\bf Rationale:} Any Canadian product that deals with personal information from users. This app deals with lots of personal user information, so it must be implemented in a way that complies with the Data Protection Act
+	\item The product must comply with Canadian Privacy Laws, specifically PIPEDA, which states that all identifiable information of a person should be kept private. (Office of the Privacy Commissioner of Canada, 2018)  \\
+	{\bf Rationale:} This app deals with lots of personal user information, so it must be implemented in a way that complies Canadian Privacy Laws, specifically PIPEDA as this is the act it falls under.
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Standards Requirements}
 \label{ssub:standards_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{LR-STD}1. ]
-	\item The development and implementation of the product must conform to the IEEE and ISO software development standards \\
-	{\bf Rationale:} Both the IEEE and ISO are well-defined, internationally acclaimed standards for engineering projects. The development of this product will follow the standards defined in IEEE and ISO to ensure consistency across the team.
-\end{enumerate}
+ Not applicable.
 % End SubSubSection
 
 % End SubSection
