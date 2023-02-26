@@ -261,12 +261,13 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
                 \begin{enumerate}
                 \item[$E_{1.1}$] Certain information must be unique
                 \end{enumerate}
+\color{blue}
                 \item[$S_2$] System asks customer to verify email or phone number
                 \item[$E_2$] Customer verifies email or phone number
+\color{black}
                 \item[$S_3$] System registers customer profile as user in system
                 \begin{enumerate}
                 \item[$S_{3.1}$] System sends new user data to taxi company
-                \item[$E_{3.1}$] Taxi company logs data in their database
                 \item[$S_{3.2}$] System securely stores user data to comply with GDPR privacy
 \color{blue}
                 \item[$S_{3.3}$] Every new 1000 sign-ups, system sends notification to investors
@@ -274,7 +275,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
                 \end{enumerate}
             \end{enumerate}
     \end{enumerate}
-    \item User edits their profile
+    \item Customer edits their profile
     \begin{enumerate}[{VP2}.1]
         \item Customers
             \begin{enumerate}
@@ -318,8 +319,58 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
                 \end{enumerate}
             \end{enumerate}
     \end{enumerate}
-    \item Taxi carpool is requested
+
+
+\item Customer deletes their profile
     \begin{enumerate}[{VP3}.1]
+        \item Customers
+            \begin{enumerate}
+                  	 \item[$S_1$] System asks customer to authenticate themselves	
+                   	 \item[$E_1$] Customer completes authentication process
+			\item[$S_2$] System asks customer to confirm they want to delete their account
+                   \item[$E_2$] Customer confirms they want to delete their account
+\color{blue}
+                \item[$S_3$] System asks customer to verify email or phone number
+                \item[$E_3$] Customer verifies email or phone number
+\color{black}
+                \item[$S_4$] Customer profile removed from database
+            \end{enumerate}
+        \item Taxi company
+            \begin{enumerate}
+                \item[$S_1$] 
+            \end{enumerate}
+        \item Taxi drivers
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Investors
+            \begin{enumerate}
+                \item[N/A]
+            \end{enumerate}
+        \item Legal
+            \begin{enumerate}
+                \item[$S_1$] System removes all user data to comply with GDPR privacy
+            \end{enumerate}
+        \item[Global] Scenario for BE3
+            \begin{enumerate}
+                  	 \item[$S_1$] System asks customer to authenticate themselves	
+                   	 \item[$E_1$] Customer completes authentication process
+			\item[$S_2$] System asks customer to confirm they want to delete their account
+                   \item[$E_2$] Customer confirms they want to delete their account
+\color{blue}
+                \item[$S_3$] System asks customer to verify email or phone number
+                \item[$E_3$] Customer verifies email or phone number
+\color{black}
+                \item[$S_4$] Customer profile removed from database
+\begin{enumerate}
+		\item[$S_{4.1}$] System removes all user data to comply with GDPR privacy
+\end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+
+
+    \item Taxi carpool is requested
+    \begin{enumerate}[{VP4}.1]
         \item Customers
             \begin{enumerate}
                 \item[$S_1$] System asks customer to input their destination
@@ -352,7 +403,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \begin{enumerate}
                 \item[N/A]
             \end{enumerate}
-        \item[Global] Scenario for BE3
+        \item[Global] Scenario for BE4
             \begin{enumerate}
                 \item[$S_1$] System asks customers to input their destination
                 \item[$E_1$] Customer inputs destination
@@ -370,7 +421,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \end{enumerate}
     \end{enumerate}
     \item Taxi carpool is offered
-    \begin{enumerate}[{VP4}.1]
+    \begin{enumerate}[{VP5}.1]
         \item Customers
             \begin{enumerate}
                 \item[$S_1$] System asks customer to scan QR code
@@ -385,7 +436,6 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
                     \item[$E_{4.2}$] Customer rejects match, return to S3
                     \item[$E_{4.3}$] Customer aborts offer mode
                 \end{enumerate}
-                \item[$S_4$] Offer is removed from list of active offers
             \end{enumerate}
         \item Taxi company
             \begin{enumerate}
@@ -406,7 +456,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \begin{enumerate}
                 \item[N/A]
             \end{enumerate}
-        \item[Global] Scenario for BE4
+        \item[Global] Scenario for BE5
             \begin{enumerate}
                 \item[$S_1$] New offer sent to dispatcher
                 \item[$E_1$] Dispatcher stores offer in pool of live offers
@@ -419,22 +469,21 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
                 \item[$S_5$] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
                 \begin{enumerate}
                     \item[$E_{5.1}$] Customer accepts match
-                      \item[$S_{5_2}$] Offer is removed from list of active offers
                     	\item[$S_{5.2.1}$] Driver is given pick-up location and directions (i.e. detour) for new customer in carpool
                     	\item[$E_{5.2.1}$] Driver follows directions of detour to pick-up carpooler
                     	\item[$S_{5.2.2}$] Once detour is complete and carpooler is in the taxi, system displays original destination with updated directions
                
-                \item[$E_{5.2}$] Customer rejects match, return to S3
+                \item[$E_{5.2}$] Customer rejects match, return to S4
                 \item[$E_{5.3}$] Customer aborts offer mode
                  \end{enumerate}
             \end{enumerate}
     \end{enumerate}
     \item Taxi carpool arrives at destination
-    \begin{enumerate}[{VP5}.1]
+    \begin{enumerate}[{VP6}.1]
         \item Customers
             \begin{enumerate}
                 \item[$S_1$] System displays fare to each customer
-                \item[$E_1$] Customer pays taxi driver [out of scope for system]
+                \item[$E_1$] Customer pays taxi driver [Out of scope for system]
 		   \item[$S_2$] Driver inputs that payment is complete
                 \item[$S_3$] System prompts customer to rate the other customers they shared a ride with, with an option to leave a review
                 \item[$E_3$] Customers input rating and optional review
@@ -442,12 +491,13 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \end{enumerate}
         \item Taxi company
             \begin{enumerate}
-                \item[$E_1$] Drivers obtain payment from customers
+                \item[$S_1$] Carpool ffer is removed from list of active offers
+                \item[$E_1$] Drivers obtain payment from customers [Out of scope for system]
                 \item[$E_2$] Driver inputs that payment is complete
             \end{enumerate}
         \item Taxi drivers
             \begin{enumerate}
-                \item[$E_1$] Driver obtains payment from customers
+                \item[$E_1$] Driver obtains payment from customers [Out of scope of system]
                 \item[$E_2$] Driver inputs into system that payment is complete
                 \item[$S_2$] System logs end of carpool
             \end{enumerate}
@@ -461,27 +511,28 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \begin{enumerate}
                 \item[N/A]
             \end{enumerate}
-        \item[Global] Scenario for BE5
+        \item[Global] Scenario for BE6
             \begin{enumerate}
-                \item[$S_1$] System displays fare to each customer
-                \item[$E_1$] Customer pays taxi driver
+   \item[$S_1$] Carpool ffer is removed from list of active offers
+                \item[$S_2$] System displays fare to each customer
+                \item[$E_2$] Customer pays taxi driver
                 \begin{enumerate}
-                    \item[$E_{1.1}$] Drivers obtain payment from customers [out of scope for system]
-                    \item[$E_{1.2}$] Driver input that payment is complete
+                    \item[$E_{2.1}$] Drivers obtain payment from customers [Out of scope for system]
+                    \item[$E_{2.2}$] Driver input that payment is complete
                 \end{enumerate}
-                \item[$S_2$] Once payment approved, system prompts customer to rate the other customers they shared a ride with, with an option to leave a review
-                \item[$E_2$] Customers input rating and optional review
-                \item[$S_3$] System stores rating and review in customers’ profile
-                \item[$S_4$] System logs end of carpool
+                \item[$S_3$] Once payment approved, system prompts customer to rate the other customers they shared a ride with, with an option to leave a review
+                \item[$E_3$] Customers input rating and optional review
+                \item[$S_4$] System stores rating and review in customers’ profile
+                \item[$S_5$] System logs end of carpool
                 \begin{enumerate}
 			\color{blue}
-                    \item[$E_{4.1}$] Every new 10 000 completed carpools, system sends notification to investors
+                    \item[$E_{5.1}$] Every new 10 000 completed carpools, system sends notification to investors
 \color{black}
                 \end{enumerate}
             \end{enumerate}
     \end{enumerate}
     \item Carpoolers activate conversation prompts
-    \begin{enumerate}[{VP6}.1]
+    \begin{enumerate}[{VP7}.1]
         \item Customers
             \begin{enumerate}
                 \item[$S_1$] Precondition: Carpool has started
@@ -510,7 +561,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \begin{enumerate}
                 \item[N/A]
             \end{enumerate}
-        \item[Global] Scenario for BE6
+        \item[Global] Scenario for BE7
             \begin{enumerate}
                 \item[$S_1$] Precondition: Carpool has started
                 \item[$E_1$] Driver begins commute once new customer is seated in taxi
@@ -519,7 +570,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
                 \item[$S_3$] Random prompt is generated
                 \begin{enumerate}
                     \item[$E_{3.1}$] Customers interact between each other based on prompt
-                    \item[$E_{3.2}$] Customers select new prompt, branch to S2
+                    \item[$E_{3.2}$] Customers select new prompt, branch to S3
                     \item[$E_{3.3}$] Customers exit prompt mode
                 \end{enumerate}
             \end{enumerate}
