@@ -81,7 +81,7 @@ BE: Business Event is something that occurs between the client/stakeholder and t
 \newline \newline
 SRS: Software Requirements Specification is a document that explains the requirements of the software being developed.
 \newline \newline
-VP: Viewpoint, often in reference to a stakeholder/client interested in the system and how they view the business event. \\
+VP: Viewpoint, often in reference to a stakeholder/client interested in the system and how they view the business event. \\ \\
 CF: Creative Feature, an indication to one of the creative/innovative features
 % End SubSection
 
@@ -201,7 +201,7 @@ This \textbf{SRS} is structured to first give background information about the a
 
 \begin{enumerate}[a)]
 	\item Real-time trip tracking via Google Maps Interface.
-	\item Accurate personalized prompts based on user\textquotesingle trips history, behaviour, and more. 
+	\item Accurate personalized prompts based on user trip history, behaviour, and more. 
 \end{enumerate}
 
 % End SubSection
@@ -254,7 +254,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \begin{enumerate}
                 \item[$S_1$] System securely stores user data to comply with GDPR privacy
             \end{enumerate}
-        \item[Global] Scenario for BE1
+        \item[Global] Scenario for \textbf{BE}1
             \begin{enumerate}
                 \item[$S_1$] System asks for customer’s information
                 \item[$E_1$] Customer inputs their information in all mandatory fields
@@ -276,7 +276,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \end{enumerate}
     \end{enumerate}
     \item Customer edits their profile
-    \begin{enumerate}[{VP2}.1]
+    \begin{enumerate}[{\textbf{VP2}}.1]
         \item Customers
             \begin{enumerate}
                 \item[$S_1$] System asks customer to authenticate themselves
@@ -304,7 +304,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \begin{enumerate}
                 \item[$S_1$] System securely stores user data to comply with GDPR privacy
             \end{enumerate}
-        \item[Global] Scenario for BE2
+        \item[Global] Scenario for \textbf{BE}2
             \begin{enumerate}
                 \item[$S_1$] System asks customer to authenticate themselves
                     \item[$E_1$] Customer completes authentication process
@@ -322,7 +322,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
 
 
 \item Customer deletes their profile
-    \begin{enumerate}[{VP3}.1]
+    \begin{enumerate}[{\textbf{VP3}}.1]
         \item Customers
             \begin{enumerate}
                   	 \item[$S_1$] System asks customer to authenticate themselves	
@@ -351,7 +351,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \begin{enumerate}
                 \item[$S_1$] System removes all user data to comply with GDPR privacy
             \end{enumerate}
-        \item[Global] Scenario for BE3
+        \item[Global] Scenario for \textbf{BE}3
             \begin{enumerate}
                   	 \item[$S_1$] System asks customer to authenticate themselves	
                    	 \item[$E_1$] Customer completes authentication process
@@ -370,7 +370,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
 
 
     \item Taxi carpool is requested
-    \begin{enumerate}[{VP4}.1]
+    \begin{enumerate}[{\textbf{VP4}}.1]
         \item Customers
             \begin{enumerate}
                 \item[$S_1$] System asks customer to input their destination
@@ -403,12 +403,12 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \begin{enumerate}
                 \item[N/A]
             \end{enumerate}
-        \item[Global] Scenario for BE4
+        \item[Global] Scenario for \textbf{BE}4
             \begin{enumerate}
                 \item[$S_1$] System asks customers to input their destination
                 \item[$E_1$] Customer inputs destination
                 \item[$S_{2.1}$] System computes estimated payment split based on taxi company's fares
-                \item[$S_{2.2}$] System asks cutomers to input search criteria
+                \item[$S_{2.2}$] System asks customers to input search criteria
                 \item[$E_3$] Customer inputs search criteria
 	          \item[$S_4$] System returns best matches
                 \item[$E_4$] Customer selects taxi to send their carpool request to
@@ -421,7 +421,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \end{enumerate}
     \end{enumerate}
     \item Taxi carpool is offered
-    \begin{enumerate}[{VP5}.1]
+    \begin{enumerate}[{\textbf{VP5}}.1]
         \item Customers
             \begin{enumerate}
                 \item[$S_1$] System asks customer to scan QR code
@@ -456,7 +456,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \begin{enumerate}
                 \item[N/A]
             \end{enumerate}
-        \item[Global] Scenario for BE5
+        \item[Global] Scenario for \textbf{BE}5
             \begin{enumerate}
                 \item[$S_1$] New offer sent to dispatcher
                 \item[$E_1$] Dispatcher stores offer in pool of live offers
@@ -479,7 +479,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \end{enumerate}
     \end{enumerate}
     \item Taxi carpool arrives at destination
-    \begin{enumerate}[{VP6}.1]
+    \begin{enumerate}[{\textbf{VP6}}.1]
         \item Customers
             \begin{enumerate}
                 \item[$S_1$] System displays fare to each customer
@@ -511,7 +511,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \begin{enumerate}
                 \item[N/A]
             \end{enumerate}
-        \item[Global] Scenario for BE6
+        \item[Global] Scenario for \textbf{BE}6
             \begin{enumerate}
    \item[$S_1$] Carpool ffer is removed from list of active offers
                 \item[$S_2$] System displays fare to each customer
@@ -532,7 +532,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \end{enumerate}
     \end{enumerate}
     \item Carpoolers activate conversation prompts
-    \begin{enumerate}[{VP7}.1]
+    \begin{enumerate}[{\textbf{VP7}}.1]
         \item Customers
             \begin{enumerate}
                 \item[$S_1$] Precondition: Carpool has started
@@ -561,7 +561,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
             \begin{enumerate}
                 \item[N/A]
             \end{enumerate}
-        \item[Global] Scenario for BE7
+        \item[Global] Scenario for \textbf{BE}7
             \begin{enumerate}
                 \item[$S_1$] Precondition: Carpool has started
                 \item[$E_1$] Driver begins commute once new customer is seated in taxi
@@ -925,19 +925,5 @@ Below is a list of creative/innovative features that were brainstormed by the te
 
 \end{itemize}
 % End Section
-
-\newpage
-\section*{IMPORTANT NOTES}
-\begin{itemize}
-	\item Be sure to include all sections of the template in your document regardless whether you have something to write for each or not
-	\begin{itemize}
-		\item If you do not have anything to write in a section, indicate this by the \emph{N/A}, \emph{void}, \emph{none}, etc.
-	\end{itemize}
-	\item Uniquely number each of your requirements for easy identification and cross-referencing
-	\item Highlight terms that are defined in Section~1.3 (\textbf{Definitions, Acronyms, and Abbreviations}) with \textbf{bold}, \emph{italic} or \underline{underline}
-	\item For Deliverable 1, please highlight, in some fashion, all (you may have more than one) creative and innovative features. Your creative and innovative features will generally be described in Section~2.2 (\textbf{Product Functions}), but it will depend on the type of creative or innovative features you are including.
-\end{itemize}
-
-
 \end{document}
 %------------------------------------------------------------------------------
