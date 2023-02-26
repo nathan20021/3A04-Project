@@ -114,14 +114,11 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{sub:product_perspective}
 % Begin SubSection
 
-\begin{enumerate}[a)]
-	\item The product being developed is an Android application which empowers the ability to book carpools via a user-friendly interface. The application will securely store customer personal information such as carpool request histories, and personal data inputted by the user. The product is not self-contained since its functionality depends on Google Maps for mapping integration. The product scope mainly covers a match making functionality to match potential carpoolers together. The feature will be implemented under a ccentrelized dispatcher which communicate with the mobile app and user’s database. Fare determination will be covered under the scope of the app, however payment processing is external to the system.
-
-	\item The general interaction can be visualized as follows: 
+	The product being developed is an Android application which empowers the ability to book carpools via a user-friendly interface. The application will securely store customer personal information such as carpool request histories, and personal data inputted by the user. The product is not self-contained since its functionality depends on Google Maps for mapping integration. The product scope mainly covers a match making functionality to match potential carpoolers together. The feature will be implemented under a centralized dispatcher which communicate with the mobile app and user’s database. Fare determination will be covered under the scope of the app, however payment processing is external to the system. The general interaction can be visualized as follows: 
 	\begin{center}
 		\includegraphics[scale=0.7]{app-context.png}
 	\end{center}
-\end{enumerate}
+
 
 % End SubSection
 
@@ -154,7 +151,7 @@ This \textbf{SRS} is structured to first give background information about the a
 
 \begin{enumerate}[a)]
 	\item Riders should be comfortable with using Android mobile devices.
-	\item Riders might be sensitive with prices and therefore opt out for carpools instead of regular taxi services.
+	\item Riders might be sensitive with prices and therefore opt for carpools instead of regular taxi services.
 	\item Riders might be outgoing, socially engaged, and interested in meeting new people.
 	\item Riders are most likely live in a big city since taxi services are highly available, and parking fees are expensive.
 	\item Riders might have a busy schedule since taking public transport or maintaining their own car takes time and effort.
@@ -169,7 +166,7 @@ This \textbf{SRS} is structured to first give background information about the a
 \label{sub:constraints}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item \textbf{Geographical:} The app can only operate on the land which the taxi service operate.
+	\item \textbf{Geographical:} The app can only operate in Canada.
 	\item \textbf{Internet:} The app functionality relies heavily on the internet to book, checkin, and view taxi’s location.
 	\item \textbf{Taxi Regulation:} Since the app is working in conjunction with the taxi provider, it must follow taxi law and regulation. For example, the fare structure used by the app must be approved by the Board of Transportation for some cities.
 	\item \textbf{Data Privacy Regulation:} Personal data stored within the app needs to be encrypted and processed in a way that complies with the Canadian Personal Information Protection and Electronic Documents Act.
@@ -188,7 +185,7 @@ This \textbf{SRS} is structured to first give background information about the a
 	\item Assumptions
 
 	\begin{itemize}
-		\item Users have an android mobile device. If users uses IOS or other operating system, the app would not be available.
+		\item Users have an android mobile device. If users use IOS or other operating system, the app would not be available.
 		\item Users have a highly available internet connection. The app will not function when internet connection is not present.
 		\item Drivers information are provided and available via the app\textquotesingle s database. If the assumption does not hold, driver's data will be pulled from an external data source.
 		\item Prices are determined via a fixed rate per kilometer.
