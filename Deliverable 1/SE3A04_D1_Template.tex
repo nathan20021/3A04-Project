@@ -599,7 +599,7 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
 \label{ssub:style_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LF-S}1. ]
-	\item The app must have a UI that is clear (makes important information obvious), consistent, aesthetically pleasing \\
+	\item The \color{red} UI must make important information obvious. All information that is relevant to the user must be displayed directly, not hidden or underneath/behind UI elements. \color{black} \\
 	{\bf Rationale:} Users are more likely to use and come back to mobile apps which have UIs that are clear, consistent and simple. This helps increase the user base and branding power of the app (Johns, 2022). 
 \end{enumerate}
 % End SubSubSection
@@ -614,9 +614,9 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
 \label{ssub:ease_of_use_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-EOU}1. ]
-	\item The user must not encounter any unclear prompts from which they do not know how to proceed \\
+	\item The user must not encounter any unclear prompts from which they do not know how to proceed, \color{red} all prompts must state exactly what needs to be done. \color{black} \\
 	{\bf Rationale:} If the app is prompting the user to do something, that prompt must be clear and easy to understand so it is easy for the user to use the app.
-	\item The user must not encounter any errors while using the app, and if they do, what to do next must be clear \\
+	\item The user must not encounter any errors while using the app, and if they do, what to do next must be \color{red} obvious, it must state exactly what the user must do to proceed. \color{black} \\
 	{\bf Rationale:} The app must not show the user any errors while they are using it to prevent confusion and to make the app easy to use. On the chance an error does appear to the user, it must be clear on what the user has to do next to remove the error or continue. If the error is generic and confusing to understand, the app is no longer easy to use and leaves the user in confusion.
 \end{enumerate}
 % End SubSubSection
@@ -820,10 +820,7 @@ Not applicable.
 \subsubsection{Integrity Requirements}
 \label{ssub:integrity_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR-INT}1. ]
-	\item The system must not be able to be infiltrated by outside threats that look to access/change the data by having security measures such as encryption and proper authentication. \\
-	{\bf Rationale:} All software systems come with the threat of external hackers. We must ensure that the system is secure and cannot be hacked, otherwise data can be changed and it will no longer be consistent, violating data integrity 
-\end{enumerate}
+\color{red}Not applicable. \color{black}
 % End SubSubSection
 
 \subsubsection{Privacy Requirements}
@@ -834,6 +831,8 @@ Not applicable.
 	{\bf Rationale:} The user should be aware whenever they are entering personal or private information so they can make an informed decision on whether they want to enter that information.
 	\item The product must guarantee that all private information is kept secure \\
 	{\bf Rationale:} Any private information from the user such as their password, address and other sensitive information should be secured through verified security measures, hashing, locking, encryption and authentication.
+    \item \color{red} All data and messages that are transmitted within the application must be encrypted \\
+	{\bf Rationale:} \color{red} In the case that sensitive data is somehow accessed by unwanted parties, the data should remain private by being encrypted so it cannot be read.
 \end{enumerate}
 % End SubSubSection
 
@@ -850,7 +849,7 @@ Not applicable.
 \label{ssub:immunity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-IM}1. ]
-	\item The product must implement security measures such as encryption and authentication to make it immune to infection from unauthorized malicious attackers \\
+	\item The product must implement security measures such as encryption \color{red} of all messages and data transmitted \color{black} and authentication to make it immune to infection from unauthorized malicious attackers \\
 	{\bf Rationale:} There are many types of malware that can attack software, SQL injections, trojan horses, viruses. The system must be immune to infection from all of these, to ensure data privacy and security is maintained at all times.
 \end{enumerate}
 % End SubSubSection
