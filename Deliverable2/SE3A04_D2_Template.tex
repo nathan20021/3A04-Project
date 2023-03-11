@@ -33,12 +33,14 @@
 \begin{document}
 
 \maketitle	
-\noindent{\bf Tutorial Number:} T0x\\
-{\bf Group Number:} Gx \\
+\noindent{\bf Tutorial Number:} T01\\
+{\bf Group Number:} G6 \\
 {\bf Group Members:} 
 \begin{itemize}
-	\item List all Group Member Names (as listed in Avenue)
-	\item You do not need to use student \#s or macid (keep those private).
+	\item Jane Klavir
+	\item Nathan Luong
+	\item Areez Visram
+	\item Jennifer Ye
 \end{itemize}
 
 \section*{IMPORTANT NOTES}
@@ -111,6 +113,55 @@ This section should provide an overview of the overall architectural design of y
 	\item Provide a structural architecture diagram showing the relationship among the subsystems (if appropriate)
 	\item List any design alternatives you considered, but eliminated (and explain why you eliminated them)
 \end{itemize}
+\subsubsection{Overall Architecture and Justification}
+\label{subsub:overall_architecture}
+% Begin SubSubSection
+The overall architecture of the system is the Model-View-Controller (MVC) architecture, which is an interaction 
+oriented architecture. The MVC architecture is the architecture that best fits the system that we are designing. The MVC style is best suited for 
+interactive applications which contain multiple views for various data models. The application being implemented is heavily focused on the UI 
+on the mobile app, and so an architecture style that allows for easy display of data into a UI view is suitable. Furthermore, our system contains multiple data models, for example, models for Users, 
+Rides, Prompts and multiple pages/views across the application will interact with these data models. Furthermore, the MVC architecture is suitable for 
+applications which are prone to frequent data changes. Our system is most definitely prone to frequent data changes, as rides are constantly being offered, 
+arriving, and starting, which means the Rides model will be constantly updated and written to. Finally, the MVC architecture will allow us to separate the 
+various logic functions into separate controllers. The architecture will allow for clear division of logic between controllers, which will make it easier 
+to extend and modify the system. For example, we would have a UserController to handle user operations, a RidesController to handle ride operations and various 
+other controllers to control the logic of other parts of the application. Given these benefits and the functionality of the system, we have chosen to implement 
+the MVC architecture style for the main system.
+
+\subsubsection{Subsystem Architectures and Justification}
+Another architecture style will also be used for the various subsystems of our application. One of the subsystems within the main system is the Dispatcher 
+subsystem, which is responsible for storing all information on taxis and carpool offerings, as well as deciding how to match carpool offers with 
+requests that come in. The repository architecture style is best suited for systems (in this case a subsystem) in which a central data store stores information 
+and various agents communicate with it. This architecture style fits the Dispatcher subsystem because the Dispatcher will contain a central data store which 
+will store all the information about carpools. The data store will be passive, it will be like a database which just stores information and can be read from. 
+The various agents for the repository will be the users who are requesting and offering carpools. These agents are active, as they drive the flow of the 
+subsystem by sending carpool requests and offering carpools. The agents do not communicate directly with each other, they communicate via the data store by 
+sending requests to the data store, and the data store facilitates the requests and decides appropriate matches. Given this, the repository architecture style 
+is the most suitable for the Dispatcher subsystem.
+% End SubSubSection
+
+% Begin SubSubSection
+\subsubsection{Structural Architecture Diagram}
+% End SubSubSection
+
+% Begin SubSubSection
+\subsubsection{Design Alternatives Considered}
+One design alternative for the main architecture that was considered was the Repository architectural style, which is a data centered architecture. We envisioned the system having a 
+central passive database repository, with multiple active agents communicating with the data store. The agents were envisioned to be the different parts of 
+the system, such as a user agent, a rides agent, a prompts agent, and then a dispatcher, all which communicated with the central data store. However, this design 
+was not chosen because the system that is being built is a single mobile application connected to a database. The system does not involve multiple agents which 
+must communicate with a central data store. If there were multiple applications that needed to communicate, this architecture style would be more applicable. However, 
+is is a single application and the different parts of it can be represented using controllers within the architecture rather than external agents, so this design 
+was not chosen. \\
+
+\noindent The second design alternative for the main architecture that was considered was the Presentation-Abstraction-Control (PAC) architecture, which is also 
+an interaction oriented architecture. Both MVC (the architecture that was chosen) and PAC could work for this system, but we ultimately chose MVC over PAC for 
+various reasons. PAC was not chosen because PAC is more useful in complex applications, which require a hierarchical layering of agents. Our system is not complex, 
+it is a single application that communicates with a database. In PAC, the only communication that can occur is between agents, and in our system, we would not 
+have enough agents to justify having communication only between them. This would only add complexity. Furthermore, PAC is more useful for concurrent systems, which 
+our app does not need to be to fulfill its requirements. Finally, PAC is less publicized and less widely used, and so for a somewhat inexperienced development team, MVC 
+is a better choice as there are more resources, information and examples available to help in the design.
+% End SubSubSection
 % End SubSection
 
 \subsection{Subsystems}
