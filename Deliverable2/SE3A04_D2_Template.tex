@@ -142,6 +142,7 @@ is the most suitable for the Dispatcher subsystem.
 
 % Begin SubSubSection
 \subsubsection{Structural Architecture Diagram}
+\includegraphics[scale = 0.7]{Graphics/subsystems_diagram_3.1.png}
 % End SubSubSection
 
 % Begin SubSubSection
@@ -168,7 +169,17 @@ is a better choice as there are more resources, information and examples availab
 \label{sub:subsystems}
 % Begin SubSection
  Provide a list of your subsystems, with a brief description of each. Be sure to document its purpose and relationship to other subsystems.
-
+\\\\\\\\
+The first subsystem is the dispatcher. Essentially, the dispatcher is a data store for all communications within our system. The dispatcher has several purposes. The first is to store information about active taxis in the fleet. It also stores information about user offers and requests. Subsequently, the dispatcher suggests “offerers” to “requesters”, and once a “requester” requests to join the “offerer’s” taxi, the dispatcher must also display an updated fare to the “offerer” so that they can make an informed decision. This match-making process is another fundamental purpose of the dispatcher.
+\\\\
+The next subsystem is the user profile subsystem, that handles tasks having to do with the processing and storage of user profiles. One main purpose of this subsystem is to facilitate the registration of new users. It records their information and remembers it in a database. Furthermore, another purpose is to allow registered users to make updates to their profile. When users edit their profiles, the user profile subsystem must make the necessary updates to the database so that all the information is up to date. Additionally, this subsystem allows registered users to delete their profiles, thenceforth these profiles are removed from the database.
+\\\\
+Another subsystem is the GPS. The purpose of this subsystem is to allow users to track the route of their taxi. Also, it uses the carpoolers’ locations to determine distances between carpoolers. The GPS subsystem requires interfacing with Google Maps.
+\\\\
+The final subsystem is the prompt generator. This subsystem executes our additional innovative feature, which is allowing carpoolers to socialize through a series interesting prompts. The prompt generator must also implement an API to fulfill its purpose of coming up with prompts.
+\\\\
+The subsystems interact with one another when it comes to the match-making procedure described in the dispatcher subsystem. The dispatcher is at the centre of it all, and for it to perform its role, it uses the user profile and GPS subsystems to obtain critical information. First, the user profiles subsystem provides data on users’ social preferences, which helps the dispatcher predict user compatibility. Then, the GPS subsystem returns distances between the taxi and potential matches, which the dispatcher uses in showing trip conditions (estimated fare, time, and distance). Ultimately, this relationship is one in which the dispatcher is the central unit, and it uses the other subsystems to get the necessary parameters for its algorithm.
+\\
 % End SubSection
 
 % End Section
