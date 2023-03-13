@@ -67,25 +67,27 @@
 \label{sec:introduction}
 % Begin Section
 
-This section should provide an brief overview of the entire document.
+The following document is dedicated to applying the requirements listed in the SRS in a practical manner to identify design details of the system. It will go into specifics on a class-level, demonstrating what the forecasted classes should be, and how they should interact with one-another within subsystems as well as the overall program architecture. This app is meant to be a long-term project for the company, meaning this document has the possibility of changing in the future.
 
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-State the purpose and intended audience for the document.
+This document dives into the design of the system, describing the precise classes and system architecture. Accordingly, this document is largely meant for app developers, to give them a good idea of the framework of the program, and how various components interact with one another. Thus, reading this document will provide a comprehensive picture on the way the system is constructed.
 % End SubSection
 
 \subsection{System Description}
 \label{sub:system_description}
 % Begin SubSection
-Give a brief description of the system. This could be a paragraph or two to give some context to this document.
+Our system is organized in such a way that the overall pattern follows the Model-View-Controller (MVC) architecture. Using this style is practical for our system given that there are several data models (e.g. users, rides, prompts), controllers that carry out the logic of the system (e.g. UserController and RidesController), and the necessity for a highly interactive UI. Our system requires constant data processing, which is anticipated for highly dynamic systems such as taxi networks. There is also frequent interaction between users with other users, as well as users with the system, and our architecture organizes the system components in a coordinated way.\\\\
+The system also has a couple of subsystems. The dispatcher is essentially the match-maker between the carpoolers. It is primarily organized around the TaxiSessionController, and interacts with a number of other classes, and follows a repository architecture. Then, the user profile subsystem handles the group of classes that manage user data, such as RegistrationController, CustomerEditPage, and other classes in that sphere. The other subsystems are the GPS, which interfaces with Google Maps for all navigation and location-tracking purposes, and the prompt generator, which implements an in-taxi game for carpoolers.
 
 % End SubSection
 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-Describe what the rest of the document contains and explain how the document is organised (e.g. "In Section 2 we discuss...in Section 3...").
+The rest of this document goes into further details on what has been described. In particular, Section 2 includes an analysis class diagram, which identifies the classes in our program, categorizes them, and exhibits their relationships with one another. Section 3 provides an overview of the structural design of the application; it identifies the specific architectural styles used for both the system as a whole, and subsystems. Section 4 comprises the Class Responsibility Collaboration (CRC) Cards, which identify the responsibilities and collaborators of each class in the program. Ultimately, this document applies the SRS to synthesize the requirements into a feasible design.
+
 
 % End SubSection
 
@@ -168,9 +170,13 @@ is a better choice as there are more resources, information and examples availab
 \subsection{Subsystems}
 \label{sub:subsystems}
 % Begin SubSection
+<<<<<<< HEAD
  Provide a list of your subsystems, with a brief description of each. Be sure to document its purpose and relationship to other subsystems.
 \\\\\\\\
 The first subsystem is the dispatcher. Essentially, the dispatcher is a data store for all communications within our system. The dispatcher has several purposes. The first is to store information about active taxis in the fleet. It also stores information about user offers and requests. Subsequently, the dispatcher suggests “offerers” to “requesters”, and once a “requester” requests to join the “offerer’s” taxi, the dispatcher must also display an updated fare to the “offerer” so that they can make an informed decision. This match-making process is another fundamental purpose of the dispatcher.
+=======
+The first subsystem is the dispatcher. The dispatcher is a data store for all communications within our system. It acts as the data store in the repository architecture which is the architecture style that this subsystem follows. The dispatcher has several purposes. The first is to store information about active taxis in the fleet. It also stores information about user offers and requests. Subsequently, the dispatcher suggests “offerers” to “requesters”, and once a “requester” requests to join the “offerer’s” taxi, the dispatcher must also display an updated fare to the “offerer” so that they can make an informed decision. This match-making process is another fundamental purpose of the dispatcher.
+>>>>>>> 91d2c8bc61255f982dd27ea090c30ed6cc4588eb
 \\\\
 The next subsystem is the user profile subsystem, that handles tasks having to do with the processing and storage of user profiles. One main purpose of this subsystem is to facilitate the registration of new users. It records their information and remembers it in a database. Furthermore, another purpose is to allow registered users to make updates to their profile. When users edit their profiles, the user profile subsystem must make the necessary updates to the database so that all the information is up to date. Additionally, this subsystem allows registered users to delete their profiles, thenceforth these profiles are removed from the database.
 \\\\
@@ -212,7 +218,7 @@ This section should contain all of your CRC cards.
 \section{Division of Labour}
 \label{sec:division_of_labour}
 % Begin Section
-Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
+%\includegraphics[scale = 0.6]{Graphics/DivisionOfLabour.jpg}
 % End Section
 
 
