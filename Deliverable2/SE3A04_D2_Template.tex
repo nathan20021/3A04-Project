@@ -10,6 +10,7 @@
 \usepackage{fancyhdr}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
+\usepackage{float}
 %\usepackage{extarrows}
 %\usepackage{setspace}
 %------------------------------------------------------------------------------
@@ -187,7 +188,7 @@ The subsystems interact with one another when it comes to the match-making proce
 % Begin Section
 
 % \begin{itemize}
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -203,7 +204,7 @@ Handles "Done" click event button & RegistrationController\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -216,7 +217,7 @@ Knows RegistationController &\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -230,7 +231,7 @@ Knows RegistationPage &\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -246,7 +247,7 @@ Knows RegistationController &\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -259,7 +260,7 @@ Knows RegistationController &\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -274,7 +275,7 @@ Know RegistrationFailurePage &\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -289,7 +290,7 @@ Know SettingController &\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -302,7 +303,7 @@ Handles "Logout" click event button & SettingController\\ \hline
 \end{table}
 
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -318,7 +319,7 @@ Handles "Delete Account" click event button & SettingController\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -336,7 +337,7 @@ Know CustomerEditPage & \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -350,7 +351,7 @@ Handle "Exit" click event button & PromptController \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -363,7 +364,7 @@ Handle "Exit" click event button & PromptController \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -376,7 +377,7 @@ Handle prompt list request based on user preference & AppDB\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -393,7 +394,7 @@ Handle "Submit Offer" click event button & TaxiSessionController\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -410,7 +411,7 @@ Knows basic details (destination, number of people in the offer, time) of each l
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -425,7 +426,7 @@ Know all the listing's information (prompt preferences, car type, number of peop
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -441,7 +442,7 @@ Knows if destination entered is possible & \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -454,7 +455,7 @@ Calculates and displays the fare for the user when carpool ends & \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -468,7 +469,7 @@ Knows number of stars user gives the app experience & \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
@@ -494,7 +495,7 @@ Know AppDB & \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline 
