@@ -188,334 +188,331 @@ The subsystems interact with one another when it comes to the match-making proce
 \label{sec:class_responsibility_collaboration_crc_cards}
 % Begin Section
 
-% \begin{itemize}
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: RegistrationPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline 
-Knows username &\\ \hline 
-Knows password &\\ \hline
-Knows email &\\ \hline
-Knows RegistrationController &\\ \hline
-Handles "Done" click event button & RegistrationController\\ \hline
-\end{tabular}
-\end{table}
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: RegistrationPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline 
+	Knows username &\\ \hline 
+	Knows password &\\ \hline
+	Knows email &\\ \hline
+	Knows RegistrationController &\\ \hline
+	Handles "Done" click event button & RegistrationController\\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: RegistrationSuccessPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline 
+	Handles "Finish" click event button & TaxiSessionController\\ \hline 
+	Knows RegistationController &\\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: RegistrationErrorPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline 
+	Handles "Go Back" click event button & RegistrationController\\ \hline 
+	Knows RegistationController &\\ \hline
+	Knows RegistationPage &\\ \hline
+	\end{tabular}
+	\end{table}
+		
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: RegistrationController}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Know RegistrationPage&\\ \hline
+	Handle user registration request & DataControllerClass, RegistrationSuccessPage, RegistrationFailurePage\\ \hline
+	Know RegistrationSuccessPage &\\ \hline
+	Know RegistrationFailurePage &\\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: CustomerInfo}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline 
+	Knows username&\\ \hline
+	Knows password&\\ \hline 
+	Knows email&\\ \hline 
+	Knows birth date&\\ \hline 
+	Knows prompt preferences &\\ \hline
+	Knows SettingController &\\ \hline
+	\end{tabular}
+	\end{table}
+		
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: CustomerEditPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline 
+	Know password & \\ \hline
+	Know username & \\ \hline
+	Know prompt preferences & \\ \hline
+	Handles "Save" click event button (to check is user changes are possible) & SettingController\\ \hline 
+	Handles "Delete Account" click event button & SettingController\\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: EditSuccessPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline 
+	Handles "Finish" click event button & SettingController\\ \hline 
+	Knows SettingController &\\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: EditErrorPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline 
+	Handles "Go Back" click event button & SettingController\\ \hline 
+	Knows SettingController &\\ \hline
+	Knows CustomerEditPage &\\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: SettingController}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle new user profile information edit request & DataControllerClassr, EditSuccessPage, EditErrorPage\\ \hline
+	Handle user account deletion & DataControllerClass\\ \hline
+	Know CustomerInfo & \\ \hline 
+	Know EditSuccessPage & \\ \hline 
+	Know EditErrorPage & \\ \hline
+	Know CustomerEditPage & \\ \hline
+	Knows DataControllerClass& \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: PromptDisplayPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Know list of prompts & PromptController\\ \hline
+	Handle "Refresh" click event button & \\ \hline
+	Handle "Exit" click event button & PromptController \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: PromptController}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle exit prompt request click event button & DataControllerClass\\ \hline
+	Handle prompt list request based on user preference & DataControllerClass\\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: CarpoolOfferPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle scanning QR code &  \\ \hline
+	Knows number of people to offer the carpool to &\\ \hline
+	Knows the destination of the carpool &\\ \hline
+	Knows taxiID &\\ \hline
+	Knows if the carpool would like to participate in the prompt feature & \\ \hline
+	Handle "Submit Offer" click event button & Dispatcher\\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: TaxiSelectionPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle "Destination" click event button & Dispatcher \\ \hline
+	Sorts taxi listing based on criteria selected though "Sort by" click event button & \\ \hline
+	Handle "Details" click event button on each taxi listing & Dispatcher \\ \hline
+	Filters taxi carpool listing based on selected criteria & \\ \hline
+	Requests list of taxi carpool in the users current area & Dispatcher \\ \hline
+	Knows basic details (destination, number of people in the offer, time) of each listing & \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: TaxiDetailPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle "Confirm" click event button & Dispatcher \\ \hline
+	Handle "$\xleftarrow{}$" click event button & Dispatcher \\ \hline
+	Handle list information request on page load & Dispatcher\\ \hline
+	Know all the listing's information (prompt preferences, car type, number of people already in the carpool, number of people wanted for the carpool, estimated price, etc.)  & \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: LocationSelectionPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle "$\xleftarrow{}$" click event button & Dispatcher \\ \hline
+	Handle "Save" click event button & Dispatcher\\ \hline
+	Knows desired destination of a user & \\ \hline
+	Knows difference in distance between current and desired location & \\ \hline
+	Knows if destination entered is possible & \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: Dispatcher}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle submitting carpool offer & DataControllerClass\\ \hline
+	Handle display enter destination screen request & LocationSelectionPage\\ \hline
+	Handle getting more details for a listing request & DataControllerClass, TaxiDetailPage\\ \hline
+	Handle carpool offer list requests & DataControllerClass\\ \hline
+	Handle user selecting the carpool offer through confirm request & DataControllerClass\\ \hline 
+	Handle going back to taxi carpool listing page & TaxiSelectionPage\\ \hline
+	Handle saving destination location request & DataControllerClass\\ \hline
+	Know if user is registered & \\ \hline
+	Know CarpoolOfferPage & \\ \hline 
+	Know TaxiSelectionPage & \\ \hline
+	Know TaxiDetailPage & \\ \hline
+	Know LocationSelectionPage & \\ \hline
+	Know DataControllerClass & \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: FareDisplayPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle "$\xleftarrow{}$" click event button & TaxiSessionController \\ \hline
+	Calculates and displays the fare for the user when carpool ends & \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: RatingPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle "Submit" click event button & TaxiSessionController \\ \hline
+	Knows number of stars user gives the trip & \\ \hline
+	Knows number of stars user gives the app experience & \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: LoginPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Know username & \\ \hline
+	Know password & \\ \hline
+	Handles "Login" click event button & SettingController\\ \hline
+	Know SettingController &\\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: LogoutPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline 
+	Handles "Logout" click event button & SettingController\\ \hline
+	\end{tabular}
+	\end{table}
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: RegistrationSuccessPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline 
-Handles "Finish" click event button & TaxiSessionController\\ \hline 
-Knows RegistationController &\\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: RegistrationErrorPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline 
-Handles "Go Back" click event button & RegistrationController\\ \hline 
-Knows RegistationController &\\ \hline
-Knows RegistationPage &\\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: CustomerInformation}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline 
-Knows username&\\ \hline
-Knows password&\\ \hline 
-Knows email&\\ \hline 
-Knows birth date&\\ \hline 
-Knows RegistationController &\\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: CustomerIdentity}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline 
-\vspace{1in} & \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: RegistrationController}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Know RegistrationPage&\\ \hline
-Handle user registration request & AppDB, RegistrationSuccessPage, RegistrationFailurePage\\ \hline
-Know RegistrationSuccessPage &\\ \hline
-Know RegistrationFailurePage &\\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: LoginPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Know username & \\ \hline
-Know password & \\ \hline
-Handles "Login" click event button & SettingController\\ \hline
-Know SettingController &\\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: LogoutPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline 
-Handles "Logout" click event button & SettingController\\ \hline
-\end{tabular}
-\end{table}
-
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: CustomerEditPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline 
-Know password & \\ \hline
-Know username & \\ \hline
-Know prompt preferences & \\ \hline
-Handles "Save" click event button (to check is user changes are possible) & SettingController\\ \hline 
-Handles "Delete Account" click event button & SettingController\\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: SettingController}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Handle user login request & AppDB, TaxiSessionController\\ \hline
-Handle user logout request & LoginPage\\ \hline
-Handle user profile request & AppDB\\ \hline
-Handle user account deletion & AppDB\\ \hline
-Know LoginPage & \\ \hline 
-Know LogoutPage & \\ \hline
-Know CustomerEditPage & \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: PromptDisplayPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Know list of prompts & PromptController\\ \hline
-Handle "Refresh" click event button & \\ \hline
-Handle "Exit" click event button & PromptController \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: PromptActivationPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-\vspace{1in} & \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: PromptController}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Handle exit prompt request click event button & TaxiSessionController\\ \hline
-Handle prompt list request based on user preference & AppDB\\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: TaxiOfferPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Handle scanning QR code &  \\ \hline
-Knows number of people to offer the carpool to &\\ \hline
-Knows the destination of the carpool &\\ \hline
-Knows taxiID &\\ \hline
-Knows if the carpool would like to participate in the prompt feature & \\ \hline
-Handle "Submit Offer" click event button & TaxiSessionController\\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: TaxiSelectionPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Handle "Destination" click event button & TaxiSessionController \\ \hline
-Sorts taxi listing based on criteria selected though "Sort by" click event button & \\ \hline
-Handle "Details" click event button on each taxi listing & TaxiSessionController \\ \hline
-Filters taxi carpool listing based on selected criteria & \\ \hline
-Requests list of taxi carpool in the users current area & TaxiSessionController \\ \hline
-Knows basic details (destination, number of people in the offer, time) of each listing & \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: TaxiDetailPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Handle "Confirm" click event button & TaxiSessionController \\ \hline
-Handle "$\xleftarrow{}$" click event button & TaxiSessionController \\ \hline
-Handle list information request on page load & TaxiSessionController\\ \hline
-Know all the listing's information (prompt preferences, car type, number of people already in the carpool, number of people wanted for the carpool, estimated price, etc.)  & \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: LocationSelectionPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Handle "$\xleftarrow{}$" click event button & TaxiSessionController \\ \hline
-Handle "Save" click event button & TaxiSessionController\\ \hline
-Knows desired destination of a user & \\ \hline
-Knows difference in distance between current and desired location & \\ \hline
-Knows if destination entered is possible & \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: FareDisplayPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Handle "$\xleftarrow{}$" click event button & TaxiSessionController \\ \hline
-Calculates and displays the fare for the user when carpool ends & \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: RatingPage}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Handle "Submit" click event button & TaxiSessionController \\ \hline
-Knows number of stars user gives the trip & \\ \hline
-Knows number of stars user gives the app experience & \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: TaxiSessionController}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Handle submitting carpool offer & AppDB, TaxiSessionController\\ \hline
-Handle display enter destination screen request & LocationSelectionPage\\ \hline
-Handle getting more details for a listing request & AppDB, TaxiDetailPage\\ \hline
-Handle carpool offer list requests & AppDB\\ \hline
-Handle user selecting the carpool offer through confirm request & AppDB\\ \hline 
-Handle going back to taxi carpool listing page & TaxiSelectionPage\\ \hline
-Handle saving destination location request & AppDB\\ \hline
-Know if user is registered & Customer Identity\\ \hline
-Know TaxiOfferPage & \\ \hline 
-Know TaxiSelectionPage & \\ \hline
-Know TaxiDetailPage & \\ \hline
-Know FareDisplayPage & \\ \hline
-Know LocationSelectionPage & \\ \hline
-Know RatingPage & \\ \hline
-Know AppDB & \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{6cm}|p{6cm}|}
-\hline 
- \multicolumn{2}{|l|}{\textbf{Class Name: AppDB}} \\
-\hline
-\textbf{Responsibility:} & \textbf{Collaborators:} \\
-\hline
-Accomplish the following two tasks in one atomic step: (1) Verifies the nonexistence of a username, password and email pair, (2) if successful, insert the pair into the database & RegistrationController \\ \hline
-Accomplish the following two tasks in one atomic step: (1) Verifies the nonexistence of a username, password and email pair, (2) if successful, allow user to access the app & SettingController\\ \hline
-Accomplish the following two tasks in one atomic step: (1) Verifies the nonexistence of a username, password and email pair, (2) if successful, remove the pair into the database & SettingController\\ \hline
-Accomplish the following two tasks in one atomic step: (1) Assuming user is verified, use username to find prompt preferences (2) Return list of prompts based on the preference & PromptController\\ \hline
-Assuming user is verified, insert all information of the carpool that is being offered & TaxiSessionController\\ \hline
-Return all information of a carpool when details are requested & TaxiSessionController\\ \hline
-Return list of carpools that has not met its number of people needed & TaxiSessionController\\ \hline
-Accomplish the following two tasks in one atomic step: (1) Get the taxiID from the carpool listing currently on screen (2) Insert the taxiID to the user & TaxiSessionController\\ \hline
-Assuming user is verified, save the entered destination to the user & TaxiSessionController\\ \hline
-\end{tabular}
-\end{table}
-% End Section
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: AppDB}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Accomplish the following two tasks in one atomic step: (1) Verifies the nonexistence of a username, password and email pair, (2) if successful, insert the pair into the database & DataEncryptionController \\ \hline
+	Accomplish the following two tasks in one atomic step: (1) Verifies the nonexistence of a username, password and email pair, (2) if successful, allow user to access the app & DataEncryptionController\\ \hline
+	Accomplish the following two tasks in one atomic step: (1) Verifies the nonexistence of a username, password and email pair, (2) if successful, remove the pair into the database & DataEncryptionController\\ \hline
+	Accomplish the following two tasks in one atomic step: (1) Assuming user is verified, use username to find prompt preferences (2) Return list of prompts based on the preference & DataEncryptionController\\ \hline
+	Assuming user is verified, insert all information of the carpool that is being offered & DataEncryptionController\\ \hline
+	Return all information of a carpool when details are requested & DataEncryptionController\\ \hline
+	Return list of carpools that has not met its number of people needed & DataEncryptionController\\ \hline
+	Accomplish the following two tasks in one atomic step: (1) Get the taxiID from the carpool listing currently on screen (2) Insert the taxiID to the user & DataEncryptionController\\ \hline
+	Assuming user is verified, save the entered destination to the user & DataEncryptionController\\ \hline
+	\end{tabular}
+	\end{table}% End Section
 
 % DataEncryptionController
 
