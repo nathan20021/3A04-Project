@@ -200,7 +200,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	Knows password &\\ \hline
 	Knows email &\\ \hline
 	Knows RegistrationController &\\ \hline
-	Handles "Done" click event button & RegistrationController\\ \hline
+	Handles "Done" button click event  & RegistrationController\\ \hline
 	\end{tabular}
 	\end{table}
 	
@@ -212,7 +212,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline 
-	Handles "Finish" click event button & TaxiSessionController\\ \hline 
+	Handles "Finish" button click event  & TaxiSessionController\\ \hline 
 	Knows RegistationController &\\ \hline
 	\end{tabular}
 	\end{table}
@@ -225,7 +225,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline 
-	Handles "Go Back" click event button & RegistrationController\\ \hline 
+	Handles "Go Back" button click event  & RegistrationController\\ \hline 
 	Knows RegistationController &\\ \hline
 	Knows RegistationPage &\\ \hline
 	\end{tabular}
@@ -274,8 +274,8 @@ The subsystems interact with one another when it comes to the match-making proce
 	Know password & \\ \hline
 	Know username & \\ \hline
 	Know prompt preferences & \\ \hline
-	Handles "Save" click event button (to check is user changes are possible) & SettingController\\ \hline 
-	Handles "Delete Account" click event button & SettingController\\ \hline
+	Handles "Save" button click event  (to check is user changes are possible) & SettingController\\ \hline 
+	Handles "Delete Account" button click event  & SettingController\\ \hline
 	\end{tabular}
 	\end{table}
 	
@@ -287,7 +287,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline 
-	Handles "Finish" click event button & SettingController\\ \hline 
+	Handles "Finish" button click event  & SettingController\\ \hline 
 	Knows SettingController &\\ \hline
 	\end{tabular}
 	\end{table}
@@ -300,7 +300,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline 
-	Handles "Go Back" click event button & SettingController\\ \hline 
+	Handles "Go Back" button click event  & SettingController\\ \hline 
 	Knows SettingController &\\ \hline
 	Knows CustomerEditPage &\\ \hline
 	\end{tabular}
@@ -328,13 +328,40 @@ The subsystems interact with one another when it comes to the match-making proce
 	\centering
 	\begin{tabular}{|p{6cm}|p{6cm}|}
 	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: PromptController}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle exit prompt request & DataControllerClass\\ \hline
+	Handle prompt list request based on user preference & DataControllerClass\\ \hline
+	\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
 		\multicolumn{2}{|l|}{\textbf{Class Name: PromptDisplayPage}} \\
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
 	Know list of prompts & PromptController\\ \hline
-	Handle "Refresh" click event button & \\ \hline
-	Handle "Exit" click event button & PromptController \\ \hline
+	Handle "Refresh" button click event  & \\ \hline
+	Handle "Exit" button click event  & PromptController \\ \hline
+	\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: PromptActivationPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handles ”Activate” button click event & \\ \hline
+	Handles ”Exit” button click event & \\ \hline
+	Knows PromptController & \\ \hline
 	\end{tabular}
 	\end{table}
 	
@@ -342,80 +369,16 @@ The subsystems interact with one another when it comes to the match-making proce
 	\centering
 	\begin{tabular}{|p{6cm}|p{6cm}|}
 	\hline 
-		\multicolumn{2}{|l|}{\textbf{Class Name: PromptController}} \\
+		\multicolumn{2}{|l|}{\textbf{Class Name: PromptActivationErrorPage}} \\
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
-	Handle exit prompt request click event button & DataControllerClass\\ \hline
-	Handle prompt list request based on user preference & DataControllerClass\\ \hline
+	Handles ”Retry” button click event & \\ \hline
+	Handles ”Exit” button click event & \\ \hline
+	Knows PromptController & \\ \hline
 	\end{tabular}
 	\end{table}
-	
-	\begin{table}[H]
-	\centering
-	\begin{tabular}{|p{6cm}|p{6cm}|}
-	\hline 
-		\multicolumn{2}{|l|}{\textbf{Class Name: CarpoolOfferPage}} \\
-	\hline
-	\textbf{Responsibility:} & \textbf{Collaborators:} \\
-	\hline
-	Handle scanning QR code &  \\ \hline
-	Knows number of people to offer the carpool to &\\ \hline
-	Knows the destination of the carpool &\\ \hline
-	Knows taxiID &\\ \hline
-	Knows if the carpool would like to participate in the prompt feature & \\ \hline
-	Handle "Submit Offer" click event button & Dispatcher\\ \hline
-	\end{tabular}
-	\end{table}
-	
-	\begin{table}[H]
-	\centering
-	\begin{tabular}{|p{6cm}|p{6cm}|}
-	\hline 
-		\multicolumn{2}{|l|}{\textbf{Class Name: TaxiSelectionPage}} \\
-	\hline
-	\textbf{Responsibility:} & \textbf{Collaborators:} \\
-	\hline
-	Handle "Destination" click event button & Dispatcher \\ \hline
-	Sorts taxi listing based on criteria selected though "Sort by" click event button & \\ \hline
-	Handle "Details" click event button on each taxi listing & Dispatcher \\ \hline
-	Filters taxi carpool listing based on selected criteria & \\ \hline
-	Requests list of taxi carpool in the users current area & Dispatcher \\ \hline
-	Knows basic details (destination, number of people in the offer, time) of each listing & \\ \hline
-	\end{tabular}
-	\end{table}
-	
-	\begin{table}[H]
-	\centering
-	\begin{tabular}{|p{6cm}|p{6cm}|}
-	\hline 
-		\multicolumn{2}{|l|}{\textbf{Class Name: TaxiDetailPage}} \\
-	\hline
-	\textbf{Responsibility:} & \textbf{Collaborators:} \\
-	\hline
-	Handle "Confirm" click event button & Dispatcher \\ \hline
-	Handle "$\xleftarrow{}$" click event button & Dispatcher \\ \hline
-	Handle list information request on page load & Dispatcher\\ \hline
-	Know all the listing's information (prompt preferences, car type, number of people already in the carpool, number of people wanted for the carpool, estimated price, etc.)  & \\ \hline
-	\end{tabular}
-	\end{table}
-	
-	\begin{table}[H]
-	\centering
-	\begin{tabular}{|p{6cm}|p{6cm}|}
-	\hline 
-		\multicolumn{2}{|l|}{\textbf{Class Name: LocationSelectionPage}} \\
-	\hline
-	\textbf{Responsibility:} & \textbf{Collaborators:} \\
-	\hline
-	Handle "$\xleftarrow{}$" click event button & Dispatcher \\ \hline
-	Handle "Save" click event button & Dispatcher\\ \hline
-	Knows desired destination of a user & \\ \hline
-	Knows difference in distance between current and desired location & \\ \hline
-	Knows if destination entered is possible & \\ \hline
-	\end{tabular}
-	\end{table}
-	
+
 	\begin{table}[H]
 	\centering
 	\begin{tabular}{|p{6cm}|p{6cm}|}
@@ -433,10 +396,136 @@ The subsystems interact with one another when it comes to the match-making proce
 	Handle saving destination location request & DataControllerClass\\ \hline
 	Know if user is registered & \\ \hline
 	Know CarpoolOfferPage & \\ \hline 
+	Know CarpoolOfferSuccessPage & \\ \hline 
+	Know CarpoolOfferErrorPage & \\ \hline 
 	Know TaxiSelectionPage & \\ \hline
 	Know TaxiDetailPage & \\ \hline
 	Know LocationSelectionPage & \\ \hline
 	Know DataControllerClass & \\ \hline
+	\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: CarpoolOfferPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle scanning QR code &  \\ \hline
+	Knows number of people to offer the carpool to &\\ \hline
+	Knows the destination of the carpool &\\ \hline
+	Knows taxiID &\\ \hline
+	Knows if the carpool would like to participate in the prompt feature & \\ \hline
+	Handle "Submit Offer" button click event  & Dispatcher\\ \hline
+	\end{tabular}
+	\end{table}
+
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: CarpoolOfferSuccessPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handles "Confirm" butotn click event  & \\ \hline 
+	Knows TaxiID &\\ \hline
+	Knows Dispatcher &\\ \hline
+	Knows CarpoolOfferPage &\\ \hline
+	\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: CarpoolOfferErrorPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handles "Retry" button click event  & \\ \hline 
+	Knows TaxiID &\\ \hline
+	Knows Dispatcher &\\ \hline
+	Knows CarpoolOfferPage &\\ \hline
+	\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: TaxiIDInputPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle input events (QRCode scanning, text-field input, etc.) &\\ \hline
+	Knows TaxiID&  \\ \hline
+	\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: TaxiID}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Knows Dispatcher&  \\ \hline
+	Knows Taxi's Unique Indentifier&  \\ \hline
+	\end{tabular}
+	\end{table}
+
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: TaxiSelectionPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle "Destination"button click event& Dispatcher \\ \hline
+	Sorts taxi listing based on criteria selected though "Sort by" button click event  & \\ \hline
+	Handle "Details" button click event  on each taxi listing & Dispatcher \\ \hline
+	Filters taxi carpool listing based on selected criteria & \\ \hline
+	Requests list of taxi carpool in the users current area & Dispatcher \\ \hline
+	Knows basic details (destination, number of people in the offer, time) of each listing & \\ \hline
+	\end{tabular}
+	\end{table}
+	
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: TaxiDetailPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle "Confirm" button click event  & Dispatcher \\ \hline
+	Handle "$\xleftarrow{}$" button click event  & Dispatcher \\ \hline
+	Handle list information request on page load & Dispatcher\\ \hline
+	Know all the listing's information (prompt preferences, car type, number of people already in the carpool, number of people wanted for the carpool, estimated price, etc.)  & \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: LocationSelectionPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle "$\xleftarrow{}$" button click event  & Dispatcher \\ \hline
+	Handle "Save" button click event  & Dispatcher\\ \hline
+	Knows desired destination of a user & \\ \hline
+	Knows difference in distance between current and desired location & \\ \hline
+	Knows if destination entered is possible & \\ \hline
 	\end{tabular}
 	\end{table}
 	
@@ -448,7 +537,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
-	Handle "$\xleftarrow{}$" click event button & TaxiSessionController \\ \hline
+	Handle "$\xleftarrow{}$" button click event  & TaxiSessionController \\ \hline
 	Calculates and displays the fare for the user when carpool ends & \\ \hline
 	\end{tabular}
 	\end{table}
@@ -461,12 +550,29 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
-	Handle "Submit" click event button & TaxiSessionController \\ \hline
+	Handle "Submit" button click event  & TaxiSessionController \\ \hline
 	Knows number of stars user gives the trip & \\ \hline
 	Knows number of stars user gives the app experience & \\ \hline
 	\end{tabular}
 	\end{table}
 	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: AuthenticationController}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle authentication logic and requests & DataControllerClassr, LoginPage, LoginErrorPage, LoginSuccessPage, LogoutPage\\ \hline 
+	Know LoginPage & \\ \hline 
+	Know LogoutPage & \\ \hline 
+	Know LoginErrorPage & \\ \hline
+	Know LoginSuccessPage & \\ \hline
+	Knows DataControllerClass& \\ \hline
+	\end{tabular}
+	\end{table}
+
 	\begin{table}[H]
 	\centering
 	\begin{tabular}{|p{6cm}|p{6cm}|}
@@ -477,11 +583,39 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	Know username & \\ \hline
 	Know password & \\ \hline
-	Handles "Login" click event button & AuthenticationController\\ \hline
+	Handles "Login" button click event  & AuthenticationController\\ \hline
 	Know AuthenticationController &\\ \hline
 	\end{tabular}
 	\end{table}
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: LoginErrorPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handles "Retry" button click event  & AuthenticationController\\ \hline 
+	Knows AuthenticationController &\\ \hline
+	Knows LoginPage &\\ \hline
+	\end{tabular}
+	\end{table}
+
 	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: LoginSuccessPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Knows AuthenticationController &\\ \hline
+	\end{tabular}
+	\end{table}
+	
+
 	\begin{table}[H]
 	\centering
 	\begin{tabular}{|p{6cm}|p{6cm}|}
@@ -490,7 +624,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline 
-	Handles "Logout" click event button & AuthenticationController\\ \hline
+	Handles "Logout" button click event  & AuthenticationController\\ \hline
 	Knows AuthenticationController & \\ \hline
 	\end{tabular}
 	\end{table}
@@ -515,25 +649,24 @@ The subsystems interact with one another when it comes to the match-making proce
 	\end{tabular}
 	\end{table}% End Section
 
-% DataEncryptionController
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: DataEncryptionController}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+	Handle encryption and decryption of sensitive data (postal codes, passwords) between the database and DataControllerClass& AppDB, DataControllerClass\\ \hline
+	Handle the sending and receving of application data (user data, trip data, prompts data, etc.) between AppDB and DataControllerClass & AppDB, DataControllerClass\\ \hline
+	\end{tabular}
+	\end{table}
 
-% AuthenticationController
-% LoginErrorPage
-% LoginSuccessPage
 
-% RatingPage
+% DataControllerClass 
 
 
-% CarpoolOfferSuccessPage
-% CarpoolOfferErrorPage
-% Dispatcher
-% TaxiIDInputPage
-% TaxiID
-
-%EditErrorPage
-%EditSuccessPage
-%CustomerInformation
-
+% End Section
 \appendix
 \section{Division of Labour}
 \label{sec:division_of_labour}
