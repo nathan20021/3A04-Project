@@ -197,7 +197,15 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline 
-	&\\ \hline 
+	Handle request to save unencrypted Taxi Session Data from TaxiSessionController for authenticated users & TaxiSessionController, DataEncryptionController\\ \hline 
+	Handle request to fetch, and save unencrypted Authetication Data from AuthenticationController &AuthenticationController, DataEncryptionController\\ \hline 
+	Handle request to fetch unencrypted Prompt Data from PromptController for authenticated users &PromptController, DataEncryptionController\\ \hline 
+	Handle request to fetch, edit, and save unencrypted CarPool Data from Dispatcher for authenticated users &Dispatcher, DataEncryptionController\\ \hline 
+	Handle request to fetch, edit, and save unencrypted User Setting Data from SettingController for authenticated users&SettingController, DataEncryptionController\\ \hline 
+	Handle request to fetch, edit, and save unencrypted User Indentity Data from RegistrationController for authenticated users &RegistrationController, DataEncryptionController\\ \hline 
+	Handle decrypted data returned from DataEncryptionController & DataEncryptionController\\ \hline 
+	Request DataEncryptionController to encrypt sensitive user information (passwords, postalcode, etc.) & DataEncryptionController\\ \hline 
+
 	\end{tabular}
 	\end{table}
 	
@@ -445,7 +453,6 @@ The subsystems interact with one another when it comes to the match-making proce
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
 	Handles "Confirm" butotn click event  & \\ \hline 
-	Knows TaxiID &\\ \hline
 	Knows Dispatcher &\\ \hline
 	Knows CarpoolOfferPage &\\ \hline
 	\end{tabular}
@@ -460,7 +467,6 @@ The subsystems interact with one another when it comes to the match-making proce
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
 	Handles "Retry" button click event  & \\ \hline 
-	Knows TaxiID &\\ \hline
 	Knows Dispatcher &\\ \hline
 	Knows CarpoolOfferPage &\\ \hline
 	\end{tabular}
