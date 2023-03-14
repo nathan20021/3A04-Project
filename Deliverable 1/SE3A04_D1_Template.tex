@@ -383,7 +383,6 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
                     \item[$S_{4.2}$] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
                     \item[$S_{4.3}$] Customers notified if request is accepted
                 \end{enumerate}
-                \item[$S_5$] System shows location of designated cab
             \end{enumerate}
         \item Taxi company
             \begin{enumerate}
@@ -415,8 +414,9 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
                     \item[$S_{5.2}$] Customers are returned to selection phase (i.e. after inputting destination) if request is denied, branch to S2
                     \item[$S_{5.3}$] Customers notified if request is accepted
                 \end{enumerate}
+\color{red}
 		 \item[$S_6$] System computes estimated payment split based on taxi company's fares
-                \item[$S_7$] System shows location of designated cab
+\color{black}
             \end{enumerate}
     \end{enumerate}
     \item Taxi carpool is offered
@@ -463,7 +463,9 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
                 \item[$E_2$] Customer scans QR code
                 \item[$S_3$] System asks customer to input offer information
                 \item[$E_3$] Customer inputs offer information
+\color{red}
                 \item[$S_4$] Dispatcher stores offer in pool of live offers
+\color{black}
                 \item[$S_5$] System shows offer to other customers looking to join a taxi
                 \item[$E_5$] Customer looking to join a taxi requests to join carpool
                 \item[$S_6$] Dispatcher returns potential match, displaying updated estimated fare, distance, time, and optimality measure
@@ -529,7 +531,9 @@ Note: Requirements in blue are ``extra'' and can be ignored in initial design st
                 \item[$S_3$] Once payment approved, system prompts customer to rate the other customers they shared a ride with, with an option to leave a review
                 \item[$E_3$] Customers input rating and optional review
                 \item[$S_4$] System stores rating and review in customers’ profile
+\color{red}
                 \item[$S_5$] System logs end of carpool
+\color{black}
             \end{enumerate}
     \end{enumerate}
     \item Carpoolers activate conversation prompts
