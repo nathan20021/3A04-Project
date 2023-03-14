@@ -24,7 +24,7 @@
 
 % Title Details
 %------------------------------------------------------------------------------
-\title{Deliverable \#2 Template}
+\title{Deliverable \#2}
 \author{SE 3A04: Software Design II -- Large System Design}
 \date{}                               
 %------------------------------------------------------------------------------
@@ -44,49 +44,32 @@
 	\item Jennifer Ye
 \end{itemize}
 
-\section*{IMPORTANT NOTES}
-\begin{itemize}
-	%	\item You do \underline{NOT} need to provide a text explanation of each diagram; the diagram should speak for itself
-	\item Please document any non-standard notations that you may have used
-	\begin{itemize}
-		\item \emph{Rule of Thumb}: if you feel there is any doubt surrounding the meaning of your notations, document them
-	\end{itemize}
-	\item Some diagrams may be difficult to fit into one page
-	\begin{itemize}
-		\item Ensure that the text is readable when printed, or when viewed at 100\% on a regular laptop-sized screen.
-		\item If you need to break a diagram onto multiple pages, please adopt a system of doing so and thoroughly explain how it can be reconnected from one page to the next; if you are unsure about this, please ask about it
-	\end{itemize}
-	\item Please submit the latest version of Deliverable 1 with Deliverable 2
-	\begin{itemize}
-		\item Indicate any changes you made.
-	\end{itemize}
-	\item If you do \underline{NOT} have a Division of Labour sheet, your deliverable will \underline{NOT} be marked
-\end{itemize}
-
 \newpage
 \section{Introduction}
 \label{sec:introduction}
 % Begin Section
 
-This section should provide an brief overview of the entire document.
+The following document is dedicated to applying the requirements listed in the SRS in a practical manner to identify design details of the system. It will go into specifics on a class-level, demonstrating what the forecasted classes should be, and how they should interact with one-another within subsystems as well as the overall program architecture. This app is meant to be a long-term project for the company, meaning this document has the possibility of changing in the future.
 
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-State the purpose and intended audience for the document.
+This document dives into the design of the system, describing the precise classes and system architecture. Accordingly, this document is largely meant for app developers, to give them a good idea of the framework of the program, and how various components interact with one another. Thus, reading this document will provide a comprehensive picture on the way the system is constructed.
 % End SubSection
 
 \subsection{System Description}
 \label{sub:system_description}
 % Begin SubSection
-Give a brief description of the system. This could be a paragraph or two to give some context to this document.
+Our system is organized in such a way that the overall pattern follows the Model-View-Controller (MVC) architecture. Using this style is practical for our system given that there are several data models (e.g. users, rides, prompts), controllers that carry out the logic of the system (e.g. UserController and RidesController), and the necessity for a highly interactive UI. Our system requires constant data processing, which is anticipated for highly dynamic systems such as taxi networks. There is also frequent interaction between users with other users, as well as users with the system, and our architecture organizes the system components in a coordinated way.\\\\
+The system also has a couple of subsystems. The dispatcher is essentially the match-maker between the carpoolers. It is primarily organized around the TaxiSessionController, and interacts with a number of other classes, and follows a repository architecture. Then, the user profile subsystem handles the group of classes that manage user data, such as RegistrationController, CustomerEditPage, and other classes in that sphere. The other subsystems are the GPS, which interfaces with Google Maps for all navigation and location-tracking purposes, and the prompt generator, which implements an in-taxi game for carpoolers.
 
 % End SubSection
 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-Describe what the rest of the document contains and explain how the document is organised (e.g. "In Section 2 we discuss...in Section 3...").
+The rest of this document goes into further details on what has been described. In particular, Section 2 includes an analysis class diagram, which identifies the classes in our program, categorizes them, and exhibits their relationships with one another. Section 3 provides an overview of the structural design of the application; it identifies the specific architectural styles used for both the system as a whole, and subsystems. Section 4 comprises the Class Responsibility Collaboration (CRC) Cards, which identify the responsibilities and collaborators of each class in the program. Ultimately, this document applies the SRS to synthesize the requirements into a feasible design.
+
 
 % End SubSection
 
@@ -102,18 +85,10 @@ This section should provide an analysis class diagram for your application.
 \section{Architectural Design}
 \label{sec:architectural_design}
 % Begin Section
-This section should provide an overview of the overall architectural design of your application. Your overall architecture should show the division of the system into subsystems with high cohesion and low coupling.
 
 \subsection{System Architecture}
 \label{sub:system_architecture}
 % Begin SubSection
-\begin{itemize}
-	\item Identify and explain the overall architecture of your system
-	\item Be sure to clearly state the name of the architecture you used (this is the name of the architectural pattern, not the name of your system)
-	\item Provide the reasoning and justification of the choice of architecture
-	\item Provide a structural architecture diagram showing the relationship among the subsystems (if appropriate)
-	\item List any design alternatives you considered, but eliminated (and explain why you eliminated them)
-\end{itemize}
 \subsubsection{Overall Architecture and Justification}
 \label{subsub:overall_architecture}
 % Begin SubSubSection
