@@ -193,7 +193,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	Handles encryption and decryption of inbound and outbound requests (ie: HTTPS GET) between AppDB& AppDB, DataControllerClass\\ \hline
 	Handles encryption and decryption of sensitive data (postal codes, passwords) between the database and DataControllerClass& AppDB, DataControllerClass\\ \hline
-	Handles the sending and receving of application data (user data, trip histories, prompts prefrences, , etc.) between AppDB and DataControllerClass & AppDB, DataControllerClass\\ \hline
+	Handles the sending and receving of application data (user data, trip histories, prompts prefrences, etc.) between AppDB and DataControllerClass & AppDB, DataControllerClass\\ \hline
 	\end{tabular}
 	\end{table}
 
@@ -243,7 +243,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline 
-	Handles "Finish" button click event  & TaxiSessionController\\ \hline 
+	Handles "Finish" button click event  & RegistrationController\\ \hline 
 	Knows RegistationController &\\ \hline
 	\end{tabular}
 	\end{table}
@@ -516,7 +516,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
-	Handles "Destination"button click event& Dispatcher \\ \hline
+	Handles "Destination" button click event& Dispatcher \\ \hline
 	Sorts taxi listing based on criteria selected though "Sort by" button click event  & \\ \hline
 	Handles "Details" button click event  on each taxi listing & Dispatcher \\ \hline
 	Filters taxi carpool listing based on selected criteria & \\ \hline
