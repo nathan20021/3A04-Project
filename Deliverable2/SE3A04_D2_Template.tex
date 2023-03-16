@@ -44,7 +44,6 @@
 	\item Jennifer Ye
 \end{itemize}
 
-\newpage
 \section{Introduction}
 \label{sec:introduction}
 % Begin Section
@@ -70,7 +69,8 @@ The system also has a couple of subsystems. The dispatcher is essentially the ma
 % Begin SubSection
 The rest of this document goes into further details on what has been described. In particular, Section 2 includes an analysis class diagram, which identifies the classes in our program, categorizes them, and exhibits their relationships with one another. Section 3 provides an overview of the structural design of the application; it identifies the specific architectural styles used for both the system as a whole, and subsystems. Section 4 comprises the Class Responsibility Collaboration (CRC) Cards, which identify the responsibilities and collaborators of each class in the program. Ultimately, this document applies the SRS to synthesize the requirements into a feasible design.
 
-
+\subsection{References}
+Qian, K. (2010). Software architecture and design illuminated. Jones and Bartlett Publ. 
 % End SubSection
 
 % End Section
@@ -94,11 +94,11 @@ The rest of this document goes into further details on what has been described. 
 \label{subsub:overall_architecture}
 % Begin SubSubSection
 The overall architecture of the system is the Model-View-Controller (MVC) architecture, which is an interaction 
-oriented architecture. The MVC architecture is the architecture that best fits the system that we are designing. The MVC style is best suited for 
-interactive applications which contain multiple views for various data models. The application being implemented is heavily focused on the UI 
+oriented architecture (Qian, 2010). The MVC architecture is the architecture that best fits the system that we are designing. The MVC style is best suited for 
+interactive applications which contain multiple views for various data models (Qian, 2010). The application being implemented is heavily focused on the UI 
 on the mobile app, and so an architecture style that allows for easy display of data into a UI view is suitable. Furthermore, our system contains multiple data models, for example, models for Users, 
 Rides, Prompts and multiple pages/views across the application will interact with these data models. Furthermore, the MVC architecture is suitable for 
-applications which are prone to frequent data changes. Our system is most definitely prone to frequent data changes, as rides are constantly being offered, 
+applications which are prone to frequent data changes (Qian, 2010). Our system is most definitely prone to frequent data changes, as rides are constantly being offered, 
 arriving, and starting, which means the Rides model will be constantly updated and written to. Finally, the MVC architecture will allow us to separate the 
 various logic functions into separate controllers. The architecture will allow for clear division of logic between controllers, which will make it easier 
 to extend and modify the system. For example, we would have a UserController to handle user operations, a RidesController to handle ride operations and various 
@@ -109,7 +109,7 @@ the MVC architecture style for the main system.
 Another architecture style will also be used for the various subsystems of our application. One of the subsystems within the main system is the Dispatcher 
 subsystem, which is responsible for storing all information on taxis and carpool offerings, as well as deciding how to match carpool offers with 
 requests that come in. The repository architecture style is best suited for systems (in this case a subsystem) in which a central data store stores information 
-and various agents communicate with it. This architecture style fits the Dispatcher subsystem because the Dispatcher will contain a central data store which 
+and various agents communicate with it (Qian, 2010). This architecture style fits the Dispatcher subsystem because the Dispatcher will contain a central data store which 
 will store all the information about carpools. The data store will be passive, it will be like a database which just stores information and can be read from. 
 The various agents for the repository will be the users who are requesting and offering carpools. These agents are active, as they drive the flow of the 
 subsystem by sending carpool requests and offering carpools. The agents do not communicate directly with each other, they communicate via the data store by 
