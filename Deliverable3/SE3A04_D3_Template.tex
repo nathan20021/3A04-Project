@@ -3,6 +3,15 @@
 % Imported Packages
 %------------------------------------------------------------------------------
 \usepackage{amssymb}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
 \usepackage{amstext}
 \usepackage{amsthm}
 \usepackage{amsmath}
@@ -84,7 +93,10 @@ This section should provide a sequence diagram for each use case of your applica
 \section{Detailed Class Diagram}
 \label{sec:detailed_class_diagram}
 % Begin Section
-This section should provide a detailed class diagram for your application.
+\includegraphics[scale=0.2]{images/UML-ClassDiagram.png}
+
+The full diagram can be seen here: \href{https://cdn.discordapp.com/attachments/1065661481171038298/1087213470207967252/3A04-UML-Diagram.drawio.png}{UML Diagram Full}
+
 % End Section
 
 \appendix
