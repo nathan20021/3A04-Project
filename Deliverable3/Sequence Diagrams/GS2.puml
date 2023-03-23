@@ -1,0 +1,52 @@
+@startuml
+hide footbox
+actor User
+participant CustomerEditPage
+participant SettingsController
+participant EditSuccessPage
+participant EditErrorPage
+activate User
+User -> CustomerEditPage: Clicks edit profile button
+activate CustomerEditPage
+CustomerEditPage --> User: Display profile fields to edit
+
+User -> CustomerEditPage: Make profile edits
+CustomerEditPage -> SettingsController: Validate profile edits
+activate SettingsController
+deactivate User
+deactivate CustomerEditPage
+deactivate SettingsController
+
+alt Profile edits valid
+    SettingsController-[hidden]->SettingsController
+    activate SettingsController
+    activate UserModel
+    SettingsController -> UserModel: Update user
+    activate AppDB
+    UserModel -> AppDB: Update changes to user in database
+    deactivate UserModel
+    AppDB --> SettingsController: User update successful
+    deactivate AppDB
+    activate EditSuccessPage
+    SettingsController -> EditSuccessPage: new
+    deactivate SettingsController
+    User-[hidden]->User
+    activate User
+    EditSuccessPage --> User: Display EditSuccessPage
+    deactivate SettingsController
+    deactivate AppDB
+    deactivate EditSuccessPage
+    deactivate User
+
+else Registration details invalid
+    SettingsController-[hidden]->SettingsController
+    activate SettingsController
+    activate EditErrorPage
+    SettingsController -> EditErrorPage: new
+    activate User
+    EditErrorPage --> User: Display EditErrorPage
+    deactivate User 
+    deactivate SettingsController
+    deactivate EditErrorPage
+end
+@enduml

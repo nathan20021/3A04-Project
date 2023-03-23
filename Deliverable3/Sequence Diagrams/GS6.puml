@@ -1,0 +1,39 @@
+@startuml
+hide footbox
+actor User
+participant Dispatcher
+participant FareDisplayPage
+participant RatingPage
+activate User
+User -> Dispatcher: Taxi arrives at destination
+activate Dispatcher
+Dispatcher -> FareDisplayPage: new
+activate FareDisplayPage
+Dispatcher --> User: Show FareDisplayPage
+deactivate User 
+deactivate Dispatcher
+
+User-[hidden]->User
+activate User
+Dispatcher-[hidden]->Dispatcher
+activate Dispatcher
+User -> Dispatcher: Fare has been paid outside the system
+destroy FareDisplayPage
+Dispatcher -> RatingPage: new
+deactivate Dispatcher
+activate RatingPage
+RatingPage --> User: Show RatingPage
+deactivate User
+deactivate RatingPage
+
+User-[hidden]->User
+activate User
+RatingPage-[hidden]->RatingPage
+activate RatingPage
+User -> RatingPage: Completes rating of ride 
+Dispatcher-[hidden]->Dispatcher
+activate Dispatcher
+RatingPage --> Dispatcher: Mark ride as completed 
+deactivate RatingPage
+Dispatcher --> User: End of ride
+@enduml

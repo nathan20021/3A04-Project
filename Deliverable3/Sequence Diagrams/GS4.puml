@@ -1,0 +1,25 @@
+@startuml
+hide footbox
+actor User
+participant LocationSelectionPage
+participant Dispatcher
+participant TaxiSelectionPage
+participant TaxiDetailPage
+activate User
+User -> LocationSelectionPage: Enter desired destination and filters
+deactivate User
+activate LocationSelectionPage
+LocationSelectionPage -> Dispatcher: Check for carpools matching criteria
+deactivate LocationSelectionPage
+activate Dispatcher
+Dispatcher -> TaxiSelectionPage: new
+deactivate Dispatcher
+activate TaxiSelectionPage
+activate User
+TaxiSelectionPage --> User: Display TaxiSelectionPage with matching carpools
+User -> TaxiSelectionPage: Choose to see details of desired carpool taxi from list
+TaxiSelectionPage -> TaxiDetailPage: new
+deactivate TaxiSelectionPage
+activate TaxiDetailPage
+TaxiDetailPage --> User: Details of desired carpool taxi shown
+@enduml
