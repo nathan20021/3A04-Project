@@ -1,0 +1,24 @@
+@startuml
+hide footbox
+actor User
+participant TaxiIDInputPage
+participant CarpoolOfferPage
+participant Dispatcher
+participant CarpoolOfferSuccessPage
+activate User
+User -> TaxiIDInputPage: Scan QR code
+activate TaxiIDInputPage
+TaxiIDInputPage -> CarpoolOfferPage: new
+deactivate TaxiIDInputPage
+activate CarpoolOfferPage
+CarpoolOfferPage --> User: Display carpool offer fields
+User -> CarpoolOfferPage: Input carpool offer information into fields
+CarpoolOfferPage -> Dispatcher: Store details of offer in dispatcher
+deactivate CarpoolOfferPage
+activate Dispatcher
+Dispatcher -> CarpoolOfferSuccessPage: new
+deactivate Dispatcher
+activate CarpoolOfferSuccessPage
+CarpoolOfferSuccessPage --> User: Notify user carpool successfully offered
+
+@enduml
