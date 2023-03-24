@@ -1,0 +1,25 @@
+@startuml
+hide footbox
+actor User
+participant PromptActivationPage
+participant PromptDisplayPage
+activate User
+User -> PromptActivationPage: User activates prompts
+activate PromptActivationPage
+
+loop n times 
+    PromptActivationPage -> PromptDisplayPage: Random prompt generated 
+    activate PromptDisplayPage
+    deactivate PromptActivationPage
+    PromptDisplayPage --> User: Display randomly chosen prompt
+    deactivate User
+    deactivate PromptDisplayPage
+end
+
+User-[hidden]->User
+activate User
+PromptDisplayPage-[hidden]->PromptDisplayPage
+activate PromptDisplayPage
+User -> PromptDisplayPage: User deactivates prompts
+destroy PromptDisplayPage
+@enduml

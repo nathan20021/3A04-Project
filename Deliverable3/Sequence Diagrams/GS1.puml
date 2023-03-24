@@ -1,0 +1,54 @@
+@startuml
+hide footbox
+actor User
+participant RegPage
+participant RegController
+participant UserModel
+participant AppDB
+participant RegistrationSuccessPage
+participant RegistrationErrorPage
+activate User
+User -> RegPage: Clicks create account button
+activate RegPage
+RegPage --> User: Display registration fields
+
+User -> RegPage: Enter registration details
+RegPage -> RegController: Validate registration details
+activate RegController
+deactivate User
+deactivate RegPage
+deactivate RegController
+
+alt Registration details valid
+    RegController-[hidden]->RegController
+    activate RegController
+    activate UserModel
+    RegController -> UserModel: Create new user
+    activate AppDB
+    UserModel -> AppDB: Add new user to database
+    deactivate UserModel
+    AppDB --> RegController: User addition successful
+    deactivate AppDB
+    activate RegistrationSuccessPage
+    RegController -> RegistrationSuccessPage: new
+    deactivate RegController
+    User-[hidden]->User
+    activate User
+    RegistrationSuccessPage --> User: Display RegistrationSuccessPage
+    deactivate RegController
+    deactivate AppDB
+    deactivate RegistrationSuccessPage
+    deactivate User
+
+else Registration details invalid
+    RegController-[hidden]->RegController
+    activate RegController
+    activate RegistrationErrorPage
+    RegController -> RegistrationErrorPage: new
+    activate User
+    RegistrationErrorPage --> User: Display RegistrationErrorPage
+    deactivate User 
+    deactivate RegController
+    deactivate RegistrationErrorPage
+end
+@enduml
