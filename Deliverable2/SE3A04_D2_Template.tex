@@ -166,7 +166,7 @@ The subsystems interact with one another when it comes to the match-making proce
 % Begin Section
 % DataControllerClass
 
-	\begin{table}[H]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|p{6cm}|p{6cm}|}
 	\hline 
@@ -174,12 +174,12 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline 
-	Handles request to save unencrypted Taxi Session Data (prices, rating, etc.) from TaxiSessionController for authenticated users & TaxiSessionController, DataEncryptionController\\ \hline 
-	Handles request to fetch, and save unencrypted Authetication Data (UID, username, password, etc.) from AuthenticationController &AuthenticationController, DataEncryptionController\\ \hline 
-	Handles request to fetch unencrypted Prompt Data (prompts, preferences, promt histories, etc.) from PromptController for authenticated users &PromptController, DataEncryptionController\\ \hline 
-	Handles request to fetch, edit, and save unencrypted CarPool Data (trip histories, offering information, locations, etc.) from Dispatcher for authenticated users &Dispatcher, DataEncryptionController\\ \hline 
-	Handles request to fetch, edit, and save unencrypted User Setting Data (postal code, carpool prefrences, name, bio, etc.) from SettingController for authenticated users&SettingController, DataEncryptionController\\ \hline 
-	Handles request to fetch, edit, and save unencrypted Authetication Data from RegistrationController for authenticated users &RegistrationController, DataEncryptionController\\ \hline 
+	Handles request to save Taxi Session Data (prices, rating, etc.) from TaxiSessionController for authenticated users & TaxiSessionController, DataEncryptionController\\ \hline 
+	Handles request to fetch, and save Authetication Data (UID, username, password, etc.) from AuthenticationController &AuthenticationController, DataEncryptionController\\ \hline 
+	Handles request to fetch Prompt Data (prompts, preferences, promt histories, etc.) from PromptController for authenticated users &PromptController, DataEncryptionController\\ \hline 
+	Handles request to fetch, edit, and save CarPool Data (trip histories, offering information, locations, etc.) from Dispatcher for authenticated users &DispatcherController, DataEncryptionController\\ \hline 
+	Handles request to fetch, edit, and save User Setting Data (postal code, carpool prefrences, name, bio, etc.) from SettingController for authenticated users&SettingController, DataEncryptionController\\ \hline 
+	Handles request to fetch, edit, and save Authetication Data from RegistrationController for authenticated users &RegistrationController, DataEncryptionController\\ \hline 
 	Handles decrypted data (listed above) returned from DataEncryptionController & DataEncryptionController\\ \hline 
 	Request DataEncryptionController to encrypt sensitive user information (passwords, postalcode, etc.) & DataEncryptionController\\ \hline 
 	\end{tabular}
@@ -229,11 +229,12 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline 
-	Knows username &\\ \hline 
-	Knows password &\\ \hline
-	Knows email &\\ \hline
+	Knows and handles username input &\\ \hline 
+	Knows and handles password input &\\ \hline
+	Knows and handles email input &\\ \hline
 	Knows RegistrationController &\\ \hline
 	Handles "Done" button click event  & RegistrationController\\ \hline
+    Verifies unique user & RegistrationController\\ \hline
 	\end{tabular}
 	\end{table}
 	
@@ -276,6 +277,8 @@ The subsystems interact with one another when it comes to the match-making proce
 	Handles user registration request & DataControllerClass, RegistrationSuccessPage, RegistrationFailurePage\\ \hline
 	Know RegistrationSuccessPage &\\ \hline
 	Know RegistrationFailurePage &\\ \hline
+    Creates new user account & DataController \\ \hline
+    Verifies unique data from RegistrationPage & DataController\\ \hline
 	\end{tabular}
 	\end{table}
 	
@@ -308,6 +311,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	Know username & \\ \hline
 	Know prompt preferences & \\ \hline
 	Handles "Save" button click event  (to check is user changes are possible) & SettingController\\ \hline 
+    Handles "Discard" button click (to discard any changes input fields) & \\ \hline
 	Handles "Delete Account" button click event  & SettingController\\ \hline
 	\end{tabular}
 	\end{table}
@@ -416,11 +420,12 @@ The subsystems interact with one another when it comes to the match-making proce
 	\centering
 	\begin{tabular}{|p{6cm}|p{6cm}|}
 	\hline 
-		\multicolumn{2}{|l|}{\textbf{Class Name: Dispatcher}} \\
+		\multicolumn{2}{|l|}{\textbf{Class Name: DispatcherController}} \\
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
 	Handles submitting carpool offer & DataControllerClass\\ \hline
+    Handles submitting carpool request & DataControllerClass\\ \hline
 	Handles display enter destination screen request & LocationSelectionPage\\ \hline
 	Handles getting more details for a listing request & DataControllerClass, TaxiDetailPage\\ \hline
 	Handles carpool offer list requests & DataControllerClass\\ \hline
@@ -450,7 +455,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	Knows the destination of the carpool &\\ \hline
 	Knows taxiID &\\ \hline
 	Knows if the carpool would like to participate in the prompt feature & \\ \hline
-	Handles "Submit Offer" button click event  & Dispatcher\\ \hline
+	Handles "Submit Offer" button click event  & DispatcherController\\ \hline
 	\end{tabular}
 	\end{table}
 
@@ -463,8 +468,8 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
-	Handles "Confirm" butotn click event  & Dispatcher\\ \hline 
-	Knows Dispatcher &\\ \hline
+	Handles "Confirm" butotn click event  & DispatcherController\\ \hline 
+	Knows DispatcherController &\\ \hline
 	Knows CarpoolOfferPage &\\ \hline
 	\end{tabular}
 	\end{table}
@@ -477,8 +482,8 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
-	Handles "Retry" button click event  & Dispatcher\\ \hline 
-	Knows Dispatcher &\\ \hline
+	Handles "Retry" button click event  & DispatcherController\\ \hline 
+	Knows DispatcherController &\\ \hline
 	Knows CarpoolOfferPage &\\ \hline
 	\end{tabular}
 	\end{table}
@@ -504,7 +509,7 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
-	Knows Dispatcher&  \\ \hline
+	Knows DispatcherController&  \\ \hline
 	Knows Taxi's Unique Indentifier&  \\ \hline
 	\end{tabular}
 	\end{table}
@@ -518,12 +523,13 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
-	Handles "Destination" button click event& Dispatcher \\ \hline
+	Handles "Destination" button click event& DispatcherController \\ \hline
 	Sorts taxi listing based on criteria selected though "Sort by" button click event  & \\ \hline
-	Handles "Details" button click event  on each taxi listing & Dispatcher \\ \hline
+	Handles "Details" button click event on each taxi listing & DispatcherController \\ \hline
 	Filters taxi carpool listing based on selected criteria & \\ \hline
-	Requests list of taxi carpool in the users current area & Dispatcher \\ \hline
+	Requests list of taxi carpool in the users current area & DispatcherController \\ \hline
 	Knows basic details (destination, number of people in the offer, time) of each listing & \\ \hline
+    Knows the list of offers available & DispatcherController\\ \hline
 	\end{tabular}
 	\end{table}
 	
@@ -536,13 +542,28 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
-	Handles "Confirm" button click event  & Dispatcher \\ \hline
-	Handles "$\xleftarrow{}$" button click event  & Dispatcher \\ \hline
-	Handles list information request on page load & Dispatcher\\ \hline
+	Handles "Confirm" button click event  & DispatcherController \\ \hline
+	Handles "$\xleftarrow{}$" button click event  & DispatcherController \\ \hline
+	Handles information request on page load for a taxiID offer listing & DispatcherController\\ \hline
 	Know all the listing's information (prompt preferences, car type, number of people already in the carpool, number of people wanted for the carpool, estimated price, etc.)  & \\ \hline
 	\end{tabular}
 	\end{table}
-	
+
+    \begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|}
+	\hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: CarpoolRequestDecisionPage}} \\
+	\hline
+	\textbf{Responsibility:} & \textbf{Collaborators:} \\
+	\hline
+    Knows requesting ride share user data & DispatcherController\\ \hline
+    Handles "Accept" click event button & DispatcherController\\ \hline
+    Handles "Reject" click event button &DispatcherController\\ \hline
+    Displays general information on the requesting ride share user for offer-er to decide (destination, age, prompt pref, etc.)& \\ \hline
+	\end{tabular}
+	\end{table}
+    
 	\begin{table}[H]
 	\centering
 	\begin{tabular}{|p{6cm}|p{6cm}|}
@@ -551,11 +572,13 @@ The subsystems interact with one another when it comes to the match-making proce
 	\hline
 	\textbf{Responsibility:} & \textbf{Collaborators:} \\
 	\hline
-	Handles "$\xleftarrow{}$" button click event  & Dispatcher \\ \hline
-	Handles "Save" button click event  & Dispatcher\\ \hline
+	Handles "$\xleftarrow{}$" button click event  & DispatcherController \\ \hline
+	Handles "Save" button click event  & DispatcherController\\ \hline
+    Calculates the estimated difference in distance between the start and end destinations& \\ \hline 
 	Knows desired destination of a user & \\ \hline
 	Knows difference in distance between current and desired location & \\ \hline
 	Knows if destination entered is possible & \\ \hline
+    Knows the start location of the user & \\ \hline
 	\end{tabular}
 	\end{table}
 	
