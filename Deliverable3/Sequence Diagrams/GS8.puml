@@ -1,0 +1,48 @@
+@startuml
+hide footbox
+actor User
+participant TaxiSelectionPage
+participant Dispatcher
+participant CarpoolRequestDecisionPage
+activate User
+User -> TaxiSelectionPage: User chooses desired matching carpool
+activate TaxiSelectionPage
+deactivate User
+TaxiSelectionPage -> Dispatcher: Forward match request
+deactivate TaxiSelectionPage
+activate Dispatcher
+Dispatcher -> CarpoolRequestDecisionPage: Display match request and updated trip details
+activate CarpoolRequestDecisionPage
+deactivate Dispatcher
+deactivate CarpoolRequestDecisionPage
+
+alt User in taxi accepts match
+    CarpoolRequestDecisionPage-[hidden]->CarpoolRequestDecisionPage
+    activate CarpoolRequestDecisionPage
+    Dispatcher-[hidden]->Dispatcher
+    activate Dispatcher
+    CarpoolRequestDecisionPage --> Dispatcher: Store match request acception 
+    deactivate CarpoolRequestDecisionPage
+    Dispatcher --> TaxiSelectionPage: Return that match was accepted
+    deactivate Dispatcher
+    activate TaxiSelectionPage
+    TaxiSelectionPage --> User: Display match request was accepted
+    activate User
+    deactivate TaxiSelectionPage
+    deactivate User
+else User in taxi rejects match
+    CarpoolRequestDecisionPage-[hidden]->CarpoolRequestDecisionPage
+    activate CarpoolRequestDecisionPage
+    Dispatcher-[hidden]->Dispatcher
+    activate Dispatcher
+    CarpoolRequestDecisionPage --> Dispatcher: Store match request rejection 
+    deactivate CarpoolRequestDecisionPage
+    Dispatcher --> TaxiSelectionPage: Return that match was rejected
+    deactivate Dispatcher
+    activate TaxiSelectionPage
+    TaxiSelectionPage --> User: Display match request was rejected
+    activate User
+    deactivate TaxiSelectionPage
+    deactivate User
+end
+@enduml

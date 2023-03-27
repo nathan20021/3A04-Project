@@ -1,0 +1,25 @@
+@startuml
+hide footbox
+actor User
+participant CustomerEditPage
+participant SettingsController
+activate User
+User -> CustomerEditPage: Clicks delete account button
+activate CustomerEditPage
+CustomerEditPage --> User: Prompts user to confirm that they want to delete account
+
+User -> CustomerEditPage: Confirms deletion intent
+CustomerEditPage -> SettingsController: Validate profile deletion
+activate SettingsController
+deactivate User
+deactivate CustomerEditPage
+activate UserModel
+SettingsController -> UserModel: Delete user
+activate AppDB
+UserModel -> AppDB: User is deleted in database
+deactivate UserModel
+AppDB --> SettingsController: User deletion successful
+deactivate AppDB
+activate User
+SettingsController --> User: Show confirmation of account deletion
+@enduml
