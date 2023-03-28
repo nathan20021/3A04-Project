@@ -78,7 +78,7 @@ Qian, K. (2010). Software architecture and design illuminated. Jones and Bartlet
 \section{Analysis Class Diagram}
 \label{sec:analysis_class_diagram}
 % Begin Section
-\includegraphics[scale = 0.5]{Graphics/ACD.png}
+\includegraphics[scale = 0.45]{Graphics/ACD.png}
 
 % End Section
 
@@ -512,6 +512,21 @@ The subsystems interact with one another when it comes to the match-making proce
 	Knows DispatcherController&  \\ \hline
 	Knows Taxi's Unique Indentifier&  \\ \hline
 	\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{6cm}|p{6cm}|}
+		\hline 
+			\multicolumn{2}{|l|}{\textbf{Class Name: TaxiInfo}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		Knows Dispatcher&  \\ \hline
+		Contains TaxiID&  \\ \hline
+		Knows TaxiSelectionPage&  \\ \hline
+		Knows LocationSelectionPage&  \\ \hline
+		\end{tabular}
 	\end{table}
 
 
