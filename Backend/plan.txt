@@ -7,3 +7,28 @@ Taxis
 Carpools
 Prompts
     - 
+
+Person in taxi scans QR -> inputs information about ride (destination, max customers)
+    - POST endpoint to "Offers"
+    - "Offers" contains individual entries of carpools being offered 
+
+Second person inputs some information to request a taxi carpool 
+    - GET endpoint to "Offers" with matching criteria
+    - SQL query to offers and return all the matching ones
+    - Matching ones displayed on frontend
+    - When maximum number of rides, delete offer 
+
+Second person chooses a matching carpool that he wants to request to join
+    - POST endpoint to "Rides"
+    - Add a new ride, keep status as "Requested"
+    - Forward request to taxi rider 
+
+Person in taxi receives request
+    - POST endpoint to "Rides", either accept or reject 
+    - Set status based on choice 
+
+Prompts in taxi (DONE)
+
+When taxi arrives, mark Ride as Completed
+    - POST endpoint to "Rides" to mark status as completed 
+    - POST endpoint to "Ratings" to complete rating 
