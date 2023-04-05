@@ -5,7 +5,7 @@ module.exports = {
     colors: {
       primary: "#4592fe",
       primaryError: "#f7754d",
-      primarySuccess: "#f7754d",
+      primarySuccess: "#88f988",
     },
     extend: {},
   },

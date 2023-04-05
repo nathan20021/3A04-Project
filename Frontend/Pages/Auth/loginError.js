@@ -1,6 +1,10 @@
 import {Text, View, Pressable} from 'react-native';
 
 const LoginErrorPage = () => {
+  const sth = () => {
+    // TODO
+    console.log("sth");
+  }
   return (
     <View className="gap-3">
       <Text>Incorrect username or password!</Text>
