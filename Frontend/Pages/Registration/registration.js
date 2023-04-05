@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Text,
-  View,
-  ScrollView,
-  TextInput,
-  SafeAreaView,
-  Pressable,
-  Button,
-} from "react-native";
+import { Text, View, TextInput, SafeAreaView, Pressable } from "react-native";
 import { PromptPerf } from "../../declaration";
 import PromptPerfCard from "../../Components/PromptPerfCard";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -43,12 +35,12 @@ export default RegistrationPage = () => {
           Become a member!
         </Text>
       </View>
-      <SafeAreaView id="form" className="flex flex-col gap-5">
+      <SafeAreaView className="flex flex-col gap-y-5">
         <View>
           <Text className="font-bold mb-1">Username</Text>
           <TextInput
             autoCapitalize="none"
-            className="border-2 border-gray-300 rounded-sm px-3 h-10 w-full"
+            className="border-2 border-gray-300 rounded-sm px-3 h-10"
             onChangeText={(e) => {
               setFormState({ ...formState, username: e });
             }}
@@ -114,7 +106,7 @@ export default RegistrationPage = () => {
             </Text>
           </View>
         </View>
-        <View className="flex flex-row flex-wrap gap-5 w-full">
+        <View className="flex flex-row flex-wrap w-full">
           {Object.keys(PromptPerf).map((key, index) => {
             return (
               <PromptPerfCard

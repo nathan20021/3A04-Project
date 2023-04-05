@@ -11,7 +11,7 @@ export default PromptPerfCard = ({ text, boolean, onPress }) => {
       onPress={onPress}
     >
       <Text
-        className={boolean ? `font-bold text-[#fff]` : `font-bold text-[#000]`}
+        className={boolean ? `wfont-bold text-[#fff]` : `font-bold text-[#000]`}
       >
         {text}
       </Text>

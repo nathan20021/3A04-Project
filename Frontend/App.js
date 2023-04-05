@@ -24,7 +24,7 @@ export default function App() {
         <View className="w-full min-h-[100vh] flex items-center justify-center flex-1">
           <View className="w-[80%] h-full">
             {/* <LoginPage /> */}
-            <RegistrationPage />
+            <RegistrationSuccessPage />
             {/* <LoginErrorPage /> */}
           </View>
         </View>
