@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const rating = () => {
-  return (
-    <View>rating</View>
-  )
-}
+export default rating = () => {
+  return <View>rating</View>;
+};

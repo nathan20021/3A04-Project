@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const EditError = () => {
-  return (
-    <View>EditError</View>
-  )
-}
+export default EditError = () => {
+  return <View>EditError</View>;
+};

@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const fareDisplay = () => {
-  return (
-    <View>fareDisplay</View>
-  )
-}
+export default fareDisplay = () => {
+  return <View>fareDisplay</View>;
+};

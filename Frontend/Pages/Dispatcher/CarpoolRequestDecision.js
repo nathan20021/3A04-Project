@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const CarpoolRequestDecision = () => {
-  return (
-    <View>CarpoolRequestDecision</View>
-  )
-}
+export default CarpoolRequestDecision = () => {
+  return <View>CarpoolRequestDecision</View>;
+};

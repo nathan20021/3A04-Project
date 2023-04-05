@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const promptDisplay = () => {
-  return (
-    <View>promptDisplay</View>
-  )
-}
+export default promptDisplay = () => {
+  return <View>promptDisplay</View>;
+};

@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const registrationSuccess = () => {
-  return (
-    <View>registrationSuccess</View>
-  )
-}
+export default registrationSuccess = () => {
+  return <View>registrationSuccess</View>;
+};

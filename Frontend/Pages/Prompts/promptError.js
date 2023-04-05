@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const promptError = () => {
-  return (
-    <View>promptError</View>
-  )
-}
+export default promptError = () => {
+  return <View>promptError</View>;
+};

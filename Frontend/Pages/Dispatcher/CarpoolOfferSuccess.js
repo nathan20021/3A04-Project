@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const CarpoolOfferSuccess = () => {
-  return (
-    <View>CarpoolOfferSuccess</View>
-  )
-}
+export default CarpoolOfferSuccess = () => {
+  return <View>CarpoolOfferSuccess</View>;
+};

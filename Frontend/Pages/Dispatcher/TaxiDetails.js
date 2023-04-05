@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const TaxiDetails = () => {
-  return (
-    <View>TaxiDetails</View>
-  )
-}
+export default TaxiDetails = () => {
+  return <View>TaxiDetails</View>;
+};

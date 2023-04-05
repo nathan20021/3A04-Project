@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const LocationSelection = () => {
-  return (
-    <View>LocationSelection</View>
-  )
-}
+export default LocationSelection = () => {
+  return <View>LocationSelection</View>;
+};

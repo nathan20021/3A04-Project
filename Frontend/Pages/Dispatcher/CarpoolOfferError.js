@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const CarpoolOfferError = () => {
-  return (
-    <View>CarpoolOfferError</View>
-  )
-}
+export default CarpoolOfferError = () => {
+  return <View>CarpoolOfferError</View>;
+};

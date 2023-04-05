@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const TaxiIDInput = () => {
-  return (
-    <View>TaxiIDInput</View>
-  )
-}
+export default TaxiIDInput = () => {
+  return <View>TaxiIDInput</View>;
+};
