@@ -43,11 +43,11 @@ export default function LoginPage() {
             <Text className="font-bold">Remember me</Text>
           </View>
           <Pressable>
-            <Text className="font-bold text-[#4592fe]">Forget password?</Text>
+            <Text className="font-bold text-primary">Forget password?</Text>
           </Pressable>
         </View>
         <View className="flex items-center">
-          <Pressable className="bg-[#4592fe] h-9 flex items-center justify-center shadow-sm rounded-md w-full">
+          <Pressable className="bg-primary h-9 flex items-center justify-center shadow-sm rounded-md w-full">
             <Text className="text-center font-bold text-white">LOG IN</Text>
           </Pressable>
         </View>
@@ -56,12 +56,12 @@ export default function LoginPage() {
         <View className="relative">
           <View className="absolute border-b-2 border-b-[#c0c0c0] w-full top-[50%]"></View>
           <View className="flex items-center justify-center">
-            <Text className="text-center bg-white px-3">Not a member?</Text>
+            <Text className="text-center bg-[#ffffff] px-3">Not a member?</Text>
           </View>
         </View>
         <View className="flex items-center">
-          <Pressable className="bg-[#ffffff] border-2 border-[#4592fe] h-9 flex items-center justify-center shadow-sm rounded-md w-full">
-            <Text className="text-center font-bold text-[#4592fe]">
+          <Pressable className="bg-[#ffffff] border-2 border-primary h-9 flex items-center justify-center shadow-sm rounded-md w-full">
+            <Text className="text-center font-bold text-primary">
               SIGN UP
             </Text>
           </Pressable>
