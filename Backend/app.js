@@ -1,20 +1,16 @@
-var express = require('express');
+const express = require('express');
 require('dotenv').config();
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const sqlite3 = require('sqlite3');
-const cors = require('cors');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-const DB = "db/db.sqlite";
-const auth = require('./middleware/middleware');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var promptsRouter = require('./routes/prompts');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const promptsRouter = require('./routes/prompts');
+const carpoolsRouter = require('./routes/carpools');
 
-var app = express();
+
+const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -25,5 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/prompts', promptsRouter);
+app.use('/carpools', carpoolsRouter);
 
 module.exports = app;
