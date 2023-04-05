@@ -11,7 +11,7 @@ export default function App() {
       <View className="w-[80%]">
         {/* <LoginPage /> */}
         <LoginSuccessPage />
-        <LoginErrorPage/>
+        {/* <LoginErrorPage/> */}
       </View>
     </View>
   );

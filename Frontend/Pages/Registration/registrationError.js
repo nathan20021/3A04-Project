@@ -2,6 +2,6 @@ import React from 'react'
 
 export const registrationError = () => {
   return (
-    <div>registrationError</div>
+    <View>registrationError</View>
   )
 }
