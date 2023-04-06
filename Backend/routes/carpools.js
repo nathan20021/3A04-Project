@@ -16,14 +16,32 @@ router.get('/', async (req, res, next) => {
     });
 })
 
+
+
 router.post('/offerCarpool', async (req, res, next) => {
-    res.send('this endpoint will allow people in taxi to offer a ride');
+    const { taxiID, destination, currRiders, maxRiders } = req.body;
+    //res.send('this endpoint will allow people in taxi to offer a ride');
     /*
     Add a new entry to the Carpools table. Represents a carpool 
     Request body will contain taxiID, destination, number of riders = 1, max number of riders, status = available,
     rating = blank
     Response is success and carpool ID
     */
+    db.run(`
+    INSERT INTO Carpools (taxiID, destination, currRiders, maxRiders, status) VALUES (?, ?, ?, ?, ?)
+  `, [taxiID, destination, currRiders, maxRiders, 'open'], function (err) {
+    if (err) {
+      return res.status(500).json({
+        "status": "error",
+        "message": err.message
+      });
+    }
+    console.log(this.lastID);
+    res.json({
+      "status": "success",
+      "carpool_id": this.lastID
+    });
+  })
 })
 
 router.get('/getCarpools', async (req, res, next) => {
