@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import {
   Text,
   View,
@@ -26,8 +27,20 @@ export default RegistrationPage = ({ navigation }) => {
   };
 
   const register = () => {
-    //TODO
-    navigation.navigate("Registration Success");
+    // navigation.navigate("Registration Success");
+    console.log("hahaha");
+    axios
+      .post("http://localhost:3000/users/register", {
+        username: formState.username,
+        password: formState.password,
+        email: formState.email,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const validateNewUser = () => {

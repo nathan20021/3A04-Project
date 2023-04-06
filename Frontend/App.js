@@ -28,7 +28,7 @@ const navTheme = {
 export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
-      <Stack.Navigator initialRouteName="Location Selection">
+      <Stack.Navigator initialRouteName="Registration">
         <Stack.Screen name="Registration" component={RegistrationPage} />
         <Stack.Screen
           name="Registration Error"
@@ -39,7 +39,7 @@ export default function App() {
               close: config,
             },
           }}
-        />w
+        />
         <Stack.Screen
           name="Location Selection"
           component={LocationSelectionPage}
