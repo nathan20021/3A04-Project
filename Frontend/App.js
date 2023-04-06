@@ -28,8 +28,10 @@ const navTheme = {
 export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
-      <Stack.Navigator initialRouteName="Registration">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Registration" component={RegistrationPage} />
+        <Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="Login Error" component={LoginErrorPage} />
         <Stack.Screen
           name="Registration Error"
           component={RegistrationErrorPage}

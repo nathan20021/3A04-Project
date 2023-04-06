@@ -28,9 +28,8 @@ export default RegistrationPage = ({ navigation }) => {
 
   const register = () => {
     // navigation.navigate("Registration Success");
-    console.log("hahaha");
     axios
-      .post("http://localhost:3000/users/register", {
+      .post("http://172.18.135.173:3000/users/register", {
         username: formState.username,
         password: formState.password,
         email: formState.email,
