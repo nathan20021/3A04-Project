@@ -40,7 +40,6 @@ router.post('/register', (async (req, res, next) => {
           "message": err.message
         });
       }
-      console.log(this.lastID);
       res.json({
         "status": "success",
         "user_id": this.lastID
