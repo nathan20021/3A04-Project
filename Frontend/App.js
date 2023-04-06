@@ -1,11 +1,4 @@
 import {
-  StyleSheet,
-  SafeAreaView,
-  View,
-  ScrollView,
-  StatusBar,
-} from "react-native";
-import {
   LoginPage,
   LoginSuccessPage,
   LoginErrorPage,
@@ -16,26 +9,58 @@ import {
   RegistrationErrorPage,
   RegistrationSuccessPage,
 } from "./Pages/Registration";
+import { LocationSelectionPage } from "./Pages/Dispatcher";
+
+import { PageTransitionConfig as config } from "./config";
+
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+const Stack = createNativeStackNavigator();
+
+const navTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: "transparent",
+  },
+};
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View className="w-full min-h-[100vh] flex items-center justify-center flex-1">
-          <View className="w-[80%] h-full">
-            {/* <LoginPage /> */}
-            <RegistrationSuccessPage />
-            {/* <LoginErrorPage /> */}
-          </View>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer theme={navTheme}>
+      <Stack.Navigator initialRouteName="Location Selection">
+        <Stack.Screen name="Registration" component={RegistrationPage} />
+        <Stack.Screen
+          name="Registration Error"
+          component={RegistrationErrorPage}
+          options={{
+            transitionSpec: {
+              open: config,
+              close: config,
+            },
+          }}
+        />w
+        <Stack.Screen
+          name="Location Selection"
+          component={LocationSelectionPage}
+          options={{
+            transitionSpec: {
+              open: config,
+              close: config,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Registration Success"
+          component={RegistrationSuccessPage}
+          options={{
+            transitionSpec: {
+              open: config,
+              close: config,
+            },
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: StatusBar.currentHeight,
-  },
-});
