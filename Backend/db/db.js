@@ -34,4 +34,6 @@ const db = new sqlite3.Database(DB, (err) => {
     }
 })
 
+// destination is latitude longitude
+
 module.exports = db;
