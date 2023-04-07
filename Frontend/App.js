@@ -4,6 +4,7 @@ import LoginPage from "./Pages/Auth/login";
 import LoginErrorPage from "./Pages/Auth/loginError";
 import LoginSuccessPage from "./Pages/Auth/loginSuccess";
 import FareDisplay from "./Pages/TaxiSession/fareDisplay";
+import RideRate from "./Pages/TaxiSession/rating";
 
 
 export default function App() {
@@ -13,8 +14,8 @@ export default function App() {
       <View>
         {/* <LoginPage /> */}
         {/* <LoginSuccessPage /> */}
-        <FareDisplay/>
-
+        <RideRate/>
+        {/* <FareDisplay/> */}
       </View>
     </View>
   );
