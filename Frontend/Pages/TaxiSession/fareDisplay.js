@@ -4,18 +4,17 @@ import { StyleSheet, Text, View, TouchableOpacity, Alert} from 'react-native';
 
 export default fareDisplay = () => {
   getOrigin = () => {
-    //Origin of trip, pretend it is McMaster University for now
+    //TODO: Get starting location
     return "McMaster University"
   }
 
   getDest = () => {
-    // Destination of trip, probably gonna be the return of a call from back end
-    // Pretend it is Union Station for now
+    // TODO: Get destination location
     return "Union Station"
   }
 
   getFare = () => {
-    // Trip fare. 32.66 placeholder. 
+    //TODO: return calculated fare rate
     return 32.66
   }
 
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
 
   button: {
     height: 64,
-    width: 120,
+    width: 152,
     borderRadius: 15,
     color: "white",
     backgroundColor: "#4592fe",
