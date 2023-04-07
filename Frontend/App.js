@@ -9,12 +9,18 @@ import {
   RegistrationErrorPage,
   RegistrationSuccessPage,
 } from "./Pages/Registration";
+import{
+  PromptActivation,
+  PromptDisplay,
+  PromptError
+} from "./Pages/Prompts"
 import { LocationSelectionPage } from "./Pages/Dispatcher";
 
 import { PageTransitionConfig as config } from "./config";
 
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 const Stack = createNativeStackNavigator();
 
 const navTheme = {
@@ -29,8 +35,8 @@ export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator initialRouteName="Location Selection">
-        <Stack.Screen name="Registration" component={RegistrationPage} />
-        <Stack.Screen
+        <Stack.Screen name="Registration" component={PromptDisplay} />
+        {/* <Stack.Screen
           name="Registration Error"
           component={RegistrationErrorPage}
           options={{
@@ -39,7 +45,7 @@ export default function App() {
               close: config,
             },
           }}
-        />w
+        />
         <Stack.Screen
           name="Location Selection"
           component={LocationSelectionPage}
@@ -59,8 +65,32 @@ export default function App() {
               close: config,
             },
           }}
-        />
+        /> */}
       </Stack.Navigator>
+
+      {/* <Stack.Navigator initialRouteName="Prompt Generator">
+        <Stack.Screen name="Prompt Start" component={PromptActivation} />
+        /* <Stack.Screen
+          name="Prompt Error"
+          component={PromptError}
+          options={{
+            transitionSpec: {
+              open: config,
+              close: config,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Prompt Display"
+          component={PromptDisplay}
+          options={{
+            transitionSpec: {
+              open: config,
+              close: config,
+            },
+          }}
+        />
+      </Stack.Navigator> */}
     </NavigationContainer>
   );
 }

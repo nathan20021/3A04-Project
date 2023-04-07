@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import { PromptPerf } from "../../declaration";
 import PromptPerfCard from "../../Components/PromptPerfCard";
-import DateTimePicker from "@react-native-community/datetimepicker";
 
 export default RegistrationPage = ({ navigation }) => {
   const [formState, setFormState] = useState({
