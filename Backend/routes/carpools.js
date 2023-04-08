@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require("../db/db");
+const { calculateDistance } = require('../operations/carpools')
 
 // Get offers
 router.get('/', async (req, res, next) => {
@@ -16,29 +17,8 @@ router.get('/', async (req, res, next) => {
     });
 })
 
-function calculateDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371; // Radius of the earth in km
-    const dLat = deg2rad(lat2 - lat1);  // deg2rad below
-    const dLon = deg2rad(lon2 - lon1);
-    const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2)
-        ;
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const d = R * c; // Distance in km
-    return d;
-}
-
-function deg2rad(deg) {
-    return deg * (Math.PI / 180)
-}
-
-
-
 router.post('/offerCarpool', async (req, res, next) => {
-    const { taxiID, destinationLatitude, destinationLongitude, currRiders, maxRiders } = req.body;
-    //res.send('this endpoint will allow people in taxi to offer a ride');
+    const { userID, taxiID, destinationLatitude, destinationLongitude, currRiders, maxRiders } = req.body;
     /*
     Add a new entry to the Carpools table. Represents a carpool 
     Request body will contain taxiID, destination, number of riders = 1, max number of riders, status = available,
@@ -46,8 +26,8 @@ router.post('/offerCarpool', async (req, res, next) => {
     Response is success and carpool ID
     */
     db.run(`
-    INSERT INTO Carpools (taxiID, destinationLatitude, destinationLongitude, currRiders, maxRiders, status) VALUES (?, ?, ?, ?, ?, ?)
-  `, [taxiID, destinationLatitude, destinationLongitude, currRiders, maxRiders, 'open'], function (err) {
+    INSERT INTO Carpools (user_id, taxi_id, destinationLatitude, destinationLongitude, currRiders, maxRiders, status) VALUES (?, ?, ?, ?, ?, ?, ?)
+  `, [userID, taxiID, destinationLatitude, destinationLongitude, currRiders, maxRiders, 'open'], function (err) {
         if (err) {
             return res.status(500).json({
                 "status": "error",
@@ -58,12 +38,12 @@ router.post('/offerCarpool', async (req, res, next) => {
             "status": "success",
             "carpool_id": this.lastID
         });
-    })
+    });
 })
 
 router.get('/getCarpools', async (req, res, next) => {
     const { destinationLatitude, destinationLongitude, locationLatitude, locationLongitude } = req.body;
-    db.all('SELECT * from Carpools', (err, rows) => {
+    db.all('SELECT * from Carpools WHERE status = ?', ['open'], (err, rows) => {
         if (err) {
             res.status(400).json({ "error": err.message });
             return
@@ -96,9 +76,9 @@ router.get('/getCarpools', async (req, res, next) => {
 })
 
 router.post('/requestCarpool', async (req, res, next) => {
-    const { carpool_id, status } = req.body;
-    db.run(`INSERT INTO Offers (carpoolID, status) VALUES (?, ?)`,
-        [carpool_id, status], function (err) {
+    const { user_id, carpool_id, status } = req.body;
+    db.run(`INSERT INTO Offers (user_id, carpool_id, status) VALUES (?, ?, ?)`,
+        [user_id, carpool_id, status], function (err) {
             if (err) {
                 return res.status(500).json({
                     "status": "error",
@@ -108,9 +88,9 @@ router.post('/requestCarpool', async (req, res, next) => {
             res.json({
                 "status": "success",
                 "offer_id": this.lastID,
-                "carpool_id": carpool_id
+                "carpool_id": carpoolID
             });
-        })
+        });
     /*
     Entry into Offers table
     Request body will contain carpoolID (FK to Carpools), status = requested
@@ -118,7 +98,7 @@ router.post('/requestCarpool', async (req, res, next) => {
 })
 
 router.post('/respondToOffer', async (req, res, next) => {
-    const { carpool_id, offer_id, decision } = req.body;
+    const { user_id, carpool_id, offer_id, decision } = req.body;
     if (decision == "accept") {
         db.run(`UPDATE Offers SET status = ? WHERE id = ?`, ["accepted", offer_id], (err) => {
             if (err) {
@@ -135,7 +115,15 @@ router.post('/respondToOffer', async (req, res, next) => {
                     "message": err.message
                 });
             };
-        })
+        });
+        db.run(`INSERT INTO CarpoolRiders (carpool_id, user_id, rating) VALUES (?, ?, ?)`, [carpool_id, user_id, 0], (err) => {
+            if (err) {
+                return res.status(500).json({
+                    "status": "error",
+                    "message": err.message
+                })
+            }
+        });
     };
     if (decision == "reject") {
         db.run(`UPDATE Offers SET status = ? WHERE id = ?`, ["rejected", offer_id], (err) => {
@@ -164,6 +152,22 @@ router.post('/completeRide', async (req, res, next) => {
     /*
     Mark ride as completed. Set status to completed. Set rating. Compute fare and return
     */
-})
+});
+
+router.post('/rateUser', async (req, res, next) => {
+    const { user_id, rater_user_id, rating } = req.body;
+    db.run(`INSERT INTO Ratings (user_id, rater_user_id, rating) VALUES (?, ?, ?)`,
+        [user_id, rater_user_id, rating], function (err) {
+            if (err) {
+                return res.status(500).json({
+                    "status": "error",
+                    "message": err.message
+                });
+            }
+            res.json({
+                "status": "success"
+            });
+        });
+});
 
 module.exports = router;
