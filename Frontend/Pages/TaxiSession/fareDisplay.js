@@ -1,7 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, View, Alert, Pressable} from 'react-native';
+import { StyleSheet, Text, View, Pressable} from 'react-native';
 
-export default FareDisplay = ({navigate}) => {
+export default FareDisplay = ({navigation}) => {
   getOrigin = () => {
     //TODO: Get starting location
     return "McMaster University"
@@ -16,6 +16,11 @@ export default FareDisplay = ({navigate}) => {
     //TODO: return calculated fare rate
     return 32.66
   }
+
+  const register = () => {
+    //TODO: its broken
+    navigation.navigate("Rating");
+  };
 
   return (
     <View className = "flex-1 items-center justify-between mb-16">
@@ -42,10 +47,7 @@ export default FareDisplay = ({navigate}) => {
         <Text className = "text-3xl">${getFare()}</Text>
       </View>
 
-        <Pressable className = "h-16 w-28 rounded-lg bg-primary items-center justify-center" 
-                     onPress={() => {
-                      navigation.navigate("Rating");
-                    }}>
+        <Pressable className = "h-16 w-28 rounded-lg bg-primary items-center justify-center" onPress={register}>
           <Text style={{fontSize: 32, color: "white",}}>Done</Text>
         </Pressable>
       </View>
