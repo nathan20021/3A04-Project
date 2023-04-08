@@ -17,24 +17,44 @@ const db = new sqlite3.Database(DB, (err) => {
         )`,)
         db.run(`CREATE TABLE IF NOT EXISTS Carpools (
             id INTEGER PRIMARY KEY,
-            taxiID INTEGER, 
-            destination TEXT,
+            user_id INTEGER,
+            taxi_id INTEGER, 
+            destinationLatitude DECIMAL,
+            destinationLongitude DECIMAL,
             currRiders INTEGER,
             maxRiders INTEGER,
             status TEXT,
             fare DECIMAL,
             CONSTRAINT valid_status CHECK (status IN ('open', 'completed', 'full'))
+            FOREIGN KEY(user_id) REFERENCES Users(id)
         )`)
         db.run(`CREATE TABLE IF NOT EXISTS Offers(
             id INTEGER PRIMARY KEY,
-            carpoolID INTEGER, 
+            user_id INTEGER,
+            carpool_id INTEGER, 
             status TEXT,
             CONSTRAINT valid_status CHECK (status IN ('requested', 'accepted', 'rejected')),
-            FOREIGN KEY (carpoolID) REFERENCES Carpools(id)
+            FOREIGN KEY (carpool_id) REFERENCES Carpools(id)
+            FOREIGN KEY (user_id) REFERENCES Users(id)
+        )`)
+        db.run(`CREATE TABLE IF NOT EXISTS CarpoolRiders(
+            carpool_id INTEGER,
+            user_id INTEGER,
+            rating INTEGER,
+            PRIMARY KEY(carpool_id, user_id)
+            FOREIGN KEY(carpool_id) REFERENCES Carpools(id)
+            FOREIGN KEY(user_id) REFERENCES Users(id)
+        )`);
+
+        db.run(`CREATE TABLE IF NOT EXISTS Ratings (
+            id INTEGER PRIMARY KEY,
+            user_id INTEGER,
+            rater_user_id INTEGER,
+            rating INTEGER,
+            FOREIGN KEY(user_id) REFERENCES Users(id)
+            FOREIGN KEY(rater_user_id) REFERENCES Users(id)
         )`)
     }
 })
-
-// destination is latitude longitude
 
 module.exports = db;
