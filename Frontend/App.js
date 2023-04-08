@@ -35,7 +35,7 @@ const navTheme = {
 export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
-      <Stack.Navigator initialRouteName="Location Selection">
+      <Stack.Navigator initialRouteName="Carpool Offers">
       <Stack.Screen name="Carpool Offer" component={CarpoolOffer} />
         <Stack.Screen name="Carpool Error" component={CarpoolOfferError} />
         <Stack.Screen name="Offer Success" component={CarpoolOfferSuccess} />
