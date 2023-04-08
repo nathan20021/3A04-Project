@@ -16,10 +16,28 @@ router.get('/', async (req, res, next) => {
     });
 })
 
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Radius of the earth in km
+    const dLat = deg2rad(lat2 - lat1);  // deg2rad below
+    const dLon = deg2rad(lon2 - lon1);
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2)
+        ;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const d = R * c; // Distance in km
+    return d;
+}
+
+function deg2rad(deg) {
+    return deg * (Math.PI / 180)
+}
+
 
 
 router.post('/offerCarpool', async (req, res, next) => {
-    const { taxiID, destination, currRiders, maxRiders } = req.body;
+    const { taxiID, destinationLatitude, destinationLongitude, currRiders, maxRiders } = req.body;
     //res.send('this endpoint will allow people in taxi to offer a ride');
     /*
     Add a new entry to the Carpools table. Represents a carpool 
@@ -28,24 +46,46 @@ router.post('/offerCarpool', async (req, res, next) => {
     Response is success and carpool ID
     */
     db.run(`
-    INSERT INTO Carpools (taxiID, destination, currRiders, maxRiders, status) VALUES (?, ?, ?, ?, ?)
-  `, [taxiID, destination, currRiders, maxRiders, 'open'], function (err) {
-    if (err) {
-      return res.status(500).json({
-        "status": "error",
-        "message": err.message
-      });
-    }
-    console.log(this.lastID);
-    res.json({
-      "status": "success",
-      "carpool_id": this.lastID
-    });
-  })
+    INSERT INTO Carpools (taxiID, destinationLatitude, destinationLongitude, currRiders, maxRiders, status) VALUES (?, ?, ?, ?, ?, ?)
+  `, [taxiID, destinationLatitude, destinationLongitude, currRiders, maxRiders, 'open'], function (err) {
+        if (err) {
+            return res.status(500).json({
+                "status": "error",
+                "message": err.message
+            });
+        }
+        res.json({
+            "status": "success",
+            "carpool_id": this.lastID
+        });
+    })
 })
 
 router.get('/getCarpools', async (req, res, next) => {
-    res.send('this endpoint will return matching offers')
+    const { destinationLatitude, destinationLongitude, locationLatitude, locationLongitude } = req.body;
+    db.all('SELECT * from Carpools', (err, rows) => {
+        if (err) {
+            res.status(400).json({ "error": err.message });
+            return
+        }
+
+        rows.forEach((carpool) => {
+            const currentDistance = calculateDistance(locationLatitude, locationLongitude, carpool.destinationLatitude, carpool.destinationLongitude);
+            carpool.currentDistance = currentDistance;
+        });
+
+        rows.forEach((carpool) => {
+            const destinationDistance = calculateDistance(destinationLatitude, destinationLongitude, carpool.destinationLatitude, carpool.destinationLongitude);
+            carpool.destinationDistance = destinationDistance;
+        });
+
+        rows.sort((a, b) => (a.currentDistance + a.destinationDistance) - (b.currentDistance + b.destinationDistance));
+
+        res.json({
+            "message": "success",
+            "carpools": rows
+        });
+    });
     /*
     Request body will contain criteria
     Query database for offers matching criteria. Only return carpools that 

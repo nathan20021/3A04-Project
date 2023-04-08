@@ -18,7 +18,8 @@ const db = new sqlite3.Database(DB, (err) => {
         db.run(`CREATE TABLE IF NOT EXISTS Carpools (
             id INTEGER PRIMARY KEY,
             taxiID INTEGER, 
-            destination TEXT,
+            destinationLatitude DECIMAL,
+            destinationLongitude DECIMAL,
             currRiders INTEGER,
             maxRiders INTEGER,
             status TEXT,
