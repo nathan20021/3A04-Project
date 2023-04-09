@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require("../db/db");
-const { calculateDistance } = require('../operations/carpools')
+const { calculateDistance } = require('../operations/carpools');
+const { ratePerKm: rate } = require('../constants/constants');
 
 // Get offers
 router.get('/', async (req, res, next) => {
@@ -149,25 +150,56 @@ router.post('/respondToOffer', async (req, res, next) => {
 })
 
 router.post('/completeRide', async (req, res, next) => {
+    const { carpool_id, user1_id, user1_lat, user1_long, rating2, user2_id, user2_lat, user2_long, rating1, dest_lat, dest_long } = req.body;
     /*
     Mark ride as completed. Set status to completed. Set rating. Compute fare and return
     */
-});
-
-router.post('/rateUser', async (req, res, next) => {
-    const { user_id, rater_user_id, rating } = req.body;
-    db.run(`INSERT INTO Ratings (user_id, rater_user_id, rating) VALUES (?, ?, ?)`,
-        [user_id, rater_user_id, rating], function (err) {
-            if (err) {
-                return res.status(500).json({
-                    "status": "error",
-                    "message": err.message
-                });
-            }
-            res.json({
-                "status": "success"
+    db.run(`UPDATE Carpools SET status = ? WHERE id = ?`, ['completed', carpool_id], (err) => {
+        if (err) {
+            return res.status(500).json({
+                "status": "error",
+                "message": err.message
             });
-        });
-});
+        };
+    });
+
+    /*
+    Insert rating for user 1
+    */
+    db.run(`INSERT INTO Ratings (user_id, rater_user_id, rating) VALUES (?, ?, ?)`, [user1_id, user2_id, rating1], (err) => {
+        if (err) {
+            return res.status(500).json({
+                "status": "error",
+                "message": err.message
+            })
+        }
+    });
+
+    /*
+    Insert rating for user 2
+    */
+    db.run(`INSERT INTO Ratings (user_id, rater_user_id, rating) VALUES (?, ?, ?)`, [user2_id, user1_id, rating2], (err) => {
+        if (err) {
+            return res.status(500).json({
+                "status": "error",
+                "message": err.message
+            })
+        }
+    });
+
+    /*
+    Compute fares
+    */
+    const dist1 = calculateDistance(user1_lat, user1_long, user2_lat, user2_long);
+    const dist2 = calculateDistance(user2_lat, user2_long, dest_lat, dest_long);
+    const fare1 = (rate * dist1 + (rate * dist2) / 2).toFixed(2);
+    const fare2 = ((rate * dist2) / 2).toFixed(2);
+
+    res.json({
+        "status": "success",
+        "user 1 fare": fare1,
+        "user 2 fare": fare2
+    })
+})
 
 module.exports = router;
