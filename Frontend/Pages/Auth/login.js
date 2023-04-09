@@ -82,7 +82,10 @@ export default function LoginPage({ navigation }) {
               </View>
             </View>
             <View className="flex items-center">
-              <Pressable className="bg-[#ffffff] border-2 border-primary h-9 flex items-center justify-center shadow-sm rounded-md w-full">
+              <Pressable
+                onPress={() => navigation.navigate("Location Selection")}
+                className="bg-[#ffffff] border-2 border-primary h-9 flex items-center justify-center shadow-sm rounded-md w-full"
+              >
                 <Text className="text-center font-bold text-primary">
                   SIGN UP
                 </Text>
