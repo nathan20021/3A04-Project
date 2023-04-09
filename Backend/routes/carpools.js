@@ -199,7 +199,7 @@ router.post('/completeRide', async (req, res, next) => {
         "status": "success",
         "user 1 fare": fare1,
         "user 2 fare": fare2
-    })
+    });
 })
 
 module.exports = router;

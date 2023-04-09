@@ -921,6 +921,113 @@ POST http://localhost:3000/carpools/rateUser
                             </div>
                             
                         </div>
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12 section">
+                                <div class="api-information" id="10">
+                                     <div class="heading">
+                                        <div class="name">
+                                            <span class="POST method" >POST</span>
+                                            Complete Ride <span class="lock-icon"></span>
+                                        </div>
+                                     </div>
+                                    <div class="url">http://localhost:3000/carpools/completeRide</div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                        <hr>
+                                            <div class="raw-body code-snippet">
+                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Complete Ride">
+                                                  <code>
+                                                    
+{
+  "carpool_id": 1,
+  "user1_id": 1,
+  "user1_lat": 43.26115080352289,
+  "user1_long":-79.92259203774839,
+  "rating2": 3,
+  "user2_id": 4,
+  "user2_lat": 43.2612894668786,
+  "user2_long": -79.90700765698274,
+  "rating1": 5,
+  "dest_lat": 43.258423500727375,
+  "dest_long": -79.87776552105962 
+}
+                                                  </code>
+                                              </pre>
+                                            </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 examples">
+                                <div class="sample-request">
+                                    <div class="heading">
+                                        <span>Example Request</span>
+                                    </div>
+                                    <div class="responses-index">
+                                        <div class="dropdown response-name">
+                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <span id="selected" class="response-name-label">Complete Ride</span>
+                                                <span class="caret"></span>
+
+                                            </button>
+
+                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                <li class="truncate" data-request-info="10" data-response-info="response_10">Complete Ride</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formatted-requests " data-request-id="10"  data-id="response_10">
+                                    <div class="request code-snippet">
+                                        <div>
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Complete Ride">
+                                                <code class="is-highlighted">
+POST http://localhost:3000/carpools/completeRide
+{
+  "carpool_id": 1,
+  "user1_id": 1,
+  "user1_lat": 43.26115080352289,
+  "user1_long":-79.92259203774839,
+  "rating2": 3,
+  "user2_id": 4,
+  "user2_lat": 43.2612894668786,
+  "user2_long": -79.90700765698274,
+  "rating1": 5,
+  "dest_lat": 43.258423500727375,
+  "dest_long": -79.87776552105962 
+}</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="sample-response">
+                                        <div class="heading">
+                                            <span>Example Response</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="response-status">
+                                                <span>200 - OK</span>
+                                            </div>
+                                        </div>
+                                        <div class="responses code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Complete Ride">
+                                                    <code class="is-highlighted">
+{
+    "status": "success",
+    "user 1 fare": "14.74",
+    "user 2 fare": "7.17"
+}</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
                     </article>
                 </div>
             </div>
@@ -938,7 +1045,7 @@ POST http://localhost:3000/carpools/rateUser
     <script src="js/bootstrap-treeview.min.js"></script>
     <script src="js/main.min.js"></script>
     <script type="application/javascript">
-        var data = [{'text': 'Register', 'href': '#1', 'method': 'POST'}, {'text': 'Login', 'href': '#2', 'method': 'POST'}, {'text': 'Delete User', 'href': '#3', 'method': 'POST'}, {'text': 'Edit User', 'href': '#4', 'method': 'POST'}, {'text': 'Offer Carpool', 'href': '#5', 'method': 'POST'}, {'text': 'Request Carpool', 'href': '#6', 'method': 'POST'}, {'text': 'Respond to Offer', 'href': '#7', 'method': 'POST'}, {'text': 'Get Carpools', 'href': '#8', 'method': 'GET'}, {'text': 'Rate User', 'href': '#9', 'method': 'POST'}]
+        var data = [{'text': 'Register', 'href': '#1', 'method': 'POST'}, {'text': 'Login', 'href': '#2', 'method': 'POST'}, {'text': 'Delete User', 'href': '#3', 'method': 'POST'}, {'text': 'Edit User', 'href': '#4', 'method': 'POST'}, {'text': 'Offer Carpool', 'href': '#5', 'method': 'POST'}, {'text': 'Request Carpool', 'href': '#6', 'method': 'POST'}, {'text': 'Respond to Offer', 'href': '#7', 'method': 'POST'}, {'text': 'Get Carpools', 'href': '#8', 'method': 'GET'}, {'text': 'Rate User', 'href': '#9', 'method': 'POST'}, {'text': 'Complete Ride', 'href': '#10', 'method': 'POST'}]
         $('#tree').treeview({
             data: data,
             levels: 10,
