@@ -2,28 +2,29 @@ import { Text, View, TextInput, SafeAreaView, Pressable } from "react-native";
 import { useState } from "react";
 import Checkbox from "expo-checkbox";
 import axios from "axios";
+import { LOCAL_HOST_IP } from "@env";
 
 export default function LoginPage({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setChecked] = useState(false);
   const login = () => {
+    console.log(`http://${LOCAL_HOST_IP}:3000/users/login`);
     axios
-      .post("http://172.18.135.173:3000/users/login", {
+      .post(`http://${LOCAL_HOST_IP}:3000/users/login`, {
         username: username,
         password: password,
       })
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         navigation.navigate("Location Selection");
       })
-      .catch((err) => {
+      .catch(() => {
         navigation.navigate("Login Error");
       });
   };
   return (
     <View className="w-full min-h-[100vh] flex items-center justify-center flex-1">
-      <View className="w-[80%] h-full">
+      <View className="w-[80%] h-full mt-52">
         <View>
           <View>
             <Text className="font-bold text-center text-lg mb-2">
@@ -83,7 +84,7 @@ export default function LoginPage({ navigation }) {
             </View>
             <View className="flex items-center">
               <Pressable
-                onPress={() => navigation.navigate("Location Selection")}
+                onPress={() => navigation.navigate("Registration")}
                 className="bg-[#ffffff] border-2 border-primary h-9 flex items-center justify-center shadow-sm rounded-md w-full"
               >
                 <Text className="text-center font-bold text-primary">

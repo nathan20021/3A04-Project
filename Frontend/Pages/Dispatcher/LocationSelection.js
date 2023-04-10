@@ -24,8 +24,8 @@ const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.02;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 const INITIAL_POSITION = {
-  latitude: 40.76711,
-  longitude: -73.979704,
+  latitude: 43.260879,
+  longitude: -79.9192254,
   latitudeDelta: LATITUDE_DELTA,
   longitudeDelta: LONGITUDE_DELTA,
 };
@@ -43,7 +43,7 @@ function InputAutocomplete({ label, placeholder, onPlaceSelected }) {
         }}
         query={{
           key: GOOGLE_API_KEY,
-          language: "pt-BR",
+          language: "en",
         }}
       />
     </>
@@ -51,19 +51,28 @@ function InputAutocomplete({ label, placeholder, onPlaceSelected }) {
 }
 
 export default LocationSelectionPage = () => {
-  const [origin, setOrigin] = useState();
-  const [destination, setDestination] = useState();
+  const [originFormatedAddy, setOriginFormatedAddy] = useState("");
+  const [destinationFormatedAddy, setDestinationFormatedAddy] = useState("");
+  const [showLocationSelection, setShowLocationSelection] = useState(false);
+  const [origin, setOrigin] = useState(null);
+  const [destination, setDestination] = useState(null);
   const [showDirections, setShowDirections] = useState(false);
   const [distance, setDistance] = useState(0);
   const [duration, setDuration] = useState(0);
   const mapRef = useRef(null);
 
-  const moveTo = async (position) => {
-    const camera = await mapRef.current?.getCamera();
-    if (camera) {
-      camera.center = position;
-      mapRef.current?.animateCamera(camera, { duration: 1000 });
-    }
+  const moveTo = (position) => {
+    if (!mapRef.current) return;
+    // mapRef.current.setCamera(
+    //   {
+    //     center: position,
+    //     altitude: 0,
+    //     zoom: 15,
+    //     pitch: 0,
+    //     heading: 0,
+    //   },
+    //   { duration: 1000 }
+    // );
   };
 
   const edgePaddingValue = 70;
@@ -77,8 +86,6 @@ export default LocationSelectionPage = () => {
 
   const traceRouteOnReady = (args) => {
     if (args) {
-      // args.distance
-      // args.duration
       setDistance(args.distance);
       setDuration(args.duration);
     }
@@ -87,17 +94,14 @@ export default LocationSelectionPage = () => {
   const traceRoute = () => {
     if (origin && destination) {
       setShowDirections(true);
-      console.log("origin", origin);
-      console.log("destination", destination);
-      // mapRef.current?.fitToCoordinates([origin, destination], { edgePadding });
     }
   };
 
   const onPlaceSelected = (details, flag) => {
     const set = flag === "origin" ? setOrigin : setDestination;
     const position = {
-      latitude: details?.geometry.location.lat || 0,
-      longitude: details?.geometry.location.lng || 0,
+      latitude: details.geometry.location.lat,
+      longitude: details.geometry.location.lng,
     };
     set(position);
     moveTo(position);
@@ -123,28 +127,56 @@ export default LocationSelectionPage = () => {
           />
         )}
       </MapView>
+
       <View style={styles.searchContainer}>
-        <InputAutocomplete
-          label="Origin"
-          onPlaceSelected={(details) => {
-            onPlaceSelected(details, "origin");
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            setShowLocationSelection(!showLocationSelection);
           }}
-        />
-        <InputAutocomplete
-          label="Destination"
-          onPlaceSelected={(details) => {
-            onPlaceSelected(details, "destination");
-          }}
-        />
-        <TouchableOpacity style={styles.button} onPress={traceRoute}>
-          <Text style={styles.buttonText}>Trace route</Text>
+        >
+          <Text style={styles.buttonText}>
+            {!showLocationSelection ? "v" : "^"}
+          </Text>
         </TouchableOpacity>
-        {distance && duration ? (
+        {showLocationSelection && (
           <View>
-            <Text>Distance: {distance.toFixed(2)}</Text>
-            <Text>Duration: {Math.ceil(duration)} min</Text>
+            <InputAutocomplete
+              placeholder={originFormatedAddy}
+              label="Origin"
+              onPlaceSelected={(details) => {
+                setOriginFormatedAddy(details.formatted_address);
+                onPlaceSelected(details, "origin");
+              }}
+            />
+            <InputAutocomplete
+              placeholder={destinationFormatedAddy}
+              label="Destination"
+              onPlaceSelected={(details) => {
+                setDestinationFormatedAddy(details.formatted_address);
+                onPlaceSelected(details, "destination");
+              }}
+            />
+            <TouchableOpacity style={styles.button} onPress={traceRoute}>
+              <Text style={styles.buttonText}>Trace route</Text>
+            </TouchableOpacity>
+            {/* <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            console.log("ORIGIN:", origin);
+            console.log("DES:", destination);
+          }}
+        >
+          <Text style={styles.buttonText}>Test</Text>
+        </TouchableOpacity> */}
+            {distance && duration ? (
+              <View>
+                <Text>Distance: {distance.toFixed(2)}</Text>
+                <Text>Duration: {Math.ceil(duration)} min</Text>
+              </View>
+            ) : null}
           </View>
-        ) : null}
+        )}
       </View>
     </View>
   );

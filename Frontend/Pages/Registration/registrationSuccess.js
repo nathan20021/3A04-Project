@@ -13,7 +13,7 @@ export default RegistrationErrorPage = ({ navigation }) => {
           </Text>
           <Pressable
             onPress={() => {
-              navigation.navigate("Registration Error");
+              navigation.navigate("Location Selection");
             }}
             className="bg-primarySuccess h-9 flex items-center justify-center shadow-sm rounded-md w-full"
           >

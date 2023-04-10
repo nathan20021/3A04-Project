@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { PromptPerf } from "../../declaration";
 import PromptPerfCard from "../../Components/PromptPerfCard";
+import { LOCAL_HOST_IP } from "@env";
 
 export default RegistrationPage = ({ navigation }) => {
   const [formState, setFormState] = useState({
@@ -28,15 +29,17 @@ export default RegistrationPage = ({ navigation }) => {
   const register = () => {
     // navigation.navigate("Registration Success");
     axios
-      .post("http://172.18.135.173:3000/users/register", {
+      .post(`http://${LOCAL_HOST_IP}:3000/users/register`, {
         username: formState.username,
         password: formState.password,
         email: formState.email,
       })
       .then((res) => {
+        navigation.navigate("Registration Success");
         console.log(res);
       })
       .catch((err) => {
+        navigation.navigate("Registration Error");
         console.log(err);
       });
   };
