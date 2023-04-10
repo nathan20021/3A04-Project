@@ -1,6 +1,7 @@
 import { LogBox } from "react-native";
 LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
+import { CustomerEditPage } from "./Pages/Settings";
 
 import {
   LoginPage,
@@ -13,7 +14,11 @@ import {
   RegistrationErrorPage,
   RegistrationSuccessPage,
 } from "./Pages/Registration";
-import { LocationSelectionPage } from "./Pages/Dispatcher";
+import {
+  LocationSelectionPage,
+  TaxiIDInputPage,
+  TaxiSelectionPage,
+} from "./Pages/Dispatcher";
 
 import { PageTransitionConfig as config } from "./config";
 
@@ -32,10 +37,13 @@ const navTheme = {
 export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Taxi ID Input">
         <Stack.Screen name="Registration" component={RegistrationPage} />
+        <Stack.Screen name="Customer Edit Page" component={CustomerEditPage} />
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen name="Login Error" component={LoginErrorPage} />
+        <Stack.Screen name="Taxi ID Input" component={TaxiIDInputPage} />
+        <Stack.Screen name="Taxi Selection" component={TaxiSelectionPage} />
         <Stack.Screen
           name="Registration Error"
           component={RegistrationErrorPage}

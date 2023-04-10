@@ -6,17 +6,11 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import {
-  GooglePlaceDetail,
-  GooglePlacesAutocomplete,
-} from "react-native-google-places-autocomplete";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { useRef, useState } from "react";
 import MapViewDirections from "react-native-maps-directions";
-import { GOOGLE_API_KEY } from "@env";
-
-// https://docs.expo.dev/versions/latest/sdk/map-view/
-// https://www.npmjs.com/package/react-native-google-places-autocomplete
-// https://www.npmjs.com/package/react-native-maps-directions
+import { GOOGLE_API_KEY, LOCAL_HOST_IP } from "@env";
+import axios from "axios";
 
 const { width, height } = Dimensions.get("window");
 
@@ -50,7 +44,7 @@ function InputAutocomplete({ label, placeholder, onPlaceSelected }) {
   );
 }
 
-export default LocationSelectionPage = () => {
+export default LocationSelectionPage = ({ navigation }) => {
   const [originFormatedAddy, setOriginFormatedAddy] = useState("");
   const [destinationFormatedAddy, setDestinationFormatedAddy] = useState("");
   const [showLocationSelection, setShowLocationSelection] = useState(false);
@@ -63,16 +57,16 @@ export default LocationSelectionPage = () => {
 
   const moveTo = (position) => {
     if (!mapRef.current) return;
-    // mapRef.current.setCamera(
-    //   {
-    //     center: position,
-    //     altitude: 0,
-    //     zoom: 15,
-    //     pitch: 0,
-    //     heading: 0,
-    //   },
-    //   { duration: 1000 }
-    // );
+    mapRef.current.setCamera(
+      {
+        center: position,
+        altitude: 0,
+        zoom: 15,
+        pitch: 0,
+        heading: 0,
+      },
+      { duration: 1000 }
+    );
   };
 
   const edgePaddingValue = 70;
@@ -94,7 +88,34 @@ export default LocationSelectionPage = () => {
   const traceRoute = () => {
     if (origin && destination) {
       setShowDirections(true);
+    } else {
+      setShowDirections(false);
+      setDistance(0);
+      setDuration(0);
     }
+  };
+
+  const findCarpool = () => {
+    traceRoute();
+    console.log(`http://${LOCAL_HOST_IP}:3001/carpools/getCarpools`);
+    axios
+      .get(`http://${LOCAL_HOST_IP}:3000/carpools/getCarpools`, {
+        destinationLatitude: destination.latitude,
+        destinationLongitude: destination.longitude,
+        locationLatitude: origin.latitude,
+        locationLongitude: origin.longitude,
+      })
+      .then((response) => {
+        console.log(response.data);
+        navigation.navigate("Taxi Selection", {
+          taxis: response.data,
+          origin: origin,
+          destination: destination,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const onPlaceSelected = (details, flag) => {
@@ -105,6 +126,7 @@ export default LocationSelectionPage = () => {
     };
     set(position);
     moveTo(position);
+    traceRoute();
   };
   return (
     <View style={styles.container}>
@@ -157,24 +179,34 @@ export default LocationSelectionPage = () => {
                 onPlaceSelected(details, "destination");
               }}
             />
-            <TouchableOpacity style={styles.button} onPress={traceRoute}>
-              <Text style={styles.buttonText}>Trace route</Text>
-            </TouchableOpacity>
-            {/* <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            console.log("ORIGIN:", origin);
-            console.log("DES:", destination);
-          }}
-        >
-          <Text style={styles.buttonText}>Test</Text>
-        </TouchableOpacity> */}
-            {distance && duration ? (
-              <View>
-                <Text>Distance: {distance.toFixed(2)}</Text>
-                <Text>Duration: {Math.ceil(duration)} min</Text>
+            <View className="flex flex-row w-full justify-around">
+              <View className="w-1/2">
+                <View className="flex flex-col gap-3 mt-3">
+                  <Text>
+                    Distance:{" "}
+                    {distance && duration ? distance.toFixed(2) : "---"} km
+                  </Text>
+                  <Text>
+                    Duration:{" "}
+                    {distance && duration ? Math.ceil(duration) : "---"} min
+                  </Text>
+                </View>
               </View>
-            ) : null}
+              <View className="w-1/2">
+                <TouchableOpacity
+                  style={styles.traceButton}
+                  onPress={traceRoute}
+                >
+                  <Text className="text-center text-white">Trace Route</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.requestButton}
+                  onPress={findCarpool}
+                >
+                  <Text className="text-center text-white">Find Carpool</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
         )}
       </View>
@@ -212,6 +244,26 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#bbb",
+    paddingVertical: 12,
+    marginTop: 16,
+    borderRadius: 4,
+  },
+
+  requestButton: {
+    display: "flex",
+    justifyContent: "center",
+    width: "100%",
+    backgroundColor: "#4592fe",
+    paddingVertical: 12,
+    marginTop: 16,
+    borderRadius: 4,
+  },
+
+  traceButton: {
+    display: "flex",
+    justifyContent: "center",
+    width: "100%",
+    backgroundColor: "#aa3333",
     paddingVertical: 12,
     marginTop: 16,
     borderRadius: 4,

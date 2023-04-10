@@ -28,6 +28,7 @@ export default RegistrationPage = ({ navigation }) => {
 
   const register = () => {
     // navigation.navigate("Registration Success");
+    console.log(`http://${LOCAL_HOST_IP}:3000/users/register`);
     axios
       .post(`http://${LOCAL_HOST_IP}:3000/users/register`, {
         username: formState.username,

@@ -3,19 +3,37 @@ import { useState } from "react";
 import Checkbox from "expo-checkbox";
 import axios from "axios";
 import { LOCAL_HOST_IP } from "@env";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function LoginPage({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setChecked] = useState(false);
   const login = () => {
-    console.log(`http://${LOCAL_HOST_IP}:3000/users/login`);
+    console.log(`http://${LOCAL_HOST_IP}:3001/users/login`);
     axios
       .post(`http://${LOCAL_HOST_IP}:3000/users/login`, {
         username: username,
         password: password,
       })
-      .then(() => {
+      .then((res) => {
+        console.log(res.data);
+
+        const storeData = async () => {
+          try {
+            const jsonValue = JSON.stringify({
+              username: username,
+              password: password,
+              userID: res.data.user_id,
+            });
+            await AsyncStorage.setItem("user", jsonValue);
+          } catch (e) {
+            // saving error
+            console.log("ERROR");
+          }
+        };
+
+        storeData();
         navigation.navigate("Location Selection");
       })
       .catch(() => {
