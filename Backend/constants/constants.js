@@ -5,6 +5,9 @@ const promptList = ["Favourite time of day.", "High and low today.", "High and l
     "Favourite emojis.", "Eyes closed, scroll and select a random picture from your gallery, explain the backstory.", "Favourite obscure Canadian thing.",
     "Is AI good for humanity?", "Talk crap about someone, it won't get back to them.", "Essential grocery items."];
 
+const ratePerKm = 6
+
 module.exports = {
-    promptList
+    promptList,
+    ratePerKm
 }
