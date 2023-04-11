@@ -5,8 +5,8 @@ import { CustomerEditPage } from "./Pages/Settings";
 
 import {
   LoginPage,
-  LoginSuccessPage,
   LoginErrorPage,
+  LoginSuccessPage,
   LogoutPage,
 } from "./Pages/Auth";
 import {
@@ -18,13 +18,15 @@ import {
   LocationSelectionPage,
   TaxiIDInputPage,
   TaxiSelectionPage,
-  LocationSelectionPage,
   CarpoolRequestDecision,
   CarpoolOfferSuccess,
   CarpoolOfferDeclined,
   CarpoolOfferError,
   CarpoolOffer,
 } from "./Pages/Dispatcher";
+
+import { FareDisplay, Rating } from "./Pages/TaxiSession";
+import { PromptActivation, PromptDisplay, PromptError } from "./Pages/Prompts";
 
 import { PageTransitionConfig as config } from "./config";
 
@@ -44,7 +46,7 @@ const navTheme = {
 export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
-      <Stack.Navigator initialRouteName="Taxi ID Input">
+      <Stack.Navigator initialRouteName="Offerer Decision">
         <Stack.Screen name="Registration" component={RegistrationPage} />
         <Stack.Screen name="Customer Edit Page" component={CustomerEditPage} />
         <Stack.Screen name="Login" component={LoginPage} />

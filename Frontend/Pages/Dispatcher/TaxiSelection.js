@@ -16,6 +16,7 @@ const distance = (lat1, lon1, lat2, lon2) => {
   var d = R * c;
   return Math.round(d);
 };
+
 const calculatePrice = (origin, des, lon, lat) => {
   const overAlldistance =
     distance(origin.latitude, origin.longitude, des.latitude, des.longitude) +

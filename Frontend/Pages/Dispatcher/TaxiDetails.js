@@ -1,5 +1,5 @@
 import React from "react";
 
 export default TaxiDetails = () => {
-  return <View>TaxiDetails</View>;
+  return <View></View>;
 };

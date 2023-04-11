@@ -23,7 +23,7 @@ export default CarpoolOffer = ({ navigation }) => {
   };
 
   const qrScan = () => {
-    navigation.navigate("TaxiIDInput");
+    navigation.navigate("Taxi ID Input");
   };
 
   return (
@@ -48,12 +48,13 @@ export default CarpoolOffer = ({ navigation }) => {
                   value={formState.taxiID}
                   placeholder=""
                 />
-                <Text className = 'text-center m-4'>Or</Text>
-                <View className = 'flex-1 items-center'>
-                  <Pressable 
-                    className = "h-10 w-28 rounded-lg bg-primary  items-center justify-center"
-                    onPress={qrScan}>
-                    <Text className = "text-white font-bold">Scan QR</Text>
+                <Text className="text-center m-4">Or</Text>
+                <View className="flex-1 items-center">
+                  <Pressable
+                    className="h-10 w-28 rounded-lg bg-primary  items-center justify-center"
+                    onPress={qrScan}
+                  >
+                    <Text className="text-white font-bold">Scan QR</Text>
                   </Pressable>
                 </View>
               </View>
@@ -80,7 +81,7 @@ export default CarpoolOffer = ({ navigation }) => {
                   value={formState.offernum}
                 />
               </View>
-              
+
               <View className="relative my-2">
                 <View className="absolute border-b-2 border-b-[#c0c0c0] w-full top-[50%]"></View>
                 <View className="flex items-center justify-center">
