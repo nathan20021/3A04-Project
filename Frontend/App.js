@@ -74,6 +74,8 @@ export default function App() {
             },
           }}
         />
+        <Stack.Screen name = "Fare Display" component = {FareDisplay} />
+        <Stack.Screen name = "Rating" component = {Rating} />
       </Stack.Navigator>
     </NavigationContainer>
   );
