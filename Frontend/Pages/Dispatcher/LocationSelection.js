@@ -79,7 +79,7 @@ export default LocationSelectionPage = ({ navigation }) => {
   };
 
   const traceRouteOnReady = (args) => {
-    if (args) {
+    if (args) {w
       setDistance(args.distance);
       setDuration(args.duration);
     }
