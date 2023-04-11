@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
 const distance = (lat1, lon1, lat2, lon2) => {
@@ -44,6 +44,13 @@ const TaxiCard = ({ cab, origin, destination, key, index }) => {
         <Text>{cab.currRiders} riders</Text>
         <Text>{distance} km away</Text>
       </View>
+      <Pressable         
+        className='h-16 w-28 rounded-lg bg-primary items-center justify-center'
+        onPress={() =>  navigation.navigate('Offer Success')}>
+        <Text>
+          Request Ride
+        </Text>
+      </Pressable>
     </View>
   );
 };

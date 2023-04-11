@@ -15,13 +15,13 @@ export default CarpoolOfferSuccessPage = ({ navigation: { goBack } }) => {
 
   return (
     <View className="flex-1 justify-center items-center">
-      <Text className="text-2xl">{offererData[0]} accepted your offer!</Text>
+      <Text className="text-2xl">{offererData[0]} accepted your Request!</Text>
       <Text/>
       <Text className="text-xl">Happy Riding!</Text>
       <Text/>
       <Pressable 
         className='h-16 w-28 rounded-lg bg-primarySuccess items-center justify-center'
-        onPress={goBack()}>
+        onPress={() =>  navigation.navigate('Fare Display')}>
         <Text className="text-center font-bold text-white text-lg">Continue</Text>
       </Pressable>
     </View>
