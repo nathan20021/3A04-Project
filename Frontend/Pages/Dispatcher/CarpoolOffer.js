@@ -9,9 +9,15 @@ import {
 } from "react-native";
 import { PromptPerf } from "../../declaration";
 import PromptPerfCard from "../../Components/PromptPerfCard";
+import { useRoute } from "@react-navigation/native";
+import { LOCAL_HOST_IP } from "@env";
+import axios from "axios";
 
 export default CarpoolOffer = ({ navigation }) => {
+  const route = useRoute();
+  const { origin, destination } = route.params;
   const [formState, setFormState] = useState({
+    taxiID: 0,
     offernum: "",
     destination: "",
     taxiID: "",
@@ -19,7 +25,23 @@ export default CarpoolOffer = ({ navigation }) => {
   });
 
   const submit = () => {
-    //TODO: send to back end and navigate
+    console.log(`http://${LOCAL_HOST_IP}:3000/carpools/offerCarpool`);
+    axios
+      .post(`http://${LOCAL_HOST_IP}:3000/carpools/offerCarpool`, {
+        taxiID: formState.taxiID,
+        destinationLatitude: destination.latitude,
+        destinationLongitude: destination.longitude,
+        currRiders: 1,
+        maxRiders: formState.offernum,
+      })
+      .then((res) => {
+        navigation.navigate("Offerer Decision", {
+          carpoolID: res.data.carpool_id,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const qrScan = () => {
@@ -58,7 +80,7 @@ export default CarpoolOffer = ({ navigation }) => {
                   </Pressable>
                 </View>
               </View>
-              <View>
+              {/* <View>
                 <Text className="font-bold mb-1">Destination</Text>
                 <TextInput
                   autoCapitalize="none"
@@ -69,7 +91,7 @@ export default CarpoolOffer = ({ navigation }) => {
                   value={formState.destination}
                   placeholder="1280 Main St W, Hamilton, ON L8S 4L8"
                 />
-              </View>
+              </View> */}
               <View>
                 <Text className="font-bold mb-1">Number of Seats</Text>
                 <TextInput
@@ -82,15 +104,15 @@ export default CarpoolOffer = ({ navigation }) => {
                 />
               </View>
 
-              <View className="relative my-2">
+              {/* <View className="relative my-2">
                 <View className="absolute border-b-2 border-b-[#c0c0c0] w-full top-[50%]"></View>
                 <View className="flex items-center justify-center">
                   <Text className="text-center bg-[#ffffff] px-3 font-bold">
                     What's your prompting preference?
                   </Text>
                 </View>
-              </View>
-              <View className="flex flex-row flex-wrap w-full">
+              </View> */}
+              {/* <View className="flex flex-row flex-wrap w-full">
                 {Object.keys(PromptPerf).map((key, index) => {
                   return (
                     <PromptPerfCard
@@ -108,7 +130,7 @@ export default CarpoolOffer = ({ navigation }) => {
                     />
                   );
                 })}
-              </View>
+              </View> */}
               <View className="flex items-center">
                 <Pressable
                   onPress={submit}

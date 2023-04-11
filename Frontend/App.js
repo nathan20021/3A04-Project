@@ -21,7 +21,7 @@ import {
   CarpoolRequestDecision,
   CarpoolOfferSuccess,
   CarpoolOfferDeclined,
-  CarpoolOfferError,
+  CarpoolRequestWait,
   CarpoolOffer,
 } from "./Pages/Dispatcher";
 
@@ -46,13 +46,14 @@ const navTheme = {
 export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
-      <Stack.Navigator initialRouteName="Offerer Decision">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Registration" component={RegistrationPage} />
         <Stack.Screen name="Customer Edit Page" component={CustomerEditPage} />
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen name="Login Error" component={LoginErrorPage} />
         <Stack.Screen name="Taxi ID Input" component={TaxiIDInputPage} />
         <Stack.Screen name="Taxi Selection" component={TaxiSelectionPage} />
+        <Stack.Screen name="Carpool Offer" component={CarpoolOffer} />
         <Stack.Screen
           name="Registration Error"
           component={RegistrationErrorPage}
@@ -88,7 +89,7 @@ export default function App() {
         <Stack.Screen name="Prompt Activate" component={PromptActivation} />
         <Stack.Screen name="Prompt Display" component={PromptDisplay} />
         <Stack.Screen name="Prompt Error" component={PromptError} />
-        <Stack.Screen name="Carpool Error" component={CarpoolOfferError} />
+        <Stack.Screen name="Request Wait" component={CarpoolRequestWait} />
         <Stack.Screen name="Offer Success" component={CarpoolOfferSuccess} />
         <Stack.Screen name="Offer Declined" component={CarpoolOfferDeclined} />
         <Stack.Screen

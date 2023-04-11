@@ -1,6 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { useRoute } from "@react-navigation/native";
+import { LOCAL_HOST_IP } from "@env";
+import axios from "axios";
 
 const distance = (lat1, lon1, lat2, lon2) => {
   var R = 6371; // km (change this constant to get miles)
@@ -26,44 +28,87 @@ const calculatePrice = (origin, des, lon, lat) => {
   return price;
 };
 
-const TaxiCard = ({ cab, origin, destination, key, index }) => {
-  const price = calculatePrice(
-    origin,
-    destination,
-    cab.destinationLongitude,
-    cab.destinationLatitude
-  );
-  const distance = price * 2;
-  return (
-    <View key={key} className="w-4/5 bg-gray-300 px-3 py-2 rounded-md">
-      <View className="flex flex-row justify-between">
-        <Text className="text-lg font-bold">Taxi {index}</Text>
-        <Text className="text-base font-bold">{price} $</Text>
-      </View>
-      <View className="flex flex-row gap-3 justify-between">
-        <Text>{cab.currRiders} riders</Text>
-        <Text>{distance} km away</Text>
-      </View>
-    </View>
-  );
+const requestRide = (taxis, navigation) => {
+  axios
+    .post(`http://${LOCAL_HOST_IP}:3000/carpools/requestCarpool`, {
+      carpool_id: taxis.id,
+      status: "requested",
+    })
+    .then((res) => {
+      navigation.navigate("Offer Success");
+    })
+    .catch((err) => {
+      navigation.navigate("Offer Declined");
+      console.log(err);
+    });
 };
+
 // {"carpools": [{"currRiders": 1, "currentDistance": null, "destinationDistance": null, "destinationLatitude": 100.515, "destinationLongitude": -12.127, "fare": null, "id": 2, "maxRiders": 5, "status": "open", "taxi_id": 12, "user_id": 1}], "message": "success"}
 
 export default TaxiSelection = ({ navigation }) => {
   const route = useRoute();
   const { taxis, origin, destination } = route.params;
-  console.log(taxis);
   return (
-    <View className="flex flex-row w-full h-full justify-center items-center">
+    <View className="flex flex-col h-full justify-center items-center">
       {taxis.carpools.map((cab, index) => {
         return (
-          <TaxiCard
+          <View
             key={index}
-            cab={cab}
-            origin={origin}
-            index={index}
-            destination={destination}
-          />
+            className="w-4/5 bg-gray-300 px-3 py-2 rounded-md my-3"
+          >
+            <View>
+              <View className="flex flex-row justify-between">
+                <Text className="text-lg font-bold">Taxi {index}</Text>
+                <Text className="text-base font-bold">
+                  {calculatePrice(
+                    origin,
+                    destination,
+                    cab.destinationLatitude,
+                    cab.destinationLongitude
+                  )}
+                  $
+                </Text>
+              </View>
+              <View className="flex flex-row gap-3 justify-between">
+                <Text>{cab.currRiders} riders</Text>
+                <Text>
+                  {" "}
+                  {calculatePrice(
+                    origin,
+                    destination,
+                    cab.destinationLatitude,
+                    cab.destinationLongitude
+                  ) * 2}
+                  km away
+                </Text>
+              </View>
+            </View>
+            <View>
+              <Pressable
+                className="h-8 w-28 rounded-lg bg-primary items-center justify-center"
+                onPress={() => {
+                  axios
+                    .post(
+                      `http://${LOCAL_HOST_IP}:3000/carpools/requestCarpool`,
+                      {
+                        carpool_id: cab.id,
+                        status: "requested",
+                      }
+                    )
+                    .then((res) => {
+                      console.log("YAYYY");
+                      navigation.navigate("Request Wait");
+                    })
+                    .catch((err) => {
+                      navigation.navigate("Offer Declined");
+                      console.log(err);
+                    });
+                }}
+              >
+                <Text className="text-white">Request Ride</Text>
+              </Pressable>
+            </View>
+          </View>
         );
       })}
     </View>

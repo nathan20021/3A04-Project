@@ -97,7 +97,6 @@ export default LocationSelectionPage = ({ navigation }) => {
 
   const findCarpool = () => {
     traceRoute();
-    console.log(`http://${LOCAL_HOST_IP}:3001/carpools/getCarpools`);
     axios
       .get(`http://${LOCAL_HOST_IP}:3000/carpools/getCarpools`, {
         destinationLatitude: destination.latitude,
@@ -106,7 +105,6 @@ export default LocationSelectionPage = ({ navigation }) => {
         locationLongitude: origin.longitude,
       })
       .then((response) => {
-        console.log(response.data);
         navigation.navigate("Taxi Selection", {
           taxis: response.data,
           origin: origin,
@@ -116,6 +114,13 @@ export default LocationSelectionPage = ({ navigation }) => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const offerCarpool = () => {
+    navigation.navigate("Carpool Offer", {
+      origin: origin,
+      destination: destination,
+    });
   };
 
   const onPlaceSelected = (details, flag) => {
@@ -204,6 +209,12 @@ export default LocationSelectionPage = ({ navigation }) => {
                   onPress={findCarpool}
                 >
                   <Text className="text-center text-white">Find Carpool</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.requestButton}
+                  onPress={offerCarpool}
+                >
+                  <Text className="text-center text-white">Offer Carpool</Text>
                 </TouchableOpacity>
               </View>
             </View>

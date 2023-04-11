@@ -1,7 +1,7 @@
 import {Text, View, Pressable} from 'react-native';
 import React, { useState, useEffect } from 'react';
 
-export default CarpoolOfferSuccessPage = ({ navigation: { goBack } }) => {
+export default CarpoolOfferSuccessPage = ({ navigation }) => {
   const [offererData, setOffererData] = useState([''])
 
   getOffererInfo = () => {
@@ -21,7 +21,7 @@ export default CarpoolOfferSuccessPage = ({ navigation: { goBack } }) => {
       <Text/>
       <Pressable 
         className='h-16 w-28 rounded-lg bg-primarySuccess items-center justify-center'
-        onPress={goBack()}>
+        onPress={() => {navigation.navigate("Fair Display")}}>
         <Text className="text-center font-bold text-white text-lg">Continue</Text>
       </Pressable>
     </View>

@@ -9,6 +9,10 @@ export default PromptActivation = ({navigation})=>{
                       onPress={() =>  navigation.navigate('Prompt Display')}> 
             <Text className = "text-white text-3xl">Start</Text>
           </Pressable>
+          <Pressable className = "h-16 w-32 rounded-xl items-center justify-center bg-primaryError mb-4" 
+                      onPress={() =>  navigation.navigate('Fare Display')}> 
+            <Text className = "text-white text-3xl">End Ride</Text>
+          </Pressable>
         </View>
       );
     }
