@@ -24,6 +24,7 @@ import { PageTransitionConfig as config } from "./config";
 
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 const Stack = createNativeStackNavigator();
 
 const navTheme = {
@@ -76,7 +77,11 @@ export default function App() {
         />
         <Stack.Screen name = "Fare Display" component = {FareDisplay} />
         <Stack.Screen name = "Rating" component = {Rating} />
+        <Stack.Screen name="Prompt Activate" component={PromptActivation}/>
+        <Stack.Screen name="Prompt Display" component={PromptDisplay} />
+        <Stack.Screen name="Prompt Error" component={PromptError} />
       </Stack.Navigator>
     </NavigationContainer>
+
   );
 }
