@@ -18,6 +18,12 @@ import {
   LocationSelectionPage,
   TaxiIDInputPage,
   TaxiSelectionPage,
+  LocationSelectionPage,
+  CarpoolRequestDecision,
+  CarpoolOfferSuccess,
+  CarpoolOfferDeclined,
+  CarpoolOfferError,
+  CarpoolOffer,
 } from "./Pages/Dispatcher";
 
 import { PageTransitionConfig as config } from "./config";
@@ -75,13 +81,19 @@ export default function App() {
             },
           }}
         />
-        <Stack.Screen name = "Fare Display" component = {FareDisplay} />
-        <Stack.Screen name = "Rating" component = {Rating} />
-        <Stack.Screen name="Prompt Activate" component={PromptActivation}/>
+        <Stack.Screen name="Fare Display" component={FareDisplay} />
+        <Stack.Screen name="Rating" component={Rating} />
+        <Stack.Screen name="Prompt Activate" component={PromptActivation} />
         <Stack.Screen name="Prompt Display" component={PromptDisplay} />
         <Stack.Screen name="Prompt Error" component={PromptError} />
+        <Stack.Screen name="Carpool Error" component={CarpoolOfferError} />
+        <Stack.Screen name="Offer Success" component={CarpoolOfferSuccess} />
+        <Stack.Screen name="Offer Declined" component={CarpoolOfferDeclined} />
+        <Stack.Screen
+          name="Offerer Decision"
+          component={CarpoolRequestDecision}
+        />
       </Stack.Navigator>
     </NavigationContainer>
-
   );
 }
